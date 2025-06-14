@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Guides - Unlock Valuable Knowledge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- You will need to ensure 'style.css' is present and updated for the new structure -->
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Explore our collection of free guides and ebooks on various topics. Discover valuable insights and actionable advice.">
+    <meta name="keywords" content="free guides, ebooks, free resources, knowledge, learning, education, download, categories">
+    <meta name="author" content="Your Name/Company Name">
+    <style>
+        /* Basic styling for the category cards and dropdowns */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .category-card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative; /* For dropdown positioning */
+        }
+
+        .category-card:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .category-toggle {
+            display: none; /* Hide the checkbox */
+        }
+
+        .category-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-weight: 700;
+            color: #333;
+            background-color: #f7f7f7;
+            border-bottom: 1px solid #eee;
+        }
+
+        .category-name {
+            flex-grow: 1;
+            font-size: 1.2em;
+        }
+
+        .dropdown-icon {
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+
+        /* Rotate icon when checkbox is checked */
+        .category-toggle:checked + .category-label .dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .category-dropdown {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out; /* Smooth slide out */
+            background-color: #fff;
+            list-style: none; /* Remove default list styling */
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Show dropdown when checkbox is checked */
+        .category-toggle:checked ~ .category-dropdown {
+            max-height: 500px; /* Adjust based on max content height */
+            transition: max-height 0.4s ease-in; /* Smooth slide in */
+            border-top: 1px solid #eee; /* Visual separator */
+        }
+
+        .category-dropdown ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .category-dropdown li a {
+            display: block;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: #555;
+            transition: background-color 0.2s ease;
+        }
+
+        .category-dropdown li a:hover {
+            background-color: #f0f0f0;
+            color: #007bff;
+        }
+
+        /* General styling from the original HTML */
+        body {
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .site-title {
+            margin: 0;
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5em;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .main-nav li {
+            margin-left: 20px;
+        }
+
+        .main-nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: #1abc9c;
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            background-color: #e0f2f1;
+            padding: 60px 20px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2em;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2em;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            margin-top: 40px;
+        }
+
+        .footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="site-title">Free Guides</h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="terms-of-use.html">Terms of Use</a></li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="hero">
+            <h2 class="hero-title">Unlock Valuable Knowledge, Absolutely Free.</h2>
+            <p class="hero-subtitle">Dive into our curated collection of in-depth guides designed to help you succeed in various areas. Explore categories and find the knowledge you need.</p>
+        </section>
+
+        <section class="category-selection">
+            <h3 class="section-title">What are you interested in?</h3>
+
+            <div class="category-grid">
+                <!-- Health & Fitness Category Card -->
+                <div class="category-card" tabindex="0">
+                    <input type="checkbox" id="cat-health-fitness" class="category-toggle" aria-labelledby="label-health-fitness">
+                    <label for="cat-health-fitness" class="category-label" id="label-health-fitness">
+                        <span class="category-name">Health & Fitness</span>
+                        <span class="dropdown-icon">&#9660;</span> <!-- Unicode for down arrow -->
+                    </label>
+                    <div class="category-dropdown">
+                        <ul>
+                            <li><a href="ebooks/weight-loss-programs.html">Weight Loss Programs</a></li>
+                            <li><a href="ebooks/muscle-building-bodybuilding.html">Muscle Building & Bodybuilding</a></li>
+                            <li><a href="ebooks/yoga-flexibility-training.html">Yoga & Flexibility Training</a></li>
+                            <li><a href="ebooks/nutrition-diet-plans.html">Nutrition & Diet Plans</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Make Money Online Category Card -->
+                <div class="category-card" tabindex="0">
+                    <input type="checkbox" id="cat-make-money-online" class="category-toggle" aria-labelledby="label-make-money-online">
+                    <label for="cat-make-money-online" class="category-label" id="label-make-money-online">
+                        <span class="category-name">Make Money Online</span>
+                        <span class="dropdown-icon">&#9660;</span>
+                    </label>
+                    <div class="category-dropdown">
+                        <ul>
+                            <li><a href="ebooks/affiliate-marketing-training.html">Affiliate Marketing Training</a></li>
+                            <li><a href="ebooks/dropshipping-e-commerce.html">Dropshipping & E-commerce</a></li>
+                            <li><a href="ebooks/cryptocurrency-trading.html">Cryptocurrency & Trading</a></li>
+                            <li><a href="ebooks/passive-income-strategies.html">Passive Income Strategies</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Relationships Category Card -->
+                <div class="category-card" tabindex="0">
+                    <input type="checkbox" id="cat-relationships" class="category-toggle" aria-labelledby="label-relationships">
+                    <label for="cat-relationships" class="category-label" id="label-relationships">
+                        <span class="category-name">Relationships</span>
+                        <span class="dropdown-icon">&#9660;</span>
+                    </label>
+                    <div class="category-dropdown">
+                        <ul>
+                            <li><a href="ebooks/dating-attraction-advice.html">Dating & Attraction Advice</a></li>
+                            <li><a href="ebooks/marriage-couples-counseling.html">Marriage & Couples Counseling</a></li>
+                            <li><a href="ebooks/ex-recovery-breakup-help.html">Ex-Recovery & Breakup Help</a></li>
+                            <li><a href="ebooks/confidence-social-skills.html">Confidence & Social Skills</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Self-Help Category Card -->
+                <div class="category-card" tabindex="0">
+                    <input type="checkbox" id="cat-self-help" class="category-toggle" aria-labelledby="label-self-help">
+                    <label for="cat-self-help" class="category-label" id="label-self-help">
+                        <span class="category-name">Self-Help</span>
+                        <span class="dropdown-icon">&#9660;</span>
+                    </label>
+                    <div class="category-dropdown">
+                        <ul>
+                            <li><a href="ebooks/personal-development.html">Personal Development</a></li>
+                            <li><a href="ebooks/anxiety-stress-relief.html">Anxiety & Stress Relief</a></li>
+                            <li><a href="ebooks/productivity-time-management.html">Productivity & Time Management</a></li>
+                            <li><a href="ebooks/motivation-goal-setting.html">Motivation & Goal Setting</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Survival & Preparedness Category Card -->
+                <div class="category-card" tabindex="0">
+                    <input type="checkbox" id="cat-survival-preparedness" class="category-toggle" aria-labelledby="label-survival-preparedness">
+                    <label for="cat-survival-preparedness" class="category-label" id="label-survival-preparedness">
+                        <span class="category-name">Survival & Preparedness</span>
+                        <span class="dropdown-icon">&#9660;</span>
+                    </label>
+                    <div class="category-dropdown">
+                        <ul>
+                            <li><a href="ebooks/emergency-food-storage.html">Emergency Food Storage</a></li>
+                            <li><a href="ebooks/off-grid-living.html">Off-Grid Living</a></li>
+                            <li><a href="ebooks/self-defense-tactical-training.html">Self-Defense & Tactical Training</a></li>
+                            <li><a href="ebooks/diy-survival-gear.html">DIY Survival Gear</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- The 'guide-details-container' section has been removed as requested -->
+
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>
