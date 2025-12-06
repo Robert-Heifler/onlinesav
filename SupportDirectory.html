@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Microsoft Access Support Directory</title>
+  <style>
+    :root{
+      --bg: #2b6cb0; /* medium pretty blue */
+      --card-bg: #ffffff;
+      --muted: #6b7280;
+      --accent: rgba(0,0,0,0.06);
+      --radius: 12px;
+      --max-width: 980px;
+      --gap: 18px;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg,var(--bg), #1f4f86 120%);
+      color:#0b1220;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .page {
+      min-height:100%;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      padding:48px 20px;
+      box-sizing:border-box;
+    }
+
+    .site {
+      width:100%;
+      max-width:var(--max-width);
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(255,255,255,0.96));
+      border-radius:16px;
+      box-shadow: 0 10px 30px rgba(8,20,40,0.25);
+      overflow:hidden;
+    }
+
+    header {
+      padding:28px 32px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      display:flex;
+      align-items:center;
+      gap:18px;
+      border-bottom:1px solid var(--accent);
+    }
+
+    .title {
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .title h1 {
+      margin:0;
+      font-size:20px;
+      color:#07203a;
+      letter-spacing: -0.2px;
+    }
+
+    .title p {
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    main {
+      padding:28px 32px;
+      display:grid;
+      gap:28px;
+    }
+
+    .section {
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+
+    .section h2 {
+      margin:0;
+      font-size:16px;
+      color:#063046;
+    }
+
+    .list {
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap:var(--gap);
+    }
+
+    .card {
+      background:var(--card-bg);
+      border-radius:var(--radius);
+      padding:14px;
+      box-shadow: 0 6px 18px rgba(10,20,40,0.08);
+      border:1px solid rgba(11,22,40,0.04);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      min-height:88px;
+      justify-content:center;
+    }
+
+    .name {
+      font-weight:600;
+      color:#062235;
+      font-size:15px;
+    }
+
+    .meta {
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .meta a {
+      font-size:13px;
+      color:#0a68b3;
+      text-decoration:none;
+      word-break:break-word;
+    }
+
+    .meta a:focus, .meta a:hover {
+      text-decoration:underline;
+    }
+
+    .small {
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    footer {
+      padding:18px 32px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-top:1px solid var(--accent);
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    /* responsive tweaks */
+    @media (max-width:520px){
+      header, main, footer { padding-left:18px; padding-right:18px; }
+      .title h1 { font-size:18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="site" role="region" aria-label="Microsoft Access support directory">
+      <header>
+        <div class="title">
+          <h1>Microsoft Access Support Directory</h1>
+          <p>Developers / Programmers — Courses / Trainers</p>
+        </div>
+      </header>
+
+      <main>
+        <!-- Top area: Developers / Programmers -->
+        <section class="section" aria-labelledby="devs-heading">
+          <h2 id="devs-heading">Developers &amp; Programmers</h2>
+
+          <div class="list" id="dev-list">
+            <!-- Example entry: replace or duplicate these blocks as needed -->
+            <div class="card" role="article">
+              <div class="name">Jane Developer</div>
+              <div class="meta">
+                <div class="small">Website: <a href="https://example-dev.com" target="_blank" rel="noopener noreferrer">example-dev.com</a></div>
+                <div class="small">Email: <a href="mailto:jane@example-dev.com?subject=Access%20Support%20Request" aria-label="Email Jane Developer">jane@example-dev.com</a></div>
+              </div>
+            </div>
+
+            <div class="card" role="article">
+              <div class="name">Acme Access Studio</div>
+              <div class="meta">
+                <div class="small">Website: <a href="https://acme-access.example" target="_blank" rel="noopener noreferrer">acme-access.example</a></div>
+                <div class="small">Email: <a href="mailto:contact@acme-access.example?subject=Access%20Support%20Request" aria-label="Email Acme Access Studio">contact@acme-access.example</a></div>
+              </div>
+            </div>
+
+            <!-- Add more developer entries here -->
+          </div>
+        </section>
+
+        <!-- Bottom area: Courses / Training -->
+        <section class="section" aria-labelledby="trainers-heading">
+          <h2 id="trainers-heading">Courses, Training &amp; Lessons</h2>
+
+          <div class="list" id="trainers-list">
+            <div class="card" role="article">
+              <div class="name">Learn Access Academy</div>
+              <div class="meta">
+                <div class="small">Website: <a href="https://learn-access.example" target="_blank" rel="noopener noreferrer">learn-access.example</a></div>
+                <div class="small">Email: <a href="mailto:info@learn-access.example?subject=Course%20Inquiry" aria-label="Email Learn Access Academy">info@learn-access.example</a></div>
+              </div>
+            </div>
+
+            <div class="card" role="article">
+              <div class="name">Bob's Access Workshops</div>
+              <div class="meta">
+                <div class="small">Website: <a href="https://bobs-access.example" target="_blank" rel="noopener noreferrer">bobs-access.example</a></div>
+                <div class="small">Email: <a href="mailto:workshops@bobs-access.example?subject=Training%20Inquiry" aria-label="Email Bob's Access Workshops">workshops@bobs-access.example</a></div>
+              </div>
+            </div>
+
+            <!-- Add more trainer/course entries here -->
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <div>Simple directory — click a website to open it, or click an email to compose a message.</div>
+        <div>&copy; <span id="year"></span> Access Support Directory</div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // small UX script: put current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: keyboard accessibility — open first link when pressing Enter on a card
+    document.querySelectorAll('.card').forEach(card => {
+      card.tabIndex = 0;
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const link = card.querySelector('a');
+          if (link) link.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
+
