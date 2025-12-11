@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your License Key</title>
+</head>
+<body>
+    <h1>Access Wizard Pro - License Key</h1>
+    <div id="status">⏳ Generating your license key... (this may take up to 60 seconds)</div>
+    <div id="key" style="font-size: 24px; font-weight: bold; margin: 20px 0;"></div>
+    
+    <script>
+        const API_URL = 'https://your-app.onrender.com/get-key';
+        const MAX_WAIT = 90000; // 90 second timeout
+        
+        async function fetchKey() {
+            const startTime = Date.now();
+            document.getElementById('status').innerHTML = '⏳ Please wait... Server is starting up (may take 30-60 seconds)';
+            
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), MAX_WAIT);
+                
+                const response = await fetch(API_URL, {
+                    signal: controller.signal
+                });
+                
+                clearTimeout(timeoutId);
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    const elapsed = Math.round((Date.now() - startTime) / 1000);
+                    
+                    document.getElementById('status').innerHTML = '✅ Key generated successfully!';
+                    document.getElementById('key').innerHTML = 
+                        `Your License Key: <span style="color: green;">${data.key}</span><br>` +
+                        `<small>Copy this key and paste it into the activation form by pressing the Activation button found at the bottom right corner of the Access Wizzard Menu.</small>`;
+                } else {
+                    throw new Error('Server error');
+                }
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    document.getElementById('status').innerHTML = 
+                        '⚠️ Server is taking longer than expected. Please refresh the page and try again.';
+                } else {
+                    document.getElementById('status').innerHTML = 
+                        '❌ Error generating key. Please contact support: bheifler@gmail.com';
+                }
+            }
+        }
+        
+        // Start fetching immediately
+        fetchKey();
+    </script>
+</body>
+</html> Yeah
