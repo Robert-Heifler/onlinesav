@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Start Guide - Access Wizard</title>
+    <meta name="description" content="Get started with Access Wizard in minutes. Download, install, and create your first database quickly.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JJSB5QDSX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5JJSB5QDSX');
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { 500: '#2563eb', 600: '#1d4ed8', 900: '#1e3a8a' } }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .alpha-box {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .alpha-box:hover { transform: translateY(-2px); }
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #2563eb 0%, #1e3a8a 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700 font-sans">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="At_1_.PNG" alt="Access Wizard Logo" class="h-10">
+            </div>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
+                <a href="features.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Features</a>
+                <a href="pricing.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Pricing</a>
+                <a href="quick-start.html" class="text-brand-600 hover:text-brand-500 font-medium transition">Quick Start</a>
+                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
+                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+
+            <div class="hidden md:block">
+                <a href="download.html" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-lg font-semibold transition shadow-md">Download Free</a>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <nav class="flex flex-col px-6 py-4 space-y-2">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
+                <a href="features.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Features</a>
+                <a href="pricing.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Pricing</a>
+                <a href="quick-start.html" class="text-brand-600 hover:bg-gray-50 px-3 py-2 rounded">Quick Start</a>
+                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
+                <a href="support.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
+                <a href="download.html" class="bg-brand-600 text-white px-3 py-2 rounded text-center">Download Free</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Quick Start Guide</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">Get up and running with Access Wizard in just a few minutes.</p>
+        </div>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Step 1 -->
+            <div class="alpha-box p-8 mb-8">
+                <div class="flex items-start gap-6">
+                    <div class="step-number">1</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">Download the Files</h3>
+                        <p class="text-gray-600 mb-4">
+                            Download both <strong>AccessWizard.accdb</strong> and <strong>Engine.accde</strong> files (Free Version or Pro Version).
+                        </p>
+                        <a href="download.html" class="inline-block bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+                            <i class="fa-solid fa-download mr-2"></i> Go to Download Page
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="alpha-box p-8 mb-8">
+                <div class="flex items-start gap-6">
+                    <div class="step-number">2</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">Place Both Files in Same Folder</h3>
+                        <p class="text-gray-600 mb-4">
+                            Create a folder on your computer and move both files into it. They must be in the same directory to work properly.
+                        </p>
+                        <div class="bg-gray-100 p-4 rounded border-l-4 border-brand-600">
+                            <p class="text-sm text-gray-700">
+                                <i class="fa-solid fa-lightbulb text-yellow-500 mr-2"></i>
+                                <strong>Tip:</strong> Create a folder like "C:\AccessWizard\" to keep everything organized.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="alpha-box p-8 mb-8">
+                <div class="flex items-start gap-6">
+                    <div class="step-number">3</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">Watch the Tutorial Video</h3>
+                        <p class="text-gray-600 mb-4">
+                            Before starting, watch our short instructional video to see how everything works.
+                        </p>
+                        <!-- Video embed placeholder -->
+                        <div class="aspect-video bg-gray-200 rounded-lg flex items-center justify-center border-2 border-dashed border-gray-400">
+                            <div class="text-center text-gray-500">
+                                <i class="fa-solid fa-video text-4xl mb-2"></i>
+                                <p class="text-sm">Tutorial video will be embedded here</p>
+                                <p class="text-xs">(YouTube/Vimeo embed)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="alpha-box p-8">
+                <div class="flex items-start gap-6">
+                    <div class="step-number">4</div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">Open AccessWizard.accdb & Start Creating</h3>
+                        <p class="text-gray-600 mb-4">
+                            Open the <strong>AccessWizard.accdb</strong> file in Microsoft Access and go to the <strong>"AI Data Table Generator"</strong> form. Follow the on-screen instructions to create your database.
+                        </p>
+                        <div class="bg-blue-50 p-4 rounded border-l-4 border-brand-600">
+                            <p class="text-sm text-gray-700 mb-2">
+                                <strong>Example prompt:</strong>
+                            </p>
+                            <p class="text-sm text-gray-600 italic">
+                                "I need a database to run my nursery business."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-3xl font-bold text-center mb-12">System Requirements</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="alpha-box p-6 text-center">
+                    <i class="fa-brands fa-microsoft text-brand-600 text-4xl mb-4"></i>
+                    <h4 class="font-bold mb-2">Microsoft Access</h4>
+                    <p class="text-sm text-gray-600">2016, 2019, 2021, or 365</p>
+                </div>
+                <div class="alpha-box p-6 text-center">
+                    <i class="fa-brands fa-windows text-brand-600 text-4xl mb-4"></i>
+                    <h4 class="font-bold mb-2">Operating System</h4>
+                    <p class="text-sm text-gray-600">Windows 10 or Windows 11</p>
+                </div>
+                <div class="alpha-box p-6 text-center">
+                    <i class="fa-solid fa-hard-drive text-brand-600 text-4xl mb-4"></i>
+                    <h4 class="font-bold mb-2">Disk Space</h4>
+                    <p class="text-sm text-gray-600">50MB minimum</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 text-center max-w-2xl">
+            <h2 class="text-3xl font-bold mb-6">Need Help?</h2>
+            <p class="text-lg text-gray-600 mb-8">
+                If you run into any issues, check our FAQ page or contact support.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="faq.html" class="bg-gray-600 hover:bg-gray-700 text-white px-8 py-4 rounded-lg font-bold transition">
+                    <i class="fa-solid fa-question-circle mr-2"></i> View FAQ
+                </a>
+                <a href="support.html" class="border-2 border-brand-600 text-brand-600 hover:bg-brand-50 px-8 py-4 rounded-lg font-bold transition">
+                    <i class="fa-solid fa-envelope mr-2"></i> Contact Support
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="At_1_.PNG" alt="Access Wizard" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Automated Database Solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="features.html" class="hover:text-white transition">Features</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="download.html" class="hover:text-white transition">Download</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="quick-start.html" class="hover:text-white transition">Quick Start Guide</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-sm text-center">
+                <p>&copy; 2024 Access Wizard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
