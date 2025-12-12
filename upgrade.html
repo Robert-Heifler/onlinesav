@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade to Pro - Access Wizard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 900px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 60px 40px;
+        }
+        
+        .pricing {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .plan {
+            border: 2px solid #e0e0e0;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .plan:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .plan.pro {
+            border-color: #667eea;
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            position: relative;
+        }
+        
+        .plan.pro::before {
+            content: "RECOMMENDED";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #667eea;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.75em;
+            font-weight: bold;
+        }
+        
+        .plan h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .price {
+            font-size: 3em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+        
+        .price span {
+            font-size: 0.4em;
+            color: #666;
+        }
+        
+        .features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .features li.limited {
+            color: #999;
+        }
+        
+        .features li.limited::before {
+            content: "⚠";
+            color: #ff9800;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .cta-button.secondary {
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+        }
+        
+        .guarantee {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 50px;
+            text-align: center;
+        }
+        
+        .guarantee h3 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .guarantee p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .pricing {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚀 Upgrade to Pro</h1>
+            <p>Unlock unlimited potential for your Access databases</p>
+        </div>
+        
+        <div class="content">
+            <div class="pricing">
+                <div class="plan">
+                    <h2>Free</h2>
+                    <div class="price">$0</div>
+                    <ul class="features">
+                        <li class="limited">5 forms maximum</li>
+                        <li class="limited">Single database</li>
+                        <li>Unlimited reports</li>
+                        <li>AI table generation</li>
+                        <li>Basic support</li>
+                    </ul>
+                    <button class="cta-button secondary" disabled>Current Plan</button>
+                </div>
+                
+                <div class="plan pro">
+                    <h2>Pro</h2>
+                    <div class="price">$39<span>/lifetime</span></div>
+                    <ul class="features">
+                        <li><strong>Unlimited forms</strong></li>
+                        <li><strong>Unlimited databases</strong></li>
+                        <li>Unlimited reports</li>
+                        <li>AI table generation</li>
+                        <li>Priority support</li>
+                        <li>Lifetime updates</li>
+                        <li>Commercial use license</li>
+                    </ul>
+                    <a href="mailto:info@onlinesav.com?subject=Pro License Purchase&body=I would like to purchase a Pro license for the Access Wizard." class="cta-button">
+                        Upgrade Now
+                    </a>
+                </div>
+            </div>
+            
+            <div class="guarantee">
+                <h3>💯 100% Satisfaction Guarantee</h3>
+                <p>
+                    Try Pro risk-free for 30 days. If you're not completely satisfied, 
+                    we'll refund your purchase, no questions asked.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
