@@ -2,166 +2,250 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>AI Database Builder – Free vs Upgrade FAQ</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Access Wizard</title>
+    <meta name="description" content="Frequently asked questions about Access Wizard. Learn about features, pricing, and how to use the AI-powered database generator.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JJSB5QDSX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5JJSB5QDSX');
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { 500: '#2563eb', 600: '#1d4ed8', 900: '#1e3a8a' } }
+                }
+            }
+        }
+    </script>
+
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            line-height: 1.35;
-            color: #111111;
+        .alpha-box {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
         }
-        .container {
-            box-sizing: border-box;
-            max-width: 860px;
-            margin: 12px auto;
-            padding: 10px 14px 12px 14px;
-            border: 1px solid #cccccc;
-            border-radius: 6px;
-        }
-        h1 {
-            font-size: 1.35rem;
-            margin: 0 0 6px 0;
-        }
-        h2 {
-            font-size: 1.0rem;
-            margin: 8px 0 3px 0;
-            color: #0057D8; /* deep blue for questions */
-        }
-        p {
-            margin: 0 0 6px 0;
-            font-size: 0.9rem;
-        }
-        a {
-            color: #0057D8;
-            text-decoration: underline;
-        }
-        .subtitle {
-            margin-bottom: 8px;
-            color: #555555;
-        }
-        .qa-block {
-            padding-top: 6px;
-            margin-top: 6px;
-            border-top: 1px solid #e0e0e0;
-        }
-        .qa-block:first-of-type {
-            border-top: none;
-            padding-top: 0;
-            margin-top: 0;
-        }
-        .accent-free {
-            color: #E67E22; /* orange */
-            font-weight: bold;
-        }
-        .accent-upgrade {
-            color: #009973; /* medium green with blue tint */
-            font-weight: bold;
-        }
+        .alpha-box:hover { transform: translateY(-2px); }
     </style>
 </head>
-<body>
-    <div class="container" id="ai-db-builder-faq">
-        <h1>AI Database Builder &mdash; Free vs Upgrade FAQ</h1>
-        <p class="subtitle">
-            What you can do with the <span class="accent-free">Free Edition</span> and what changes when you enter the
-            <span class="accent-upgrade">upgrade key</span>.
-        </p>
+<body class="bg-gray-50 text-gray-700 font-sans">
 
-        <div class="qa-block">
-            <h2>Q1. What do I get in the Free Edition?</h2>
-            <p>
-                The <span class="accent-free">Free Edition</span> lets you generate a complete working database structure.
-                You can create unlimited tables and up to <strong>six forms or reports</strong>.
-                All automation features run normally so you can see exactly how the tool works.
-                Start entering your information in the forms and view them with reports.
-            </p>
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="At_1_.PNG" alt="Access Wizard Logo" class="h-10">
+            </div>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
+                <a href="features.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Features</a>
+                <a href="pricing.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Pricing</a>
+                <a href="quick-start.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Quick Start</a>
+                <a href="faq.html" class="text-brand-600 hover:text-brand-500 font-medium transition">FAQ</a>
+                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+
+            <div class="hidden md:block">
+                <a href="download.html" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-lg font-semibold transition shadow-md">Download Free</a>
+            </div>
         </div>
 
-        <div class="qa-block">
-            <h2>Q2. What happens when I hit the free limit?</h2>
-            <p>
-                When you try to create a seventh form or report, the tool stops and shows an
-                <span class="accent-upgrade">upgrade</span> message.
-                Nothing is deleted &mdash; you simply cannot generate new forms or reports until you enter your upgrade key.
-            </p>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <nav class="flex flex-col px-6 py-4 space-y-2">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
+                <a href="features.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Features</a>
+                <a href="pricing.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Pricing</a>
+                <a href="quick-start.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Quick Start</a>
+                <a href="faq.html" class="text-brand-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
+                <a href="support.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
+                <a href="download.html" class="bg-brand-600 text-white px-3 py-2 rounded text-center">Download Free</a>
+            </nav>
         </div>
+    </header>
 
-        <div class="qa-block">
-            <h2>Q3. If I download the Free Edition again, will it reset the limit?</h2>
-            <p>
-                No. Re-downloading the same Free Edition gives you the same limits.
-                Each copy tracks its own usage inside the file.
-                You can always start over with a new copy, but you will hit the same free limit again.
-                The fastest way to keep working is to unlock your existing copy with your key.
-            </p>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Frequently Asked Questions</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">Everything you need to know about Access Wizard.</p>
         </div>
+    </section>
 
-        <div class="qa-block">
-            <h2>Q4. What does the upgrade key do?</h2>
-            <p>
-                Entering your <span class="accent-upgrade">upgrade key</span> instantly unlocks
-                <strong>unlimited form and report generation</strong> in that copy of the tool.
-                It also enables a special button to <strong>export your entire project</strong>
-                into a new <strong>editable ACCDB file</strong>.
-            </p>
-            <p>
-                That exported ACCDB contains all your generated tables, queries, forms, and reports,
-                ready to open directly in Microsoft Access.
-                Once exported, you (or any developer you choose) can open it in Access and
-                <strong>edit any form or report in Design View</strong>,
-                adjust layouts, add fields, or build new functionality.
-            </p>
-            <p>
-                You only need to enter your upgrade key once; it stays unlocked for future use.
-            </p>
-        </div>
+    <!-- FAQ Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <div class="space-y-6">
 
-        <div class="qa-block">
-            <h2>Q5. How much does the upgrade cost?</h2>
-            <p>
-                A one-time payment of <span class="accent-upgrade">US&nbsp;$39</span> unlocks all features for that copy of the tool.
-                No subscriptions, no online activation, and no tracking.
-            </p>
-        </div>
+                <!-- Q1 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">What do I get in the Free Version?</h3>
+                    <p class="text-gray-600">
+                        The Free Version lets you create up to 5 forms per computer. You get full access to all core features including AI-powered table generation, automatic form creation, and relationship management. This is perfect for small projects and learning how Access Wizard works.
+                    </p>
+                </div>
 
-        <div class="qa-block">
-            <h2>Q6. Where do I get the upgrade key?</h2>
-            <p>
-                Visit
-                <a href="https://your-sales-page-url-here" target="_blank" rel="noopener">
-                    this upgrade page
+                <!-- Q2 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">What happens when I reach the 5-form limit?</h3>
+                    <p class="text-gray-600">
+                        When you try to create your 6th form, Access Wizard will prompt you to upgrade to Pro. Your existing forms continue to work perfectly—you simply can't create new forms until you upgrade. Nothing is deleted or disabled.
+                    </p>
+                </div>
+
+                <!-- Q3 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">What does the Pro Version include?</h3>
+                    <p class="text-gray-600">
+                        The Pro Version ($39 one-time payment) gives you unlimited form creation, unlimited databases, commercial use license, and lifetime updates. Enter your license key once and it stays unlocked forever—no subscriptions, no recurring fees.
+                    </p>
+                </div>
+
+                <!-- Q4 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">Can I use Access Wizard for my business?</h3>
+                    <p class="text-gray-600">
+                        Yes! The Pro Version includes a commercial use license. The Free Version is for personal projects only. If you're creating databases for clients or using it in your business operations, you'll need the Pro Version.
+                    </p>
+                </div>
+
+                <!-- Q5 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">Do I need programming skills?</h3>
+                    <p class="text-gray-600">
+                        No! Access Wizard is designed for non-programmers. Simply describe what you need in plain English (like "I need a database to run my nursery business") and the AI generates the tables and forms automatically. No coding required.
+                    </p>
+                </div>
+
+                <!-- Q6 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">What versions of Microsoft Access are supported?</h3>
+                    <p class="text-gray-600">
+                        Access Wizard works with Microsoft Access 2016, 2019, 2021, and 365 on Windows 10 or Windows 11. You can also use the free Microsoft Access Runtime if you don't have the full version of Access.
+                    </p>
+                </div>
+
+                <!-- Q7 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">How does Access Wizard save me money?</h3>
+                    <p class="text-gray-600">
+                        Hiring a Microsoft Access developer typically costs $50-$120 per hour. Even a simple database with 5 forms would cost $300-$700 in professional fees. Access Wizard automates this entire process for a one-time $39 payment (or free for up to 5 forms). You save hundreds or thousands of dollars.
+                    </p>
+                </div>
+
+                <!-- Q8 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">Can I edit the databases after creation?</h3>
+                    <p class="text-gray-600">
+                        Yes! The databases are standard Microsoft Access files (.accdb). You can open them in Access and customize anything you want—add fields, modify forms, create new reports, or hire a developer for advanced customizations. You have complete control.
+                    </p>
+                </div>
+
+                <!-- Q9 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">How do I get my Pro license key?</h3>
+                    <p class="text-gray-600">
+                        Visit the <a href="purchase.html" class="text-brand-600 hover:text-brand-700 font-semibold">purchase page</a>, pay $39 via PayPal, and you'll be redirected to a page with your license key. Copy the key, open Access Wizard, and click the "Activate Pro" button to unlock unlimited features instantly.
+                    </p>
+                </div>
+
+                <!-- Q10 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">Is there a subscription or recurring fee?</h3>
+                    <p class="text-gray-600">
+                        No! The Pro Version is a one-time $39 payment. You pay once and own it forever, including all future updates. No subscriptions, no monthly fees, no hidden costs.
+                    </p>
+                </div>
+
+                <!-- Q11 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text="brand-600">Can I use my license on multiple computers?</h3>
+                    <p class="text-gray-600">
+                        Your license is tied to one computer. If you need to use Access Wizard on multiple machines, you'll need a separate license for each. The Free Version works on any computer but is limited to 5 forms per machine.
+                    </p>
+                </div>
+
+                <!-- Q12 -->
+                <div class="alpha-box p-6">
+                    <h3 class="font-bold text-lg mb-3 text-brand-600">What if I need help or have technical issues?</h3>
+                    <p class="text-gray-600">
+                        Contact us at <a href="mailto:info@onlinesav.com" class="text-brand-600 hover:text-brand-700 font-semibold">info@onlinesav.com</a> or use our <a href="support.html" class="text-brand-600 hover:text-brand-700 font-semibold">contact form</a>. We typically respond within 24-48 hours. Pro users get priority support.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center bg-blue-50 p-8 rounded-lg">
+                <h3 class="text-2xl font-bold mb-4">Still have questions?</h3>
+                <p class="text-gray-600 mb-6">We're here to help. Contact our support team.</p>
+                <a href="support.html" class="inline-block bg-brand-600 hover:bg-brand-700 text-white px-8 py-4 rounded-lg font-bold transition shadow-md">
+                    <i class="fa-solid fa-envelope mr-2"></i> Contact Support
                 </a>
-                to purchase an unlock key. You will receive your key immediately after checkout.
-            </p>
-        </div>
+            </div>
 
-        <div class="qa-block">
-            <h2>Q7. Why not just keep using the Free Edition?</h2>
-            <p>
-                The <span class="accent-free">Free Edition</span> is ideal for initial design and testing.
-                Once you start creating more forms or reports or want to move your work into a standalone, editable database,
-                upgrading becomes the simplest way to keep everything together and fully customizable.
-            </p>
-            <p>
-                Most users upgrade quickly because it saves time and lets them
-                <strong>own, edit, and extend</strong> their Access database without limits.
-            </p>
         </div>
+    </section>
 
-        <div class="qa-block">
-            <h2>Q8. How does this save me time and money?</h2>
-            <p>
-                Hiring a Microsoft Access developer typically costs between <strong>$50 and $120 per hour</strong>.
-                Even a small setup with the same number of forms or reports allowed in the free edition would usually cost 
-                <strong>$300–$700</strong> in professional fees.
-                With this builder, the process is automated, consistent, and repeatable &mdash; no hourly billing.
-                If you ever need customization beyond the included automation, 
-                there are <span class="accent-upgrade">inexpensive options</span> available.
-                You can request help anytime by <a href="mailto:your-support-email@example.com">contacting us</a>.
-            </p>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="At_1_.PNG" alt="Access Wizard" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Automated Database Solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="features.html" class="hover:text-white transition">Features</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="download.html" class="hover:text-white transition">Download</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="quick-start.html" class="hover:text-white transition">Quick Start Guide</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-sm text-center">
+                <p>&copy; 2024 Access Wizard. All rights reserved.</p>
+            </div>
         </div>
-    </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
 </body>
 </html>

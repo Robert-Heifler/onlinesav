@@ -1,52 +1,316 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Use - Free Guides</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>Terms of Use - Access Wizard</title>
+    <meta name="description" content="Terms of Use for Access Wizard. Legal terms and conditions for using our software and website.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5JJSB5QDSX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-5JJSB5QDSX');
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { 500: '#2563eb', 600: '#1d4ed8', 900: '#1e3a8a' } }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .alpha-box {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
 </head>
-<body>
-    <header class="header">
-        <h1 class="site-title">Free Guides</h1>
-        <nav class="main-nav">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="affiliate-disclosure.html">Affiliate Disclosure</a></li>
-            </ul>
-        </nav>
+<body class="bg-gray-50 text-gray-700 font-sans">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="At_1_.PNG" alt="Access Wizard Logo" class="h-10">
+            </div>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
+                <a href="features.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Features</a>
+                <a href="pricing.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Pricing</a>
+                <a href="quick-start.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Quick Start</a>
+                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
+                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+
+            <div class="hidden md:block">
+                <a href="download.html" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-lg font-semibold transition shadow-md">Download Free</a>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <nav class="flex flex-col px-6 py-4 space-y-2">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
+                <a href="features.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Features</a>
+                <a href="pricing.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Pricing</a>
+                <a href="quick-start.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Quick Start</a>
+                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
+                <a href="support.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
+                <a href="download.html" class="bg-brand-600 text-white px-3 py-2 rounded text-center">Download Free</a>
+            </nav>
+        </div>
     </header>
 
-    <main class="main-content">
-        <section class="page-section">
-            <h2 class="section-title">Terms of Use</h2>
-            <p>Welcome to our Free Guides platform. By accessing or using our services, you agree to comply with and be bound by the following terms and conditions of use. Please review these terms carefully. If you do not agree to these terms, you should not use this website.</p>
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Terms of Use</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">Last updated: December 11, 2024</p>
+        </div>
+    </section>
 
-            <h3>1. Acceptance of Terms</h3>
-            <p>The services that Free Guides provides to you are subject to the following Terms of Use ("TOU"). Free Guides reserves the right to update the TOU at any time without notice to you.</p>
+    <!-- Terms Content -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <div class="alpha-box p-8 mb-8">
+                <p class="text-gray-600">
+                    By accessing or using Access Wizard software and the onlinesav.com website, you agree to comply with and be bound by the following terms and conditions of use. Please review these terms carefully. If you do not agree to these terms, you should not use this software or website.
+                </p>
+            </div>
 
-            <h3>2. Description of Services</h3>
-            <p>Free Guides provides users with access to a rich collection of free resources, including various e-books and guides. You understand and agree that the Service may include advertisements and that these advertisements are necessary for Free Guides to provide the Service.</p>
+            <div class="space-y-8">
 
-            <h3>3. Personal and Non-Commercial Use Limitation</h3>
-            <p>Unless otherwise specified, the Services are for your personal and non-commercial use. You may not modify, copy, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information, software, products or services obtained from the Services.</p>
+                <!-- Section 1 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">1. Acceptance of Terms</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600">
+                            Access Wizard reserves the right to update these Terms of Use at any time. Continued use of the software or website after changes are posted constitutes acceptance of the modified terms. We recommend checking this page periodically for updates.
+                        </p>
+                    </div>
+                </div>
 
-            <h3>4. Privacy Policy</h3>
-            <p>Your use of the Service is also governed by our Privacy Policy, which is incorporated into these Terms of Use by this reference.</p>
+                <!-- Section 2 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">2. License Grant</h2>
+                    <div class="alpha-box p-6">
+                        <h3 class="font-semibold text-lg mb-3">Free Version</h3>
+                        <p class="text-gray-600 mb-4">
+                            The Free Version of Access Wizard is licensed for personal, non-commercial use only. You may create up to 5 forms per computer installation. You may not use the Free Version for business purposes, commercial applications, or client work.
+                        </p>
 
-            <h3>5. Disclaimer of Warranties and Limitation of Liability</h3>
-            <p>The information, software, products, and services included in or available through the Services may include inaccuracies or typographical errors. Changes are periodically added to the information herein. Free Guides and/or its suppliers may make improvements and/or changes in the Services at any time.</p>
-            <p>Free Guides and/or its suppliers make no representations about the suitability, reliability, availability, timeliness, and accuracy of the information, software, products, services and related graphics contained on the Services for any purpose. To the maximum extent permitted by applicable law, all such information, software, products, services and related graphics are provided "as is" without warranty or condition of any kind.</p>
-        </section>
-    </main>
+                        <h3 class="font-semibold text-lg mb-3">Pro Version</h3>
+                        <p class="text-gray-600 mb-4">
+                            The Pro Version license grants you the right to use Access Wizard for both personal and commercial purposes, including:
+                        </p>
+                        <ul class="list-disc pl-6 text-gray-600 space-y-1 mb-4">
+                            <li>Creating unlimited forms and databases</li>
+                            <li>Using the software in business operations</li>
+                            <li>Creating databases for clients (as a service provider)</li>
+                            <li>Distributing databases created with Access Wizard to end users</li>
+                        </ul>
+                        <p class="text-gray-600">
+                            Each Pro license is valid for one computer. You may not share, transfer, or resell your license key.
+                        </p>
+                    </div>
+                </div>
 
-    <footer class="footer">
-        <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+                <!-- Section 3 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">3. Restrictions</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600 mb-3">You may not:</p>
+                        <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                            <li>Reverse engineer, decompile, or disassemble the Access Wizard software</li>
+                            <li>Remove or modify any copyright notices or licensing information</li>
+                            <li>Distribute, sell, or lease the Access Wizard software to third parties</li>
+                            <li>Use the software to create competing database generation tools</li>
+                            <li>Share your Pro license key with others</li>
+                            <li>Attempt to bypass or circumvent the license validation system</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Section 4 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">4. Ownership of Generated Databases</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600">
+                            You retain full ownership of all databases, forms, reports, and other content created using Access Wizard. Once generated, these files are yours to use, modify, distribute, or commercialize as you see fit. Access Wizard claims no ownership rights to your generated content.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 5 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">5. Disclaimer of Warranties</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600 mb-4">
+                            Access Wizard software and website are provided "AS IS" without warranty of any kind, either expressed or implied, including but not limited to:
+                        </p>
+                        <ul class="list-disc pl-6 text-gray-600 space-y-1">
+                            <li>Warranties of merchantability or fitness for a particular purpose</li>
+                            <li>Warranties that the software will be error-free or uninterrupted</li>
+                            <li>Warranties regarding the accuracy or reliability of generated databases</li>
+                        </ul>
+                        <p class="text-gray-600 mt-4">
+                            We make no representations about the suitability of this software for any purpose. You use Access Wizard at your own risk.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 6 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">6. Limitation of Liability</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600 mb-4">
+                            To the maximum extent permitted by law, Access Wizard and its operators shall not be liable for:
+                        </p>
+                        <ul class="list-disc pl-6 text-gray-600 space-y-2">
+                            <li>Any direct, indirect, incidental, special, or consequential damages</li>
+                            <li>Loss of profits, data, or business opportunities</li>
+                            <li>Damages resulting from use or inability to use the software</li>
+                            <li>Errors or omissions in generated databases</li>
+                        </ul>
+                        <p class="text-gray-600 mt-4">
+                            In no event shall our total liability exceed the amount you paid for the Pro license ($39).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 7 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">7. Updates and Support</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600 mb-4">
+                            Pro Version users receive lifetime updates at no additional cost. We may release updates to fix bugs, improve performance, or add new features. Updates are optional but recommended.
+                        </p>
+                        <p class="text-gray-600">
+                            Technical support is provided via email at <a href="mailto:info@onlinesav.com" class="text-brand-600 hover:text-brand-700 font-semibold">info@onlinesav.com</a>. We typically respond within 24-48 hours. Pro users receive priority support.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 8 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">8. Termination</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600">
+                            We reserve the right to terminate or suspend your license if you violate these Terms of Use. Upon termination, you must cease all use of Access Wizard and delete all copies of the software. Databases you created before termination remain your property.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 9 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">9. Third-Party Components</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600">
+                            Access Wizard may include or rely on third-party software components and services. These components are subject to their own licenses and terms of use. We are not responsible for the performance or availability of third-party services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 10 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">10. Governing Law</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600">
+                            These Terms of Use are governed by and construed in accordance with the laws of the United States. Any disputes arising from these terms or use of Access Wizard shall be resolved in the appropriate courts.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 11 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">11. Privacy Policy</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600">
+                            Your use of Access Wizard and our website is also governed by our <a href="privacy.html" class="text-brand-600 hover:text-brand-700 font-semibold">Privacy Policy</a>, which is incorporated into these Terms of Use by reference.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 12 -->
+                <div>
+                    <h2 class="text-2xl font-bold mb-4 text-gray-900">12. Contact Information</h2>
+                    <div class="alpha-box p-6">
+                        <p class="text-gray-600 mb-4">
+                            If you have questions about these Terms of Use, please contact us:
+                        </p>
+                        <p class="text-gray-600">
+                            <strong>Email:</strong> <a href="mailto:info@onlinesav.com" class="text-brand-600 hover:text-brand-700 font-semibold">info@onlinesav.com</a><br>
+                            <strong>Website:</strong> <a href="https://onlinesav.com" class="text-brand-600 hover:text-brand-700 font-semibold">onlinesav.com</a>
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="At_1_.PNG" alt="Access Wizard" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Automated Database Solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="features.html" class="hover:text-white transition">Features</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="download.html" class="hover:text-white transition">Download</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="quick-start.html" class="hover:text-white transition">Quick Start Guide</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-sm text-center">
+                <p>&copy; 2024 Access Wizard. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
 </body>
 </html>
