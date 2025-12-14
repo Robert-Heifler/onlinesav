@@ -35,9 +35,37 @@
             font-family: 'Inter', sans-serif;
             background-color: #f3f4f6;
         }
+        .alpha-box {
+            background-color: white;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="At_1_.PNG" alt="Access Wizard Logo" class="h-10">
+                </a>
+            </div>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
+                <a href="features.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Features</a>
+                <a href="pricing.html" class="text-brand-600 hover:text-brand-500 font-medium transition">Pricing</a>
+                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
+            </nav>
+
+            <div class="hidden md:block">
+                <a href="download.html" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-lg font-semibold transition shadow-md">Download Free</a>
+            </div>
+        </div>
+    </header>
+
     <div class="max-w-2xl mx-auto mt-16 mb-16 bg-white p-10 rounded-lg shadow-xl">
         <div class="text-center mb-8">
             <img src="At_1_.PNG" alt="Access Wizard" class="h-16 mx-auto mb-6">
@@ -99,6 +127,44 @@
             </a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="At_1_.PNG" alt="Access Wizard" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Automated Database Solutions.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="features.html" class="hover:text-white transition">Features</a></li>
+                        <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+                        <li><a href="download.html" class="hover:text-white transition">Download</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="quick-start.html" class="hover:text-white transition">Quick Start Guide</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-sm text-center">
+                <p>&copy; 2024 Access Wizard. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
     <!-- PayPal SDK Script -->
     <script src="https://www.paypal.com/sdk/js?client-id=AVyVYHrGLhcHc4qeMlzMFlify_kxAzjHO3_uVxk3AoL30UeDYsO_J1TmQchSS6fknIbaJZ5HbAyZgNoG&components=buttons,marks,funding-eligibility&enable-funding=venmo,card,paylater"></script>
