@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - Access Wizard</title>
-    <meta name="description" content="Get help with Access Wizard. Contact our support team for assistance with installation, usage, or technical questions.">
-
+    <title>Support - Access Wizard Databases</title>
+    <meta name="description" content="Get help with your Access database. Contact our support team or find an expert developer.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="At_1_.PNG">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KP5J5QPM"></script>
@@ -33,7 +34,7 @@
     <style>
         .alpha-box {
             background-color: white;
-            border-radius: 4px;
+            border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
@@ -43,39 +44,36 @@
 <body class="bg-gray-50 text-gray-700 font-sans">
 
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="At_1_.PNG" alt="Access Wizard Logo" class="h-10">
+                <a href="index.html">
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10">
+                </a>
             </div>
 
             <nav class="hidden md:flex space-x-6">
                 <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
-                <a href="features.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Features</a>
-                <a href="pricing.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Pricing</a>
-                <a href="quick-start.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Quick Start</a>
+                <a href="catalog.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Catalog</a>
+                <a href="custom-request.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Demo</a>
+                <a href="support.html" class="text-brand-600 font-semibold">Support</a>
                 <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
-                <a href="support.html" class="text-brand-600 hover:text-brand-500 font-medium transition">Support</a>
             </nav>
 
             <button id="mobile-menu-btn" class="md:hidden text-gray-600">
                 <i class="fa-solid fa-bars text-2xl"></i>
             </button>
-
-            <div class="hidden md:block">
-                <a href="download.html" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-lg font-semibold transition shadow-md">Download Free</a>
-            </div>
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <nav class="flex flex-col px-6 py-4 space-y-2">
                 <a href="index.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
-                <a href="features.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Features</a>
-                <a href="pricing.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Pricing</a>
-                <a href="quick-start.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Quick Start</a>
+                <a href="catalog.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Catalog</a>
+                <a href="custom-request.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Demo</a>
+                <a href="support.html" class="text-brand-600 px-3 py-2 rounded font-semibold">Support</a>
                 <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
-                <a href="support.html" class="text-brand-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
-                <a href="download.html" class="bg-brand-600 text-white px-3 py-2 rounded text-center">Download Free</a>
             </nav>
         </div>
     </header>
@@ -96,33 +94,33 @@
                 <!-- Contact Form -->
                 <div>
                     <h2 class="text-3xl font-bold mb-6">Send Us a Message</h2>
-                    <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you as soon as possible.</p>
+                    <p class="text-gray-600 mb-8">Fill out the form below and we'll get back to you within 24-48 hours.</p>
                     
                     <form class="space-y-6" action="https://formspree.io/f/mwpgylwv" method="POST">
                         <!-- Name -->
                         <div>
                             <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Name *</label>
                             <input type="text" id="name" name="name" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent">
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
                         </div>
 
                         <!-- Email -->
                         <div>
                             <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email *</label>
                             <input type="email" id="email" name="email" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent">
+                                   class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
                         </div>
 
                         <!-- Subject -->
                         <div>
                             <label for="subject" class="block text-sm font-semibold text-gray-700 mb-2">Subject *</label>
                             <select id="subject" name="subject" required
-                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent">
+                                    class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
                                 <option value="">Select a subject</option>
-                                <option value="Sales">Sales Question</option>
-                                <option value="Support">Technical Support</option>
-                                <option value="Billing">Billing/License</option>
-                                <option value="Other">Other</option>
+                                <option value="Technical Support">Technical Support</option>
+                                <option value="Custom Database Request">Custom Database Request</option>
+                                <option value="Billing/Payment">Billing/Payment</option>
+                                <option value="General Question">General Question</option>
                             </select>
                         </div>
 
@@ -130,7 +128,7 @@
                         <div>
                             <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">Message *</label>
                             <textarea id="message" name="message" rows="6" required
-                                      class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"></textarea>
+                                      class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition"></textarea>
                         </div>
 
                         <!-- Submit Button -->
@@ -180,8 +178,8 @@
                                 <h3 class="font-bold text-xl mb-2">Email Us Directly</h3>
                                 <p class="text-gray-600 mb-2">Prefer email? Send us a message at:</p>
                                 <a href="mailto:info@onlinesav.com" class="text-brand-600 hover:text-brand-700 font-semibold">
-    info@onlinesav.com
-</a>
+                                    info@onlinesav.com
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -190,32 +188,21 @@
                     <div class="alpha-box p-8">
                         <h3 class="font-bold text-xl mb-4">Self-Help Resources</h3>
                         <div class="space-y-3">
-                            <a href="quick-start.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded transition group">
-                                <i class="fa-solid fa-rocket text-brand-600 mr-3"></i>
-                                <span class="font-medium group-hover:text-brand-600">Quick Start Guide</span>
-                            </a>
                             <a href="faq.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded transition group">
                                 <i class="fa-solid fa-question-circle text-brand-600 mr-3"></i>
                                 <span class="font-medium group-hover:text-brand-600">Frequently Asked Questions</span>
                             </a>
-                            <a href="download.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded transition group">
+                            <a href="demo.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded transition group">
                                 <i class="fa-solid fa-download text-brand-600 mr-3"></i>
-                                <span class="font-medium group-hover:text-brand-600">Download Page</span>
+                                <span class="font-medium group-hover:text-brand-600">Download Free Demo</span>
+                            </a>
+                            <a href="catalog.html" class="flex items-center p-3 bg-gray-50 hover:bg-gray-100 rounded transition group">
+                                <i class="fa-solid fa-shop text-brand-600 mr-3"></i>
+                                <span class="font-medium group-hover:text-brand-600">Browse Database Catalog</span>
                             </a>
                         </div>
                     </div>
 
-                    <!-- Pro Support -->
-                    <div class="bg-brand-50 border-2 border-brand-200 p-8 rounded-lg">
-                        <h3 class="font-bold text-xl mb-2 flex items-center">
-                            <i class="fa-solid fa-star text-yellow-500 mr-2"></i>
-                            Pro Version Support
-                        </h3>
-                        <p class="text-gray-600 mb-4">Pro users receive priority email support with faster response times.</p>
-                        <a href="pricing.html" class="inline-block text-brand-600 hover:text-brand-700 font-semibold">
-                            Learn about Pro <i class="fa-solid fa-arrow-right ml-1"></i>
-                        </a>
-                    </div>
                 </div>
 
             </div>
@@ -227,23 +214,25 @@
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <img src="At_1_.PNG" alt="Access Wizard" class="h-10 mb-4 brightness-0 invert opacity-80">
-                    <p class="text-sm">Automated Database Solutions.</p>
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Professional database solutions for small businesses.</p>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="features.html" class="hover:text-white transition">Features</a></li>
-                        <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
-                        <li><a href="download.html" class="hover:text-white transition">Download</a></li>
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="catalog.html" class="hover:text-white transition">Catalog</a></li>
+                        <li><a href="custom-request.html" class="hover:text-white transition">Custom Request</a></li>
+                        <li><a href="demo.html" class="hover:text-white transition">Demo</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="quick-start.html" class="hover:text-white transition">Quick Start Guide</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Contact Us</a></li>
                         <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
-                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                        <li><a href="supportdirectory.html" class="hover:text-white transition">Find an Expert</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">General Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -255,10 +244,16 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-sm text-center">
-                <p>&copy; 2024 Access Wizard. All rights reserved.</p>
+                <p>&copy; 2025 Access Wizard Databases - OnLineSav.com - All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        const 
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

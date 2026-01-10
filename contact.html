@@ -3,103 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Access Wizard Pro</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            max-width: 600px;
-            width: 100%;
-            padding: 50px 40px;
-        }
-        
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-            font-size: 2em;
-        }
-        
-        .subtitle {
-            color: #666;
-            margin-bottom: 30px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 20px;
-            color: #333;
-            font-weight: 500;
-        }
-        
-        input[type="email"],
-        input[type="text"],
-        textarea {
-            width: 100%;
-            padding: 12px 15px;
-            margin-top: 8px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        input[type="email"]:focus,
-        input[type="text"]:focus,
-        textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-            font-family: inherit;
-        }
-        
-        button[type="submit"] {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 100%;
-            margin-top: 10px;
-        }
-        
-        button[type="submit"]:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-        
-        button[type="submit"]:active {
-            transform: translateY(0);
-        }
-        
-        .required {
-            color: #e74c3c;
-        }
-    </style>
+    <title>Contact - Access Wizard Databases</title>
+    <meta name="description" content="Contact Access Wizard Databases for questions, support, or custom database inquiries.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="At_1_.PNG">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KP5J5QPM"></script>
@@ -109,35 +19,173 @@
         gtag('js', new Date());
         gtag('config', 'G-KP5J5QPM');
     </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { 500: '#2563eb', 600: '#1d4ed8', 900: '#1e3a8a' } }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .alpha-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+    </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Contact Us</h1>
-        <p class="subtitle">Questions about Access Wizard Pro? We're here to help!</p>
-        
-        <form action="https://formspree.io/f/mwpgylwv" method="POST">
-            <label>
-                Your Name <span class="required">*</span>
-                <input type="text" name="name" required>
-            </label>
-            
-            <label>
-                Your Email <span class="required">*</span>
-                <input type="email" name="email" required>
-            </label>
-            
-            <label>
-                Subject
-                <input type="text" name="subject" placeholder="License inquiry, technical support, etc.">
-            </label>
-            
-            <label>
-                Your Message <span class="required">*</span>
-                <textarea name="message" required placeholder="Tell us how we can help..."></textarea>
-            </label>
-            
-            <button type="submit">Send Message</button>
-        </form>
-    </div>
+<body class="bg-gray-50 text-gray-700 font-sans">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10">
+                </a>
+            </div>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
+                <a href="catalog.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Catalog</a>
+                <a href="custom-request.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Demo</a>
+                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
+                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <nav class="flex flex-col px-6 py-4 space-y-2">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
+                <a href="catalog.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Catalog</a>
+                <a href="custom-request.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Demo</a>
+                <a href="support.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
+                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Contact Us</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">Have questions? We're here to help.</p>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-2xl mx-auto alpha-box p-8">
+                <h2 class="text-2xl font-bold mb-6 text-center">Send Us a Message</h2>
+                
+                <form action="https://formspree.io/f/mwpgylwv" method="POST" class="space-y-6">
+                    
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Name *</label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Email *</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-sm font-bold text-gray-700 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Optional"
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                    </div>
+                    
+                    <div>
+                        <label for="message" class="block text-sm font-bold text-gray-700 mb-2">Message *</label>
+                        <textarea id="message" name="message" rows="6" required
+                                  placeholder="Tell us how we can help..."
+                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition"></textarea>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-brand-600 hover:bg-brand-700 text-white px-6 py-4 rounded-lg font-bold text-lg transition shadow-md">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Send Message
+                    </button>
+                    
+                    <p class="text-sm text-gray-500 text-center">
+                        We typically respond within 24-48 hours
+                    </p>
+                </form>
+            </div>
+
+            <!-- Additional Contact Info -->
+            <div class="max-w-2xl mx-auto mt-12 text-center">
+                <div class="alpha-box p-6">
+                    <p class="text-gray-700 mb-2">You can also email us directly:</p>
+                    <a href="mailto:info@onlinesav.com" class="text-brand-600 hover:text-brand-700 font-bold text-lg">
+                        info@onlinesav.com
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Professional database solutions for small businesses.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="catalog.html" class="hover:text-white transition">Catalog</a></li>
+                        <li><a href="custom-request.html" class="hover:text-white transition">Custom Request</a></li>
+                        <li><a href="demo.html" class="hover:text-white transition">Demo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="support.html" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="supportdirectory.html" class="hover:text-white transition">Find an Expert</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">General Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-sm text-center">
+                <p>&copy; 2025 Access Wizard Databases - OnLineSav.com - All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
 </body>
 </html>
