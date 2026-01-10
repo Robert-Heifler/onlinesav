@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Database Request - Access Wizard Databases</title>
+    <meta name="description" content="Request a custom Access database built for your business in 24 hours. $79 flat fee. Answer 3 simple questions and we'll build it for you.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="At_1_.PNG">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KP5J5QPM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-KP5J5QPM');
+    </script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { 500: '#2563eb', 600: '#1d4ed8', 900: '#1e3a8a' } }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .alpha-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-700 font-sans">
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="index.html">
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10">
+                </a>
+            </div>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
+                <a href="catalog.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Catalog</a>
+                <a href="custom-request.html" class="text-brand-600 font-semibold">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Demo</a>
+                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
+                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <nav class="flex flex-col px-6 py-4 space-y-2">
+                <a href="index.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
+                <a href="catalog.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Catalog</a>
+                <a href="custom-request.html" class="text-brand-600 px-3 py-2 rounded font-semibold">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Demo</a>
+                <a href="support.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
+                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Get a Custom Database Built for You</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-6">
+                Answer 3 quick questions. We build it in 24 hours. Delivered to your inbox.
+            </p>
+            <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
+                <span class="text-3xl font-bold">$79</span>
+                <span class="text-lg"> flat fee • any complexity</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                            1
+                        </div>
+                        <h3 class="font-bold mb-2">Fill Out the Form</h3>
+                        <p class="text-gray-600 text-sm">Answer 3 questions about your business and needs</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                            2
+                        </div>
+                        <h3 class="font-bold mb-2">We Build It</h3>
+                        <p class="text-gray-600 text-sm">Your database is built within 24 hours</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                            3
+                        </div>
+                        <h3 class="font-bold mb-2">Download & Use</h3>
+                        <p class="text-gray-600 text-sm">Get download link via email, start using immediately</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Form -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-3xl mx-auto alpha-box p-8">
+                <h2 class="text-2xl font-bold mb-6 text-center">Custom Database Request Form</h2>
+                
+                <form action="https://formspree.io/f/mwpgylwv" method="POST" class="space-y-8">
+                    
+                    <!-- Name -->
+                    <div>
+                        <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Your Name *</label>
+                        <input type="text" id="name" name="name" required
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                    </div>
+
+                    <!-- Email -->
+                    <div>
+                        <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Your Email *</label>
+                        <input type="email" id="email" name="email" required
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                        <p class="text-sm text-gray-500 mt-1">We'll send your database download link to this email</p>
+                    </div>
+
+                    <!-- Question 1 -->
+                    <div>
+                        <label for="business" class="block text-sm font-bold text-gray-700 mb-2">
+                            Question 1: What's your business or activity? *
+                        </label>
+                        <input type="text" id="business" name="business" required
+                               placeholder="Example: Retail nursery selling plants and supplies"
+                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                        <p class="text-sm text-gray-500 mt-1">One sentence is fine</p>
+                    </div>
+
+                    <!-- Question 2 -->
+                    <div>
+                        <label for="problems" class="block text-sm font-bold text-gray-700 mb-2">
+                            Question 2: What are your top 3 problems this database MUST solve? *
+                        </label>
+                        <textarea id="problems" name="problems" rows="6" required
+                                  placeholder="Example:
+1. Lost sales because backorders aren't tracked
+2. Cash flow issues from unclear payment status
+3. Delivery mistakes from missing or wrong addresses"
+                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition"></textarea>
+                        <p class="text-sm text-gray-500 mt-1">List the most painful problems first</p>
+                    </div>
+
+                    <!-- Question 3 -->
+                    <div>
+                        <label for="requirements" class="block text-sm font-bold text-gray-700 mb-2">
+                            Question 3: List 10-20 specific things that MUST be included *
+                        </label>
+                        <textarea id="requirements" name="requirements" rows="8" required
+                                  placeholder="Example:
+• Customer email addresses
+• Sales tax percentage field
+• Product photos
+• Delivery dates and addresses
+• Payment status (paid/pending/overdue)
+• Invoice numbers
+• Supplier contact info
+• Inventory reorder points
+• Backorder tracking
+• Multiple payment methods (cash, check, card)"
+                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition"></textarea>
+                        <p class="text-sm text-gray-500 mt-1">
+                            Think about specific data fields you need: emails, tax rates, dates, phone numbers, photos, etc.
+                        </p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="bg-brand-50 border-2 border-brand-200 rounded-lg p-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <div>
+                                <p class="font-bold text-lg">Total Cost: $79</p>
+                                <p class="text-sm text-gray-600">One-time payment • 24-hour delivery</p>
+                            </div>
+                            <i class="fa-solid fa-shield-check text-brand-600 text-3xl"></i>
+                        </div>
+                        
+                        <button type="submit" 
+                                class="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold text-lg transition shadow-md">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> Submit Request
+                        </button>
+                        
+                        <p class="text-sm text-gray-600 text-center mt-4">
+                            We'll review your request and send payment instructions within 2 hours
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Common Questions</h2>
+                
+                <div class="space-y-6">
+                    
+                    <div class="alpha-box p-6">
+                        <h3 class="font-bold text-lg mb-2 text-brand-600">Why only $79 regardless of complexity?</h3>
+                        <p class="text-gray-700">
+                            We use AI-powered tools to build databases fast. This keeps our costs low and lets us offer flat-rate pricing. 
+                            Whether you need 5 tables or 20, the price stays the same.
+                        </p>
+                    </div>
+
+                    <div class="alpha-box p-6">
+                        <h3 class="font-bold text-lg mb-2 text-brand-600">What if I need changes after it's built?</h3>
+                        <p class="text-gray-700">
+                            We'll make reasonable adjustments within 7 days at no charge if we missed something you specified. 
+                            Major redesigns or new features are handled as a new project.
+                        </p>
+                    </div>
+
+                    <div class="alpha-box p-6">
+                        <h3 class="font-bold text-lg mb-2 text-brand-600">Can I see an example first?</h3>
+                        <p class="text-gray-700">
+                            Yes! <a href="demo.html" class="text-brand-600 hover:text-brand-700 font-semibold underline">Download our free demo</a> 
+                            to see the quality of our work. Custom databases look and work exactly the same way.
+                        </p>
+                    </div>
+
+                    <div class="alpha-box p-6">
+                        <h3 class="font-bold text-lg mb-2 text-brand-600">Do you offer refunds?</h3>
+                        <p class="text-gray-700">
+                            Yes. If we can't deliver a working database that meets your requirements within 7 days, we'll refund your payment in full.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Professional database solutions for small businesses.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Products</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="catalog.html" class="hover:text-white transition">Database Catalog</a></li>
+                        <li><a href="custom-request.html" class="hover:text-white transition">Custom Databases</a></li>
+                        <li><a href="demo.html" class="hover:text-white transition">Free Demo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="support.html" class="hover:text-white transition">Contact Us</a></li>
+                        <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
+                        <li><a href="supportdirectory.html" class="hover:text-white transition">Find an Expert</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                        <li><a href="terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-sm text-center">
+                <p>&copy; 2025 Access Wizard Databases - OnLineSav.com - All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>

@@ -3,18 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access Wizard - Instant MS Access Database Generator</title>
-    <meta name="description" content="Create complete Microsoft Access databases in less than two minutes. Totally free, no signup, no coding required. AI-driven database generation.">
-    <meta name="keywords" content="Access form generator, Access wizard, Create Access forms automatically, Access database forms no coding, Access form builder">
-
-    <!-- Tailwind CSS -->
+    <title>Access Wizard Databases - Stop Fighting Spreadsheets</title>
+    <meta name="description" content="Custom Microsoft Access databases for small businesses. From $9 ready-made databases or $79 custom builds in 24 hours. No subscriptions, no complexity.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="At_1_.PNG">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KP5J5QPM"></script>
@@ -29,20 +24,8 @@
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            500: '#2563eb',
-                            600: '#1d4ed8',
-                            900: '#1e3a8a',
-                        },
-                        alpha: {
-                            bg: '#f8f9fa',
-                            box: '#ffffff',
-                        }
-                    }
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: { brand: { 500: '#2563eb', 600: '#1d4ed8', 900: '#1e3a8a' } }
                 }
             }
         }
@@ -51,189 +34,238 @@
     <style>
         .alpha-box {
             background-color: white;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
-        .alpha-box:hover {
-            transform: translateY(-2px);
-        }
-
-        .hero-bg {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        .hero-bg::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.15) 1px, transparent 0);
-            background-size: 30px 30px;
-        }
+        .alpha-box:hover { transform: translateY(-2px); }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-700 font-sans antialiased">
+<body class="bg-gray-50 text-gray-700 font-sans">
 
-    <!-- Header / Menu Structure -->
-    <header class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+    <!-- Header -->
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="At_1_.PNG" alt="Access Wizard Logo" class="h-10">
-            </div>
-
-            <!-- Desktop Menu -->
-            <nav class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-brand-600 hover:text-brand-500 font-medium transition">Home</a>
-                <a href="features.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Features</a>
-                <a href="pricing.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Pricing</a>
-                <a href="quick-start.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Quick Start</a>
-                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
-                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
-            </nav>
-
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-
-            <div class="hidden md:block">
-                <a href="download.html" 
-                   class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-lg font-semibold transition shadow-md">
-                   Download Free
+                <a href="index.html">
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10">
                 </a>
             </div>
+
+            <nav class="hidden md:flex space-x-6">
+                <a href="index.html" class="text-brand-600 font-semibold">Home</a>
+                <a href="catalog.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Catalog</a>
+                <a href="custom-request.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Demo</a>
+                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
+                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                <i class="fa-solid fa-bars text-2xl"></i>
+            </button>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <nav class="flex flex-col px-6 py-4 space-y-2">
-                <a href="index.html" class="text-brand-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
-                <a href="features.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Features</a>
-                <a href="pricing.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Pricing</a>
-                <a href="quick-start.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Quick Start</a>
-                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
+                <a href="index.html" class="text-brand-600 px-3 py-2 rounded font-semibold">Home</a>
+                <a href="catalog.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Catalog</a>
+                <a href="custom-request.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Demo</a>
                 <a href="support.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
-                <a href="download.html" class="bg-brand-600 text-white px-3 py-2 rounded text-center">Download Free</a>
+                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg text-white pt-32 pb-24 px-6">
-        <div class="container mx-auto text-center max-w-4xl relative z-10">
-            <div class="inline-block bg-white/10 backdrop-blur-sm px-4 py-1 rounded-full text-sm font-medium mb-6 border border-white/20">
-                <i class="fa-solid fa-bolt text-yellow-300 mr-2"></i> AI-Driven Database Generation
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                Access Wizard creates complete Microsoft Access Databases in <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">less than two minutes.</span>
+    <section class="pt-32 pb-20 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
+        <div class="container mx-auto px-6 text-center max-w-5xl">
+            <h1 class="text-4xl md:text-6xl font-black mb-6 leading-tight">
+                Stop Fighting Spreadsheets.<br/>Get Back to Running Your Business.
             </h1>
-            <p class="text-xl md:text-2xl text-blue-100 mb-8 font-light">
-                Totally Free - No signup - No skills required!
+            <p class="text-xl md:text-2xl text-blue-100 mb-8 font-light max-w-3xl mx-auto">
+                Custom Microsoft Access databases for small businesses—built the way YOU work, not how software companies think you should work.
             </p>
-
-            <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                <a href="download.html" 
-                   class="bg-white text-brand-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition transform hover:scale-105 flex items-center">
-                    <i class="fa-solid fa-download mr-2"></i> Download Free
-                </a>
-                <a href="pricing.html" class="border border-white/30 hover:bg-white/10 text-white px-8 py-4 rounded-lg font-semibold text-lg transition">
-                    Upgrade to Pro
-                </a>
+            
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 max-w-2xl mx-auto mb-8">
+                <ul class="text-left space-y-3 text-lg">
+                    <li class="flex items-start">
+                        <span class="text-red-300 mr-3 mt-1">✗</span>
+                        <span>Wasting money on software you never use</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-300 mr-3 mt-1">✗</span>
+                        <span>Drowning in messy spreadsheets and lost data</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-red-300 mr-3 mt-1">✗</span>
+                        <span>Feeling stuck because "you're not technical enough"</span>
+                    </li>
+                </ul>
             </div>
+
+            <p class="text-2xl font-bold mb-8">
+                We remove the fear. One-time purchase. Download and use immediately.<br/>Built for real people, not programmers.
+            </p>
         </div>
     </section>
 
-    <!-- Sub-Headline Section -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-6 text-center max-w-4xl">
-            <h2 class="text-3xl font-bold text-gray-900 mb-4">
-                A fully automated, AI-driven generator that creates a full database from natural-language input (One sentence).
-            </h2>
-        </div>
-    </section>
-
-    <!-- Core Pitch Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto alpha-box p-12">
-                <h2 class="text-3xl font-bold text-gray-900 mb-6 text-center">Turn Your Ideas Into Fully Structured Databases</h2>
-                <p class="text-lg text-gray-700 mb-6 leading-relaxed">
-                    Turn your ideas into fully structured, ready-to-use Microsoft Access systems instantly. No prior knowledge needed. No manual form design. No coding. Just describe your business, activity or hobby and the wizard delivers a complete, relational database with professional-grade forms, reports, lookups, search navigation, and logic—automatically.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    This tool eliminates the slow, error-prone parts of Access development. It builds clean data tables and enforces relationships. Polished forms, created in a few seconds, so you can open your new system and start using it immediately.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Who Benefits Section -->
+    <!-- Two Paths Section -->
     <section class="py-20 bg-white">
         <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-gray-900">Who Benefits?</h2>
-                <div class="w-20 h-1 bg-brand-500 mx-auto mt-4 rounded"></div>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Choose Your Path</h2>
+                <p class="text-xl text-gray-600">Get exactly what you need, exactly how you need it</p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Small Business Owners -->
-                <div class="alpha-box p-8">
-                    <div class="w-16 h-16 bg-blue-100 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                        <i class="fa-solid fa-store"></i>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                
+                <!-- Path 1: Catalog -->
+                <div class="alpha-box p-8 border-2 border-transparent hover:border-brand-500 transition">
+                    <div class="text-center mb-6">
+                        <i class="fa-solid fa-shop text-brand-600 text-5xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Browse Ready-Made Databases</h3>
+                        <p class="text-gray-600 mb-4">
+                            Search by industry (retail, construction, rentals, etc.) or problem (inventory tracking, customer management, invoicing). Download instantly.
+                        </p>
+                        <div class="text-3xl font-black text-brand-600 mb-2">$9 - $19</div>
+                        <p class="text-sm text-gray-500">One-time purchase</p>
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Small Business Owners</h3>
-                    <p class="text-gray-600 text-center">
-                        Who do not want to pay for expensive complex software, who need real results fast and free.
-                    </p>
+                    
+                    <ul class="space-y-2 mb-6 text-left">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mr-2 mt-1"></i>
+                            <span>Instant download</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mr-2 mt-1"></i>
+                            <span>Pre-built and tested</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mr-2 mt-1"></i>
+                            <span>Ready to use immediately</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mr-2 mt-1"></i>
+                            <span>Professional reports included</span>
+                        </li>
+                    </ul>
+
+                    <a href="catalog.html" class="block w-full bg-brand-600 hover:bg-brand-700 text-white text-center px-6 py-4 rounded-lg font-bold text-lg transition">
+                        Browse Catalog <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
 
-                <!-- Access Developers -->
-                <div class="alpha-box p-8">
-                    <div class="w-16 h-16 bg-blue-100 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                        <i class="fa-solid fa-code"></i>
+                <!-- Path 2: Custom -->
+                <div class="alpha-box p-8 border-2 border-brand-600">
+                    <div class="inline-block bg-brand-600 text-white px-3 py-1 rounded-full text-sm font-bold mb-4">
+                        MOST POPULAR
                     </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Access Developers</h3>
-                    <p class="text-gray-600 text-center">
-                        Who need rapid prototypes for potential or current clients. Something that will generate client leads for Access development or training.
-                    </p>
+                    <div class="text-center mb-6">
+                        <i class="fa-solid fa-wrench text-brand-600 text-5xl mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-3">Get a Custom Database Built for You</h3>
+                        <p class="text-gray-600 mb-4">
+                            Answer 3 quick questions. We build it in 24 hours. Delivered to your inbox.
+                        </p>
+                        <div class="text-3xl font-black text-brand-600 mb-2">$79</div>
+                        <p class="text-sm text-gray-500">Flat fee, any complexity</p>
+                    </div>
+                    
+                    <ul class="space-y-2 mb-6 text-left">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mr-2 mt-1"></i>
+                            <span>Built exactly for YOUR business</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mr-2 mt-1"></i>
+                            <span>24-hour turnaround</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mr-2 mt-1"></i>
+                            <span>Solves your specific problems</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-green-600 mr-2 mt-1"></i>
+                            <span>Includes everything you specify</span>
+                        </li>
+                    </ul>
+
+                    <a href="custom-request.html" class="block w-full bg-green-600 hover:bg-green-700 text-white text-center px-6 py-4 rounded-lg font-bold text-lg transition">
+                        Start Custom Request <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
                 </div>
 
-                <!-- Novices & Hobbyists -->
-                <div class="alpha-box p-8">
-                    <div class="w-16 h-16 bg-blue-100 text-brand-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
-                        <i class="fa-solid fa-user"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3 text-center">Novices & Hobbyists</h3>
-                    <p class="text-gray-600 text-center">
-                        Who have no prior experience with software or programming who want a quick ready to use software to track any type of data.
-                    </p>
-                </div>
             </div>
 
-            <div class="text-center mt-16 max-w-3xl mx-auto">
-                <p class="text-xl text-gray-700 font-semibold">
-                    If you want to create, use, sell, or give away complete Access databases faster, with zero chaos, this generator is your new unfair advantage.
-                </p>
+            <!-- Demo CTA -->
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-600 mb-4">Not sure yet? Try a free demo database first.</p>
+                <a href="demo.html" class="inline-block text-brand-600 hover:text-brand-700 font-bold text-lg">
+                    Download Free Demo <i class="fa-solid fa-download ml-2"></i>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- Objection Crushers -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-12">Your Questions Answered</h2>
+
+                <div class="space-y-6">
+                    
+                    <!-- Objection 1 -->
+                    <div class="alpha-box p-6">
+                        <h3 class="text-xl font-bold mb-3 text-brand-600">Will I waste money?</h3>
+                        <p class="text-gray-700">
+                            One-time purchase. From $9 to $19 (catalog databases) or $79 flat-fee custom builds. No subscriptions. No hidden fees.
+                        </p>
+                    </div>
+
+                    <!-- Objection 2 -->
+                    <div class="alpha-box p-6">
+                        <h3 class="text-xl font-bold mb-3 text-brand-600">Will this take forever to set up?</h3>
+                        <p class="text-gray-700">
+                            Download → Open → Start using. Same day. No installation needed.
+                        </p>
+                    </div>
+
+                    <!-- Objection 3 -->
+                    <div class="alpha-box p-6">
+                        <h3 class="text-xl font-bold mb-3 text-brand-600">What if I'm not technical?</h3>
+                        <p class="text-gray-700">
+                            Built for non-technical people. If you can click a mouse, you can use this. Simple forms, easy-to-find buttons, automatic reports.
+                        </p>
+                    </div>
+
+                    <!-- Objection 4 -->
+                    <div class="alpha-box p-6">
+                        <h3 class="text-xl font-bold mb-3 text-brand-600">What if I want to test it first?</h3>
+                        <p class="text-gray-700">
+                            Download a free demo with sample data. See exactly how it works before buying. <a href="demo.html" class="text-brand-600 hover:text-brand-700 font-semibold underline">Get the demo here</a>.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
     <section class="py-20 bg-brand-900 text-white">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-6">Ready to Get Started?</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Get Organized?</h2>
             <p class="text-xl text-blue-200 mb-8 max-w-2xl mx-auto">
-                Download Access Wizard now and create your first database in minutes.
+                Stop living in spreadsheet chaos. Get a database that actually works for you.
             </p>
             <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                <a href="download.html" 
-                   class="bg-white text-brand-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg shadow-lg transition transform hover:scale-105">
-                    <i class="fa-solid fa-download mr-2"></i> Download Free Version
+                <a href="catalog.html" class="bg-white text-brand-900 hover:bg-gray-100 px-8 py-4 rounded-lg font-bold text-lg transition">
+                    Browse Catalog
                 </a>
-                <a href="pricing.html" 
-                   class="border-2 border-white hover:bg-white/10 text-white px-8 py-4 rounded-lg font-bold text-lg transition">
-                    View Pricing
+                <a href="custom-request.html" class="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-bold text-lg transition">
+                    Get Custom Database
                 </a>
             </div>
         </div>
@@ -244,48 +276,41 @@
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <div class="flex items-center space-x-2 mb-4">
-                        <i class="fa-solid fa-database text-brand-500 text-2xl"></i>
-                        <span class="text-xl font-bold text-white">Access Wizard</span>
-                    </div>
-                    <p class="text-sm">Automated Database Solutions.</p>
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Professional database solutions for small businesses.</p>
                 </div>
-
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <h4 class="text-white font-semibold mb-4">Products</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="features.html" class="hover:text-white transition">Features</a></li>
-                        <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
-                        <li><a href="download.html" class="hover:text-white transition">Download</a></li>
+                        <li><a href="catalog.html" class="hover:text-white transition">Database Catalog</a></li>
+                        <li><a href="custom-request.html" class="hover:text-white transition">Custom Databases</a></li>
+                        <li><a href="demo.html" class="hover:text-white transition">Free Demo</a></li>
                     </ul>
                 </div>
-
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="quick-start.html" class="hover:text-white transition">Quick Start Guide</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Contact Us</a></li>
                         <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
-                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                        <li><a href="supportdirectory.html" class="hover:text-white transition">Find an Expert</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="text-white font-semibold mb-4">Legal</h4>
                     <ul class="space-y-2 text-sm">
                         <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
                         <li><a href="terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
             </div>
-
             <div class="border-t border-gray-800 pt-8 text-sm text-center">
-                <p>&copy; 2024 Access Wizard. All rights reserved.</p>
+                <p>&copy; 2025 Access Wizard Databases - OnLineSav.com - All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
