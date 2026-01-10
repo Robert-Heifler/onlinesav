@@ -51,23 +51,23 @@
       background:var(--accent);
       color:#fff;
       text-decoration:none;
-      padding:8px 10px;
-      border-radius:10px;
+      padding:6px 8px;
+      border-radius:8px;
       font-weight:900;
-      box-shadow:0 16px 30px rgba(5,150,105,.22);
+      box-shadow:0 12px 24px rgba(5,150,105,.20);
       display:flex;
       flex-direction:column;
       align-items:center;
       justify-content:center;
-      gap:3px;
-      width:130px;
+      gap:2px;
+      width:100px;
       text-align:center;
       line-height:1.05;
       transition:transform .15s ease, background .15s ease;
     }
     .sticky-cta:hover{background:#047857;transform:translateY(-1px)}
-    .sticky-cta .ctaTop{font-size:15px;letter-spacing:.2px}
-    .sticky-cta .ctaMid,.sticky-cta .ctaBot{font-size:11px;opacity:.95;font-weight:800}
+    .sticky-cta .ctaTop{font-size:13px;letter-spacing:.2px}
+    .sticky-cta .ctaMid,.sticky-cta .ctaBot{font-size:9px;opacity:.92;font-weight:800}
 
     .section{
       background:var(--card);
@@ -137,36 +137,6 @@
       font-size:.92rem;
       white-space:nowrap;
     }
-    .heroBtnRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top:auto;
-      padding-top:12px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      border:none;
-      border-radius:12px;
-      padding:11px 13px;
-      font-weight:900;
-      text-decoration:none;
-      cursor:pointer;
-      transition:transform .15s ease, background .15s ease;
-      white-space:nowrap;
-    }
-    .btn:active{transform:translateY(1px)}
-    .btnPrimary{background:var(--accent);color:#fff}
-    .btnPrimary:hover{background:#047857}
-    .btnSecondary{
-      background:#fff;
-      color:var(--brand);
-      border:1px solid var(--border);
-    }
 
     ul{list-style:none}
     .list{
@@ -221,32 +191,55 @@
       margin-bottom:4px;
     }
 
-    .cards2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-top:12px;
-    }
+    .howList{display:grid;gap:10px;margin-top:12px}
     .howItem{
       border:1px solid var(--border);
       border-radius:14px;
-      padding:14px;
+      padding:12px;
       background:#f8fafc;
       line-height:1.45;
-      font-size:.96rem;
+      font-size:.94rem;
     }
     .howItem b{color:var(--brand)}
 
-    .getWrap{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      align-items:stretch;
+    .benefitList{display:grid;gap:8px;margin-top:10px}
+    .benefitItem{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+      background:#f8fafc;
+      border:1px solid #eef2f7;
+      border-radius:10px;
+      padding:10px;
+      line-height:1.4;
+      font-size:.88rem;
     }
-    .getList{
-      display:grid;
-      gap:10px;
+
+    .actionList{display:grid;gap:8px;margin-top:10px}
+    .actionItem{
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:10px;
+      background:#f8fafc;
+      line-height:1.4;
+      font-size:.88rem;
     }
+    .actionItem b{color:var(--brand)}
+
+    .qaList{display:grid;gap:8px;margin-top:10px}
+    .qa{
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:10px;
+      background:#f8fafc;
+      line-height:1.4;
+      font-size:.85rem;
+      word-wrap:break-word;
+      overflow-wrap:break-word;
+    }
+    .qa b{color:var(--brand)}
+
+    .getList{display:grid;gap:10px}
     .getLine{
       display:flex;
       gap:10px;
@@ -256,20 +249,8 @@
       border-radius:14px;
       padding:12px;
     }
-    .getRight{
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:14px;
-      background:#fff;
-      display:flex;
-      flex-direction:column;
-    }
-    .getRight b{color:var(--brand);font-size:1.05rem}
-    .steps{
-      display:grid;
-      gap:8px;
-      margin-top:12px;
-    }
+
+    .steps{display:grid;gap:8px;margin-top:10px}
     .step{
       background:#f8fafc;
       border:1px solid #eef2f7;
@@ -278,31 +259,28 @@
       font-size:.92rem;
       font-weight:800;
     }
-    .bottomCta{
-      margin-top:auto;
-      padding-top:12px;
-    }
 
-    .twoColList{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:10px;
-      margin-top:12px;
-    }
-    .feat{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      background:#f8fafc;
-      border:1px solid #eef2f7;
+    .payCompact{
+      border:1px solid var(--border);
       border-radius:14px;
       padding:12px;
-      line-height:1.4;
-      font-size:.94rem;
+      background:linear-gradient(135deg,rgba(30,58,138,.08),rgba(59,130,246,.06));
+      display:flex;
+      flex-direction:column;
+      gap:8px;
     }
-    .feat b{color:var(--brand)}
+    .payTitle{font-size:1.1rem;font-weight:900;color:var(--brand)}
+    .priceBig{font-size:1.6rem;font-weight:900;color:var(--accent)}
+    .powered{color:var(--muted);font-size:.82rem;font-weight:800}
+    .notePill{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:5px 9px;
+      font-size:.80rem;
+      font-weight:800;
+    }
 
-    .youtubeTight{margin-top:12px;max-width:540px}
     .youtubeBox{
       width:100%;
       aspect-ratio:16/9;
@@ -314,90 +292,8 @@
       background:#f8fafc;
       color:var(--muted);
       font-weight:800;
-    }
-
-    .payGridTight{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      align-items:stretch;
-      margin-top:12px;
-    }
-    .payCard{
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:12px;
-      background:#fff;
-      display:flex;
-      flex-direction:column;
-    }
-    .payLeft{background:linear-gradient(135deg,rgba(30,58,138,.08),rgba(59,130,246,.06))}
-    .payTitle{
-      font-size:1.1rem;
-      font-weight:900;
-      color:var(--brand);
-      margin-bottom:6px;
-    }
-    .priceBig{
-      font-size:1.8rem;
-      font-weight:900;
-      color:var(--accent);
-      margin-bottom:4px;
-    }
-    .powered{
-      color:var(--muted);
       font-size:.85rem;
-      font-weight:800;
-      margin-bottom:10px;
     }
-    .notesList{
-      display:grid;
-      gap:6px;
-    }
-    .notePill{
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:999px;
-      padding:6px 10px;
-      font-size:.85rem;
-      font-weight:800;
-    }
-    .payRightTop{
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-    .payMsg{
-      color:var(--muted);
-      font-size:.88rem;
-      font-weight:800;
-      text-align:center;
-      line-height:1.3;
-    }
-    .tightPara{
-      background:#f8fafc;
-      border:1px solid #eef2f7;
-      border-radius:10px;
-      padding:10px;
-      font-size:.85rem;
-      line-height:1.4;
-    }
-
-    .qaGrid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:12px;
-      margin-top:12px;
-    }
-    .qa{
-      border:1px solid var(--border);
-      border-radius:14px;
-      padding:14px;
-      background:#f8fafc;
-      line-height:1.5;
-      font-size:.92rem;
-    }
-    .qa b{color:var(--brand)}
 
     .footer{
       background:var(--brand);
@@ -409,7 +305,7 @@
     }
 
     @media(max-width:768px){
-      .split,.cards2,.getWrap,.twoColList,.payGridTight,.qaGrid{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr}
       .sticky-cta{
         top:auto;
         bottom:16px;
@@ -433,8 +329,8 @@
 
   <a href="#buy-section" class="sticky-cta">
     <span class="ctaTop">Buy now</span>
-    <span class="ctaMid">secure Paypal</span>
-    <span class="ctaBot">instant download</span>
+    <span class="ctaMid">Secure PayPal</span>
+    <span class="ctaBot">Instant Download</span>
   </a>
 
   <div class="container">
@@ -443,55 +339,75 @@
       <div class="split">
         <div class="cardBox soft">
           <div class="heroTitle">Stop losing sales to forgotten backorders and surprise stockouts.</div>
-          <div class="heroSub">Keep your best-selling plants and products in stock, fulfill backorders before customers give up, and see exactly what needs attention today. This finished Nursery Sales & Inventory database replaces scattered spreadsheets, notes, and guesswork with fast entry and instant reports your staff can actually use.</div>
-
+          <div class="heroSub">Run your nursery sales, customers, and inventory from one place—so you always know what’s owed, what’s low, and what needs to go out next. Follow up on backorders before customers call twice, generate reorder lists before shelves go empty, and keep payment status clear for every order.</div>
           <div class="chips">
             <div class="chip">&#9989; Instant download</div>
             <div class="chip">&#9989; Lifetime access</div>
           </div>
-
-          <div style="margin-top:10px;color:var(--muted);font-weight:800;line-height:1.35">
-            Built for speed and simplicity, So entering data is fast, clear, and mistake-free.
-          </div>
-
-          <div class="heroBtnRow">
-            <a class="btn btnPrimary" href="#buy-section">Get instant access</a>
-            <a class="btn btnSecondary" href="#key-features">See how it works</a>
-          </div>
         </div>
-
         <div class="cardBox">
           <div class="list">
-            <div class="li"><span class="check">&#10004;</span><div><b>Revenue disappearing</b><br/>Backorders buried in notes and calls</div></div>
-            <div class="li"><span class="check">&#10004;</span><div><b>Stockouts hitting hard</b><br/>Reorder decisions made too late</div></div>
-            <div class="li"><span class="check">&#10004;</span><div><b>Cash flow unclear</b><br/>Payment status scattered across paperwork</div></div>
+            <div class="li"><span class="check">&#10004;</span><div><b>Revenue disappearing</b><br/>Backorders buried across notes and memory</div></div>
+            <div class="li"><span class="check">&#10004;</span><div><b>Angry repeat customers</b><br/>Stockouts discovered after orders are placed</div></div>
+            <div class="li"><span class="check">&#10004;</span><div><b>Cash flow guessing</b><br/>Payment status unclear by order and date</div></div>
           </div>
-
           <div class="results">
             <div class="result"><b>Result</b>Know what to reorder before you run out</div>
-            <div class="result"><b>Result</b>See exactly who is waiting on backorders</div>
+            <div class="result"><b>Result</b>See exactly who’s waiting on backorders</div>
             <div class="result"><b>Result</b>Track paid vs pending orders instantly</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="how">
-      <h2>How It Solves These Problems</h2>
-      <div class="lead">Short, actionable views that make the next step obvious.</div>
-
-      <div class="cards2">
-        <div class="howItem"><b>Backorderfollow-up</b><br/>Seewhoiswaitingandwhattheyneedsonothinggetsforgottenagain.</div>
-        <div class="howItem"><b>Reorderclarity</b><br/>Generateasupplier-readybuylistbeforelowstockbecomeslostsales.</div>
-        <div class="howItem"><b>Paymentvisibility</b><br/>Filterpaidvspendingbydaterangesofollow-upshappenfaster.</div>
+    <section class="section">
+      <div class="split">
+        <div class="cardBox">
+          <h2>How It Solves These Problems</h2>
+          <div class="howList">
+            <div class="howItem"><b>Backorder follow-up</b><br/>See who’s waiting and what they need so nothing gets forgotten and fulfillment happens faster.</div>
+            <div class="howItem"><b>Reorder before zero</b><br/>Spot low-stock items early and print reorder lists by supplier and category.</div>
+            <div class="howItem"><b>Payment clarity</b><br/>Filter sales by paid vs pending so collections happen faster and cash flow improves.</div>
+          </div>
+        </div>
+        <div class="cardBox">
+          <h2>Benefits</h2>
+          <div class="benefitList">
+            <div class="benefitItem"><span class="check">&#10004;</span><div>Find backordered items by date and customer—then resolve them before they’re forgotten,Generate reorder lists only for items below reorder point—so purchasing is fast and confident,Print delivery details with names, addresses, and phone numbers already organized,See inventory value and gross margin by supplier to protect profit and reduce dead stock,Review order headers and full order detail for any date range to catch mistakes quickly,Identify top customers and best-selling products so you stock what actually moves</div></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>What You Get</h2>
-
-      <div class="getWrap">
+      <div class="split">
         <div class="cardBox">
+          <h2>Action Reports</h2>
+          <div class="actionList">
+            <div class="actionItem"><b>Yes—use the Backorders report to filter by start/end date, customer name, and backorders-only to see exactly what’s waiting.</b></div>
+            <div class="actionItem"><b>Yes—the Reorder report calculates QtyShort (reorder point minus on-hand) and can show only items under the threshold.</b></div>
+            <div class="actionItem"><b>Yes—the InvValue report calculates retail value, cost value, and gross margin value using your on-hand quantities.</b></div>
+            <div class="actionItem"><b>Yes—the SalesPaySts report totals sales by PaymentStatus across any date range so you can focus on pending revenue.</b></div>
+          </div>
+        </div>
+        <div class="cardBox">
+          <h2>Common Questions</h2>
+          <div class="qaList">
+            <div class="qa"><b>Q: Do I need Microsoft Access to use this database?</b><br/>A: You can use Microsoft Access on Windows, or the free Microsoft Access Runtime.</div>
+            <div class="qa"><b>Q: Is this a subscription?</b><br/>A: No. One-time purchase with lifetime access.</div>
+            <div class="qa"><b>Q: When do I get the download?</b><br/>A: Immediately after PayPal completes your payment.</div>
+            <div class="qa"><b>Q: Does it work on Windows 10 and 11?</b><br/>A: Yes—compatible with Windows 10 and 11.</div>
+            <div class="qa"><b>Q: How fast can I start using it?</b><br/>A: Most people can be up and running the same day—download, open it, and start entering data.</div>
+            <div class="qa"><b>Q: What if I'm not very technical?</b><br/>A: It's designed for simple, day-to-day use with pre-built screens for easy data entry.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="cardBox">
+          <h2>What You Get</h2>
           <div class="getList">
             <div class="getLine"><span class="check">&#10004;</span><div>Complete Microsoft Access database ready to use</div></div>
             <div class="getLine"><span class="check">&#10004;</span><div>Four inter-linked Pre-built forms for easy data entry</div></div>
@@ -499,115 +415,46 @@
             <div class="getLine"><span class="check">&#10004;</span><div>Instant download, lifetime access, no subscriptions</div></div>
           </div>
         </div>
-
-        <div class="getRight">
-          <b>Fast to start</b>
-          <div style="margin-top:6px">
-            Designed so you can be productive immediately—without setting up a complicated system.
-          </div>
-
+        <div class="cardBox">
+          <h2>Fast Start</h2>
           <div class="steps">
             <div class="step">1) Download after PayPal payment</div>
             <div class="step">2) Open in Access or Access Runtime</div>
             <div class="step">3) Start using it the same day</div>
           </div>
-
-          <div class="bottomCta">
-            <a class="btn btnPrimary" href="#buy-section">Get the database</a>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <section class="section" id="key-features">
-      <h2>Key Features</h2>
-      <div class="lead">Focused features for stock visibility, backorders, and payment clarity.</div>
-
-      <div class="twoColList">
-        <div class="feat"><span class="check">?</span><div>Spot backorders by date range and customer so fulfillment happens faster</div></div>
-        <div class="feat"><span class="check">?</span><div>Generate reorder lists by supplier and category before shelves hit zero</div></div>
-        <div class="feat"><span class="check">?</span><div>Print delivery schedules with addresses and phone numbers already organized</div></div>
-        <div class="feat"><span class="check">?</span><div>Calculate inventory retail value, cost value, and gross margin value instantly</div></div>
-        <div class="feat"><span class="check">?</span><div>See top customers and top products so you double down on what sells</div></div>
-        <div class="feat"><span class="check">?</span><div>Review order headers and line details to answer customer questions fast</div></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Youtube video</h2>
-      <div class="cardBox" style="max-width:540px">
-        <div class="youtubeBox">YouTube Video Coming Soon</div>
       </div>
     </section>
 
     <section class="section" id="buy-section">
-      <h2>PayPal</h2>
-
-      <div class="payGridTight">
-        <div class="payCard payLeft">
+      <div class="split">
+        <div class="payCompact">
           <div class="payTitle">Retail Nursery Database</div>
           <div class="priceBig">Only $9.00</div>
           <div class="powered">Powered by PayPal</div>
-
-          <div class="notesList">
-            <div class="notePill">&#9989; Secure PayPal checkout</div>
-            <div class="notePill">&#9989; Instant download right after payment</div>
-            <div class="notePill">&#9989; Lifetime access (no subscriptions)</div>
-          </div>
-
-          <div style="margin-top:auto;padding-top:10px">
-            <a class="btn btnSecondary" href="#system-requirements">System Requirements</a>
-          </div>
+          <div class="notePill">&#9989; Secure PayPal checkout</div>
+          <div class="notePill">&#9989; Instant download right after payment</div>
+          <div class="notePill">&#9989; Lifetime access (no subscriptions)</div>
+          <div id="paypal-button-container" style="margin-top:10px"></div>
         </div>
-
-        <div class="payCard payRight">
-          <div class="payRightTop">
-            <div id="paypal-button-container"></div>
-
-            <div class="payMsg">
-              After payment, you'll be redirected<br/>
-              to your download page.
-            </div>
-
-            <div class="tightPara">
-              <b>Quick setup tip:</b><br/>
-              If you don't have Microsoft Access installed, use the free
-              <a class="link" href="https://support.microsoft.com/en-us/office/download-and-install-microsoft-365-access-runtime-185c5a32-8ba9-491e-ac76-91cbe3ea09c9" target="_blank" rel="noopener">Microsoft Access Runtime</a>
-              (see <a class="link" href="#system-requirements">System Requirements</a>).<br/><br/>
-              Save the downloaded file on your Windows PC and use it whenever you want.
-            </div>
-          </div>
+        <div class="cardBox">
+          <p style="font-size:.88rem;line-height:1.5;margin-bottom:10px"><b>After payment, you'll be redirected to your download page.</b></p>
+          <p style="font-size:.85rem;line-height:1.45;color:var(--muted)"><b>Quick setup tip:</b> If you don't have Microsoft Access installed, use the free <a class="link" href="https://support.microsoft.com/en-us/office/download-and-install-microsoft-365-access-runtime-185c5a32-8ba9-491e-ac76-91cbe3ea09c9" target="_blank" rel="noopener">Microsoft Access Runtime</a> (see System Requirements). Save the downloaded file on your Windows PC and use it whenever you want.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2>Common Questions</h2>
-
-      <div class="qaGrid">
-        <div class="qa"><b>Q: CanIquicklyseewhichcustomersarewaitingonbackordereditems?</b><br/>A: Yes.UsetheBackordersreporttofilterbydaterange,customername,andbackorders-onlysoeveryopenitemisvisible.</div>
-        <div class="qa"><b>Q: Doesitcreateareorderlistwhenstockdropsbelowmyreorderpoint?</b><br/>A: Yes.TheReorderreportcalculateshowmanyunitsyouareshortandcanshowonlyitemsunderthereorderpoint.</div>
-        <div class="qa"><b>Q: CanIseeinventoryvalueandprofitmarginbysupplierorcategory?</b><br/>A: Yes.TheInvValuereportcalculatesretailvalue,costvalue,andgrossmarginvalueusingunitprice,cost,andquantityonhand.</div>
-        <div class="qa"><b>Q: CanIreviewsalesbycategory,customer,andpaymentstatusforadaterange?</b><br/>A: Yes.SalesByCat,SalesCust,SalesPayMth,andSalesPayStssummarizetotalsfortheexacttimeperiodyouchoose.</div>
-        <div class="qa"><b>Q: Do I need Microsoft Access to use this database?</b><br/>A: You can use Microsoft Access on Windows, or the free Microsoft Access Runtime.</div>
-        <div class="qa"><b>Q: Is this a subscription?</b><br/>A: No. One-time purchase with lifetime access.</div>
-        <div class="qa"><b>Q: When do I get the download?</b><br/>A: Immediately after PayPal completes your payment.</div>
-        <div class="qa"><b>Q: Does it work on Windows 10 and 11?</b><br/>A: Yes—compatible with Windows 10 and 11.</div>
-        <div class="qa"><b>Q: How fast can I start using it?</b><br/>A: Most people can be up and running the same day—download, open it, and start entering data.</div>
-        <div class="qa"><b>Q: What if I'm not very technical?</b><br/>A: It's designed for simple, day-to-day use with pre-built screens for easy data entry.</div>
+      <div class="split">
+        <div class="cardBox">
+          <h2 style="font-size:1.1rem">System Requirements</h2>
+          <p style="font-size:.85rem;line-height:1.5;margin-top:8px">Requires Microsoft Access (Windows) or the free <a class="link" href="https://support.microsoft.com/en-us/office/download-and-install-microsoft-365-access-runtime-185c5a32-8ba9-491e-ac76-91cbe3ea09c9" target="_blank" rel="noopener">Microsoft Access Runtime</a> which has NO monthly fees or subscriptions. Compatible with Windows 10 and 11.</p>
+        </div>
+        <div class="cardBox">
+          <h2 style="font-size:1.1rem">Video Tutorial</h2>
+          <div class="youtubeBox" style="margin-top:8px">Video Coming Soon</div>
+        </div>
       </div>
-    </section>
-
-    <section class="section" id="system-requirements">
-      <h2>System Requirements</h2>
-      <p style="color:var(--muted);font-weight:800;margin-top:6px">
-        Requires Microsoft Access (Windows) or the free
-        <a class="link" href="https://support.microsoft.com/en-us/office/download-and-install-microsoft-365-access-runtime-185c5a32-8ba9-491e-ac76-91cbe3ea09c9" target="_blank" rel="noopener">Microsoft Access Runtime</a>
-        which has NO monthly fees or subscriptions.
-      </p>
-      <p style="color:var(--muted);font-weight:700;margin-top:8px">
-        Compatible with Windows 10 and 11.
-      </p>
     </section>
 
     <div class="footer">
