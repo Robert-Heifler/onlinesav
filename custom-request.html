@@ -185,6 +185,12 @@
             <div class="max-w-3xl mx-auto alpha-box p-8">
                 <h2 class="text-2xl font-bold mb-6 text-center">Fill Out Custom Database Request Form</h2>
                 
+                <!-- DEBUG PANEL - REMOVE AFTER TESTING -->
+                <div id="debugPanel" style="background: yellow; border: 3px solid red; padding: 20px; margin-bottom: 20px; font-family: monospace;">
+                    <h3 style="color: red; font-weight: bold; font-size: 18px;">DEBUG INFO:</h3>
+                    <div id="debugInfo" style="color: black; font-size: 14px;">Loading...</div>
+                </div>
+                
                 <form id="customRequestForm" action="https://formspree.io/f/mwpgylwv" method="POST" class="space-y-8">
                     
                     <!-- Name -->
@@ -370,13 +376,37 @@
         </div>
     </section>
 
-    <!-- Floating Navigation Buttons -->
-    <button id="mandatoryDoneBtn" class="floating-nav-btn" style="top: 300px;">
-        <i class="fa-solid fa-arrow-down mr-2"></i> Done with Mandatory Fields
+    <!-- Floating Navigation Buttons - TEST VERSION -->
+    <button id="mandatoryDoneBtn" class="floating-nav-btn" 
+            style="display: block !important; 
+                   position: fixed !important; 
+                   top: 200px !important; 
+                   right: 20px !important; 
+                   background: red !important; 
+                   color: white !important; 
+                   padding: 30px !important; 
+                   font-size: 24px !important; 
+                   font-weight: bold !important;
+                   z-index: 99999 !important;
+                   border: 5px solid yellow !important;
+                   width: 300px !important;">
+        TEST BUTTON 1 - MANDATORY
     </button>
     
-    <button id="desiredDoneBtn" class="floating-nav-btn" style="top: 380px;">
-        <i class="fa-solid fa-arrow-down mr-2"></i> Done with Desired Fields
+    <button id="desiredDoneBtn" class="floating-nav-btn" 
+            style="display: block !important; 
+                   position: fixed !important; 
+                   top: 350px !important; 
+                   right: 20px !important; 
+                   background: blue !important; 
+                   color: white !important; 
+                   padding: 30px !important; 
+                   font-size: 24px !important; 
+                   font-weight: bold !important;
+                   z-index: 99999 !important;
+                   border: 5px solid yellow !important;
+                   width: 300px !important;">
+        TEST BUTTON 2 - DESIRED
     </button>
 
     <!-- Footer -->
@@ -596,6 +626,33 @@
         console.log('Desired button exists:', desiredBtn !== null);
         console.log('Mandatory fields count:', mandatoryFields.length);
         console.log('Desired fields count:', desiredFields.length);
+        
+        // POPULATE DEBUG PANEL ON PAGE
+        setTimeout(function() {
+            const debugInfo = document.getElementById('debugInfo');
+            if (debugInfo) {
+                let html = '';
+                html += 'Mandatory button exists: ' + (mandatoryBtn !== null) + '<br>';
+                html += 'Desired button exists: ' + (desiredBtn !== null) + '<br>';
+                
+                if (mandatoryBtn) {
+                    const style = window.getComputedStyle(mandatoryBtn);
+                    html += '<br><strong>MANDATORY BUTTON STYLES:</strong><br>';
+                    html += 'display: ' + style.display + '<br>';
+                    html += 'position: ' + style.position + '<br>';
+                    html += 'top: ' + style.top + '<br>';
+                    html += 'right: ' + style.right + '<br>';
+                    html += 'z-index: ' + style.zIndex + '<br>';
+                    html += 'background: ' + style.backgroundColor + '<br>';
+                    html += 'width: ' + style.width + '<br>';
+                    html += 'height: ' + style.height + '<br>';
+                    html += 'visibility: ' + style.visibility + '<br>';
+                    html += 'opacity: ' + style.opacity + '<br>';
+                }
+                
+                debugInfo.innerHTML = html;
+            }
+        }, 1000);
     </script>
 
 </body>
