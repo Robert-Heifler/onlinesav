@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Database Request - Access Wizard Databases</title>
-    <meta name="description" content="Request a custom Access database built for your business in 24 hours. $79 flat fee. Answer 2 questions and upload your field list.">
+    <meta name="description" content="Request a custom Access database built for your business in 24 hours. $79 flat fee. List your specific fields.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -37,19 +37,6 @@
             border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
-        }
-        .download-btn {
-            background: #4285f4;
-            color: white;
-            padding: 12px 24px;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .download-btn:hover {
-            background: #3367d6;
         }
     </style>
 </head>
@@ -95,7 +82,7 @@
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-6">Get a Custom Database Built for You</h1>
             <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-6">
-                Answer 2 quick questions and upload your field list. We build it in 24 hours.
+                Answer 2 questions and list your specific data fields. We build it in 24 hours.
             </p>
             <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
                 <span class="text-3xl font-bold">$79</span>
@@ -110,37 +97,29 @@
             <div class="max-w-4xl mx-auto">
                 <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
                 
-                <div class="grid md:grid-cols-4 gap-6 mb-8">
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                             1
                         </div>
-                        <h3 class="font-bold mb-2">Answer 2 Questions</h3>
-                        <p class="text-gray-600 text-sm">Tell us about your business and problems</p>
+                        <h3 class="font-bold mb-2">Fill Out the Form</h3>
+                        <p class="text-gray-600 text-sm">Answer 2 questions and list your data fields</p>
                     </div>
                     
                     <div class="text-center">
                         <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                             2
                         </div>
-                        <h3 class="font-bold mb-2">Download Template</h3>
-                        <p class="text-gray-600 text-sm">Get our CSV template to list your data fields</p>
+                        <h3 class="font-bold mb-2">We Build It</h3>
+                        <p class="text-gray-600 text-sm">Your database is built within 24 hours</p>
                     </div>
                     
                     <div class="text-center">
                         <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                             3
                         </div>
-                        <h3 class="font-bold mb-2">Upload & Submit</h3>
-                        <p class="text-gray-600 text-sm">Fill out template and upload with your form</p>
-                    </div>
-
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                            4
-                        </div>
-                        <h3 class="font-bold mb-2">Get Your Database</h3>
-                        <p class="text-gray-600 text-sm">Delivered within 24 hours via email</p>
+                        <h3 class="font-bold mb-2">Download & Use</h3>
+                        <p class="text-gray-600 text-sm">Get download link via email, start using immediately</p>
                     </div>
                 </div>
             </div>
@@ -153,7 +132,7 @@
             <div class="max-w-3xl mx-auto alpha-box p-8">
                 <h2 class="text-2xl font-bold mb-6 text-center">Fill Out Custom Database Request Form</h2>
                 
-                <form action="https://formspree.io/f/mwpgylwv" method="POST" enctype="multipart/form-data" class="space-y-8">
+                <form id="customRequestForm" action="https://formspree.io/f/mwpgylwv" method="POST" class="space-y-8">
                     
                     <!-- Name -->
                     <div>
@@ -191,74 +170,91 @@
 1. Lost sales because backorders aren't tracked
 2. Cash flow issues from unclear payment status
 3. Delivery mistakes from missing or wrong addresses"
-                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition auto-expand"></textarea>
+                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition"></textarea>
                         <p class="text-sm text-gray-500 mt-1">List the most painful problems first</p>
                     </div>
 
-                    <!-- Question 3 - Field Template Download & Upload -->
-                    <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-6">
-                        <label class="block text-sm font-bold text-gray-700 mb-4">
-                            Question 3: Download Our Field Template & Upload Your Completed List *
-                        </label>
+                    <!-- Info Box -->
+                    <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
+                        <p class="text-sm text-gray-700">
+                            <strong>Note:</strong> We'll automatically add standard fields (like ID numbers, creation dates, etc.). 
+                            Only list what's unique to your business. Leave rows blank if you don't need them.
+                        </p>
+                    </div>
+
+                    <!-- Question 3 - Mandatory Fields -->
+                    <div class="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                Question 3: List Your MANDATORY Fields
+                            </label>
+                            <p class="text-sm text-gray-600 mb-1">
+                                <strong>Maximum 15 fields • None are required</strong>
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                These are critical fields your database absolutely needs
+                            </p>
+                        </div>
                         
-                        <div class="space-y-4">
-                            <!-- Step 1: Download -->
-                            <div class="bg-white rounded-lg p-4 border border-blue-200">
-                                <h4 class="font-bold mb-2 flex items-center">
-                                    <span class="bg-brand-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">1</span>
-                                    Download the Field Template
-                                </h4>
-                                <p class="text-gray-600 text-sm mb-3">
-                                    This CSV file has two columns: <strong>Field Name</strong> and <strong>Priority</strong> (Mandatory or Desired)
-                                </p>
-                                <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQRYJKsmr6nIJX-VHkgwEnTco5eoEmJb_zzRtT1sSONCh-gI9wBUCHwQDMHnESe5KajugOmPmF9BDPe/pub?gid=0&single=true&output=csv" 
-                                   download="FieldListTemplate.csv" 
-                                   class="download-btn">
-                                    <i class="fa-solid fa-download mr-2"></i> Download Field Template
-                                </a>
-                            </div>
-
-                            <!-- Step 2: Fill Out -->
-                            <div class="bg-white rounded-lg p-4 border border-blue-200">
-                                <h4 class="font-bold mb-2 flex items-center">
-                                    <span class="bg-brand-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">2</span>
-                                    Fill Out the Template
-                                </h4>
-                                <p class="text-gray-600 text-sm">
-                                    Open the CSV file in Excel, Google Sheets, or any spreadsheet program. List all the data fields you need and mark each as "Mandatory" or "Desired".
-                                </p>
-                                <div class="mt-3 text-sm bg-gray-50 p-3 rounded border border-gray-200">
-                                    <strong>Examples:</strong>
-                                    <ul class="list-disc pl-5 mt-1 text-gray-600">
-                                        <li>Customer email address - Mandatory</li>
-                                        <li>Sales tax percentage - Mandatory</li>
-                                        <li>Delivery date - Desired</li>
-                                        <li>Payment status (paid/pending) - Mandatory</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Step 3: Upload -->
-                            <div class="bg-white rounded-lg p-4 border border-blue-200">
-                                <h4 class="font-bold mb-2 flex items-center">
-                                    <span class="bg-brand-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-2">3</span>
-                                    Upload Your Completed Template
-                                </h4>
-                                <p class="text-gray-600 text-sm mb-3">
-                                    Save your filled template and upload it here:
-                                </p>
-                                <input type="file" 
-                                       id="field-template" 
-                                       name="field-template" 
-                                       accept=".csv,.xlsx,.xls" 
-                                       required
-                                       class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition bg-white">
-                                <p class="text-xs text-gray-500 mt-2">
-                                    Accepted formats: CSV, XLSX, XLS
-                                </p>
-                            </div>
+                        <div class="space-y-3">
+                            <input type="text" name="mandatory_1" placeholder="Mandatory Field 1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_2" placeholder="Mandatory Field 2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_3" placeholder="Mandatory Field 3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_4" placeholder="Mandatory Field 4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_5" placeholder="Mandatory Field 5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_6" placeholder="Mandatory Field 6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_7" placeholder="Mandatory Field 7" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_8" placeholder="Mandatory Field 8" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_9" placeholder="Mandatory Field 9" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_10" placeholder="Mandatory Field 10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_11" placeholder="Mandatory Field 11" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_12" placeholder="Mandatory Field 12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_13" placeholder="Mandatory Field 13" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_14" placeholder="Mandatory Field 14" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_15" placeholder="Mandatory Field 15" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
                         </div>
                     </div>
+
+                    <!-- Question 4 - Desired Fields -->
+                    <div class="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+                        <div class="mb-4">
+                            <label class="block text-sm font-bold text-gray-700 mb-2">
+                                Question 4: List Your DESIRED Fields
+                            </label>
+                            <p class="text-sm text-gray-600 mb-1">
+                                <strong>Maximum 20 fields • None are required</strong>
+                            </p>
+                            <p class="text-xs text-gray-500">
+                                These are nice-to-have fields that would improve the database
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-3">
+                            <input type="text" name="desired_1" placeholder="Desired Field 1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_2" placeholder="Desired Field 2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_3" placeholder="Desired Field 3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_4" placeholder="Desired Field 4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_5" placeholder="Desired Field 5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_6" placeholder="Desired Field 6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_7" placeholder="Desired Field 7" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_8" placeholder="Desired Field 8" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_9" placeholder="Desired Field 9" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_10" placeholder="Desired Field 10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_11" placeholder="Desired Field 11" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_12" placeholder="Desired Field 12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_13" placeholder="Desired Field 13" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_14" placeholder="Desired Field 14" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_15" placeholder="Desired Field 15" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_16" placeholder="Desired Field 16" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_17" placeholder="Desired Field 17" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_18" placeholder="Desired Field 18" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_19" placeholder="Desired Field 19" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_20" placeholder="Desired Field 20" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                        </div>
+                    </div>
+
+                    <!-- Hidden field for formatted output -->
+                    <input type="hidden" id="formatted_fields" name="formatted_fields">
 
                     <!-- Submit Button -->
                     <div class="bg-brand-50 border-2 border-brand-200 rounded-lg p-6">
@@ -309,10 +305,10 @@
                     </div>
 
                     <div class="alpha-box p-6">
-                        <h3 class="font-bold text-lg mb-2 text-brand-600">What if I don't know all my fields yet?</h3>
+                        <h3 class="font-bold text-lg mb-2 text-brand-600">What are examples of mandatory vs desired fields?</h3>
                         <p class="text-gray-700">
-                            That's okay! Just list what you know. Mark critical fields as "Mandatory" and nice-to-haves as "Desired". 
-                            We can work with you to refine the list before building.
+                            <strong>Mandatory:</strong> Customer email, payment status, invoice number<br/>
+                            <strong>Desired:</strong> Customer notes, product category, delivery date
                         </p>
                     </div>
 
@@ -361,29 +357,50 @@
         </div>
     </footer>
 
-    <!-- Auto-Expanding Textarea Script -->
+    <!-- JavaScript for Form Processing -->
     <script>
         // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Auto-expanding textareas
-        function autoExpand(element) {
-            element.style.height = 'auto';
-            element.style.height = (element.scrollHeight) + 'px';
-        }
-
-        // Add auto-expand functionality to textareas
-        document.addEventListener('DOMContentLoaded', function() {
-            const textareas = document.querySelectorAll('textarea.auto-expand');
+        // Form submission handler
+        document.getElementById('customRequestForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            textareas.forEach(function(textarea) {
-                autoExpand(textarea);
-                textarea.addEventListener('input', function() {
-                    autoExpand(this);
-                });
+            // Collect mandatory fields
+            let mandatoryFields = [];
+            document.querySelectorAll('.mandatory-field').forEach(function(input) {
+                if (input.value.trim() !== '') {
+                    mandatoryFields.push(input.value.trim());
+                }
             });
+            
+            // Collect desired fields
+            let desiredFields = [];
+            document.querySelectorAll('.desired-field').forEach(function(input) {
+                if (input.value.trim() !== '') {
+                    desiredFields.push(input.value.trim());
+                }
+            });
+            
+            // Format output
+            let formatted = '';
+            if (mandatoryFields.length > 0) {
+                formatted += 'MANDATORY FIELDS:\n';
+                formatted += mandatoryFields.join('\n');
+                formatted += '\n\n';
+            }
+            if (desiredFields.length > 0) {
+                formatted += 'DESIRED FIELDS:\n';
+                formatted += desiredFields.join('\n');
+            }
+            
+            // Set hidden field value
+            document.getElementById('formatted_fields').value = formatted;
+            
+            // Submit form
+            this.submit();
         });
     </script>
 
