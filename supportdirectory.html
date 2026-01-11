@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support Directory - Access Wizard</title>
+    <title>Support Directory - Access Wizard Databases</title>
     <meta name="description" content="Find Microsoft Access developers and trainers. Get help with Access database development and training.">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="At_1_.PNG">
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-KP5J5QPM"></script>
@@ -33,7 +34,7 @@
     <style>
         .alpha-box {
             background-color: white;
-            border-radius: 4px;
+            border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
@@ -43,39 +44,36 @@
 <body class="bg-gray-50 text-gray-700 font-sans">
 
     <!-- Header -->
-    <header class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="At_1_.PNG" alt="Access Wizard Logo" class="h-10">
+                <a href="index.html">
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10">
+                </a>
             </div>
 
             <nav class="hidden md:flex space-x-6">
                 <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
-                <a href="features.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Features</a>
-                <a href="pricing.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Pricing</a>
-                <a href="quick-start.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Quick Start</a>
-                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
+                <a href="catalog.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Catalog</a>
+                <a href="custom-request.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Demo</a>
                 <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
+                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
             </nav>
 
             <button id="mobile-menu-btn" class="md:hidden text-gray-600">
                 <i class="fa-solid fa-bars text-2xl"></i>
             </button>
-
-            <div class="hidden md:block">
-                <a href="download.html" class="bg-brand-600 hover:bg-brand-500 text-white px-5 py-2 rounded-lg font-semibold transition shadow-md">Download Free</a>
-            </div>
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
             <nav class="flex flex-col px-6 py-4 space-y-2">
                 <a href="index.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
-                <a href="features.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Features</a>
-                <a href="pricing.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Pricing</a>
-                <a href="quick-start.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Quick Start</a>
-                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
+                <a href="catalog.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Catalog</a>
+                <a href="custom-request.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Custom Request</a>
+                <a href="demo.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Demo</a>
                 <a href="support.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
-                <a href="download.html" class="bg-brand-600 text-white px-3 py-2 rounded text-center">Download Free</a>
+                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
             </nav>
         </div>
     </header>
@@ -119,9 +117,9 @@
                                         
                                         <div class="flex items-center text-gray-700">
                                             <i class="fa-solid fa-envelope text-brand-600 w-6 mr-3"></i>
-                                           <a href="mailto:info@onlinesave.com" class="text-brand-600 hover:text-brand-700 font-medium transition">
-    info@onlinesave.com
-</a>
+                                            <a href="support.html" class="text-brand-600 hover:text-brand-700 font-medium transition">
+                                                Contact via form
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -164,25 +162,45 @@
                         <i class="fa-solid fa-users text-gray-400 text-5xl mb-4"></i>
                         <h3 class="text-xl font-semibold text-gray-700 mb-2">Training Providers Coming Soon</h3>
                         <p class="text-gray-600 mb-4">We're currently building our directory of Access training providers.</p>
-                        <a href="/cdn-cgi/l/email-protection#32535151574141455b485340561c405d505740465a575b545e574072555f535b5e1c515d5f0d414750585751460f735656170002465d170002614742425d4046170002765b405751465d404b" class="inline-block text-brand-600 hover:text-brand-700 font-semibold">
-                            Contact us to be listed <i class="fa-solid fa-arrow-right ml-1"></i>
+                        <a href="support.html" class="inline-block bg-brand-600 hover:bg-brand-700 text-white px-6 py-3 rounded-lg font-semibold transition shadow-md">
+                            Contact Us to Be Listed <i class="fa-solid fa-arrow-right ml-1"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Add Your Listing -->
-                <div class="bg-brand-50 border-2 border-brand-200 rounded-lg p-8 text-center">
+                <div class="bg-brand-50 border-2 border-brand-200 rounded-lg p-8 text-center mb-16">
                     <i class="fa-solid fa-plus-circle text-brand-600 text-4xl mb-4"></i>
                     <h3 class="text-2xl font-bold mb-3">Want to be listed here?</h3>
                     <p class="text-gray-700 mb-6">
                         If you're an Access developer, programmer, or trainer and would like to be added to this support directory, 
                         please get in touch.
                     </p>
-                    <a href="/cdn-cgi/l/email-protection#b3d2d0d0d6c0c0c4dac9d2c1d79dc1dcd1d6c1c7dbd6dad5dfd6c1f3d4ded2dadf9dd0dcde8cc0c6d1d9d6d0c78ef2d7d7968183c7dc968183e0c6c3c3dcc1c7968183f7dac1d6d0c7dcc1ca95d1dcd7ca8efbda968183e1dcd1d6c1c79f9683f79683f29683f79683f2fa968183c4dcc6dfd7968183dfdad8d6968183c7dc968183d1d6968183d2d7d7d6d7968183c7dc968183c7dbd6968183f2d0d0d6c0c0968183e4dac9d2c1d7968183e0c6c3c3dcc1c7968183f7dac1d6d0c7dcc1ca9d9683f79683f29683f79683f2fdd2ded6899681839683f79683f2e4d6d1c0dac7d6899681839683f79683f2f6ded2dadf899681839683f79683f2e0c3d6d0dad2dfc7dad6c0899681839683f79683f29683f79683f2e7dbd2ddd8968183cadcc692" class="inline-block bg-brand-600 hover:bg-brand-700 text-white px-8 py-3 rounded-lg font-bold transition shadow-md">
+                    <a href="support.html" class="inline-block bg-brand-600 hover:bg-brand-700 text-white px-8 py-3 rounded-lg font-bold transition shadow-md">
                         <i class="fa-solid fa-envelope mr-2"></i> Contact Me to Get Listed
                     </a>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- Affiliate Disclosure Section -->
+    <section class="py-12 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto alpha-box p-8">
+                <h3 class="text-xl font-bold mb-4 flex items-center">
+                    <i class="fa-solid fa-info-circle text-brand-600 mr-3"></i>
+                    Affiliate Disclosure
+                </h3>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    This support directory may contain affiliate links to training courses and educational resources. 
+                    When you purchase through these links, we may earn a commission at no additional cost to you. 
+                    We only recommend courses and training that we believe will provide value to Access users. 
+                    Our editorial content and recommendations are not influenced by affiliate relationships. 
+                    All developers and trainers listed here are independent professionals, and we are transparent 
+                    about any affiliate partnerships.
+                </p>
             </div>
         </div>
     </section>
@@ -192,23 +210,25 @@
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <img src="At_1_.PNG" alt="Access Wizard" class="h-10 mb-4 brightness-0 invert opacity-80">
-                    <p class="text-sm">Automated Database Solutions.</p>
+                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10 mb-4 brightness-0 invert opacity-80">
+                    <p class="text-sm">Professional database solutions for small businesses.</p>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Product</h4>
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="features.html" class="hover:text-white transition">Features</a></li>
-                        <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
-                        <li><a href="download.html" class="hover:text-white transition">Download</a></li>
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="catalog.html" class="hover:text-white transition">Catalog</a></li>
+                        <li><a href="custom-request.html" class="hover:text-white transition">Custom Request</a></li>
+                        <li><a href="demo.html" class="hover:text-white transition">Demo</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Resources</h4>
+                    <h4 class="text-white font-semibold mb-4">Support</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="quick-start.html" class="hover:text-white transition">Quick Start Guide</a></li>
+                        <li><a href="support.html" class="hover:text-white transition">Contact Us</a></li>
                         <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
-                        <li><a href="support.html" class="hover:text-white transition">Support</a></li>
+                        <li><a href="supportdirectory.html" class="hover:text-white transition">Find an Expert</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">General Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -220,6 +240,16 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 pt-8 text-sm text-center">
-                <p class="mb-2">&copy; 2024 Access Wizard. All rights reserved.</p>
-                <p class="text-gray-500">
-                 
+                <p>&copy; 2025 Access Wizard Databases - OnLineSav.com - All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
