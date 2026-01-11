@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Custom Database Request - Access Wizard Databases</title>
-    <meta name="description" content="Request a custom Access database built for your business in 24 hours. $79 flat fee. Answer 3 simple questions and we'll build it for you.">
+    <meta name="description" content="Request a custom Access database built for your business in 24 hours. $79 flat fee. Answer 4 simple questions and we'll build it for you.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -78,11 +78,11 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-16 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
+    <section class="pt-32 pb-12 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
         <div class="container mx-auto px-6 text-center">
             <h1 class="text-4xl md:text-5xl font-bold mb-6">Get a Custom Database Built for You</h1>
             <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-6">
-                Answer 3 quick questions. We build it in 24 hours. Delivered to your inbox.
+                Answer 4 quick questions. We build it in 24 hours. Delivered to your inbox.
             </p>
             <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
                 <span class="text-3xl font-bold">$79</span>
@@ -91,19 +91,19 @@
         </div>
     </section>
 
-    <!-- How It Works -->
+    <!-- How It Works (Moved Up) -->
     <section class="py-12 bg-white">
         <div class="container mx-auto px-6">
             <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-12">How It Works</h2>
+                <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
                 
-                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="grid md:grid-cols-3 gap-8 mb-8">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
                             1
                         </div>
                         <h3 class="font-bold mb-2">Fill Out the Form</h3>
-                        <p class="text-gray-600 text-sm">Answer 3 questions about your business and needs</p>
+                        <p class="text-gray-600 text-sm">Answer 4 questions about your business and needs</p>
                     </div>
                     
                     <div class="text-center">
@@ -126,11 +126,11 @@
         </div>
     </section>
 
-    <!-- Request Form -->
-    <section class="py-16 bg-gray-50">
+    <!-- Request Form (Moved Up) -->
+    <section class="py-8 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto alpha-box p-8">
-                <h2 class="text-2xl font-bold mb-6 text-center">Custom Database Request Form</h2>
+                <h2 class="text-2xl font-bold mb-6 text-center">Fill Out Custom Database Request Form</h2>
                 
                 <form action="https://formspree.io/f/mwpgylwv" method="POST" class="space-y-8">
                     
@@ -165,25 +165,24 @@
                         <label for="problems" class="block text-sm font-bold text-gray-700 mb-2">
                             Question 2: What are your top 3 problems this database MUST solve? *
                         </label>
-                        <textarea id="problems" name="problems" rows="6" required
+                        <textarea id="problems" name="problems" rows="5" required
                                   placeholder="Example:
 1. Lost sales because backorders aren't tracked
 2. Cash flow issues from unclear payment status
 3. Delivery mistakes from missing or wrong addresses"
-                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition"></textarea>
+                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition auto-expand"></textarea>
                         <p class="text-sm text-gray-500 mt-1">List the most painful problems first</p>
                     </div>
 
                     <!-- Question 3 -->
                     <div>
-                        <label for="requirements" class="block text-sm font-bold text-gray-700 mb-2">
-                            Question 3: List 10-20 specific things that MUST be included *
+                        <label for="would-like" class="block text-sm font-bold text-gray-700 mb-2">
+                            Question 3: List 10-20 specific things that you would like to be included *
                         </label>
-                        <textarea id="requirements" name="requirements" rows="8" required
+                        <textarea id="would-like" name="would-like" rows="11" required
                                   placeholder="Example:
 • Customer email addresses
 • Sales tax percentage field
-• Product photos
 • Delivery dates and addresses
 • Payment status (paid/pending/overdue)
 • Invoice numbers
@@ -191,9 +190,27 @@
 • Inventory reorder points
 • Backorder tracking
 • Multiple payment methods (cash, check, card)"
-                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition"></textarea>
+                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition auto-expand"></textarea>
                         <p class="text-sm text-gray-500 mt-1">
                             Think about specific data fields you need: emails, tax rates, dates, phone numbers, photos, etc.
+                        </p>
+                    </div>
+
+                    <!-- Question 4 -->
+                    <div>
+                        <label for="must-have" class="block text-sm font-bold text-gray-700 mb-2">
+                            Question 4: List 5 things that absolutely MUST be included (deal-breakers) that you did not mention in Q3. *
+                        </label>
+                        <textarea id="must-have" name="must-have" rows="7" required
+                                  placeholder="Example:
+• Customer phone numbers
+• Order notes field
+• Product category/type
+• Date ordered and date delivered
+• Customer billing address separate from delivery address"
+                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition auto-expand"></textarea>
+                        <p class="text-sm text-gray-500 mt-1">
+                            These are critical features without which the database won't meet your needs
                         </p>
                     </div>
 
@@ -231,18 +248,9 @@
                 <div class="space-y-6">
                     
                     <div class="alpha-box p-6">
-                        <h3 class="font-bold text-lg mb-2 text-brand-600">Why only $79 regardless of complexity?</h3>
-                        <p class="text-gray-700">
-                            We use AI-powered tools to build databases fast. This keeps our costs low and lets us offer flat-rate pricing. 
-                            Whether you need 5 tables or 20, the price stays the same.
-                        </p>
-                    </div>
-
-                    <div class="alpha-box p-6">
                         <h3 class="font-bold text-lg mb-2 text-brand-600">What if I need changes after it's built?</h3>
                         <p class="text-gray-700">
-                            We'll make reasonable adjustments within 7 days at no charge if we missed something you specified. 
-                            Major redesigns or new features are handled as a new project.
+                            We'll make reasonable adjustments within 2 days of delivery at no charge if we missed something you specified and we agreed to when replying to your custom request.
                         </p>
                     </div>
 
@@ -251,13 +259,6 @@
                         <p class="text-gray-700">
                             Yes! <a href="demo.html" class="text-brand-600 hover:text-brand-700 font-semibold underline">Download our free demo</a> 
                             to see the quality of our work. Custom databases look and work exactly the same way.
-                        </p>
-                    </div>
-
-                    <div class="alpha-box p-6">
-                        <h3 class="font-bold text-lg mb-2 text-brand-600">Do you offer refunds?</h3>
-                        <p class="text-gray-700">
-                            Yes. If we can't deliver a working database that meets your requirements within 7 days, we'll refund your payment in full.
                         </p>
                     </div>
 
@@ -275,11 +276,12 @@
                     <p class="text-sm">Professional database solutions for small businesses.</p>
                 </div>
                 <div>
-                    <h4 class="text-white font-semibold mb-4">Products</h4>
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="catalog.html" class="hover:text-white transition">Database Catalog</a></li>
-                        <li><a href="custom-request.html" class="hover:text-white transition">Custom Databases</a></li>
-                        <li><a href="demo.html" class="hover:text-white transition">Free Demo</a></li>
+                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+                        <li><a href="catalog.html" class="hover:text-white transition">Catalog</a></li>
+                        <li><a href="custom-request.html" class="hover:text-white transition">Custom Request</a></li>
+                        <li><a href="demo.html" class="hover:text-white transition">Demo</a></li>
                     </ul>
                 </div>
                 <div>
@@ -288,6 +290,7 @@
                         <li><a href="support.html" class="hover:text-white transition">Contact Us</a></li>
                         <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
                         <li><a href="supportdirectory.html" class="hover:text-white transition">Find an Expert</a></li>
+                        <li><a href="contact.html" class="hover:text-white transition">General Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -295,7 +298,6 @@
                     <ul class="space-y-2 text-sm">
                         <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
                         <li><a href="terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
                     </ul>
                 </div>
             </div>
@@ -305,9 +307,32 @@
         </div>
     </footer>
 
+    <!-- Auto-Expanding Textarea Script -->
     <script>
+        // Mobile menu toggle
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Auto-expanding textareas
+        function autoExpand(element) {
+            element.style.height = 'auto';
+            element.style.height = (element.scrollHeight) + 'px';
+        }
+
+        // Add auto-expand functionality to all textareas with class 'auto-expand'
+        document.addEventListener('DOMContentLoaded', function() {
+            const textareas = document.querySelectorAll('textarea.auto-expand');
+            
+            textareas.forEach(function(textarea) {
+                // Set initial height
+                autoExpand(textarea);
+                
+                // Expand on input
+                textarea.addEventListener('input', function() {
+                    autoExpand(this);
+                });
+            });
         });
     </script>
 
