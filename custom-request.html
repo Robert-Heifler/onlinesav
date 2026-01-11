@@ -43,6 +43,7 @@
         .floating-nav-btn {
             position: fixed;
             right: 20px;
+            top: 300px;  /* Fixed position for testing */
             background: #16a34a;
             color: white;
             padding: 14px 24px;
@@ -52,7 +53,7 @@
             font-size: 15px;
             cursor: pointer;
             z-index: 9999;
-            display: none;
+            display: block !important;  /* ALWAYS VISIBLE FOR TESTING */
             transition: all 0.3s ease;
             border: 2px solid white;
             max-width: 220px;
@@ -370,11 +371,11 @@
     </section>
 
     <!-- Floating Navigation Buttons -->
-    <button id="mandatoryDoneBtn" class="floating-nav-btn">
+    <button id="mandatoryDoneBtn" class="floating-nav-btn" style="top: 300px;">
         <i class="fa-solid fa-arrow-down mr-2"></i> Done with Mandatory Fields
     </button>
     
-    <button id="desiredDoneBtn" class="floating-nav-btn">
+    <button id="desiredDoneBtn" class="floating-nav-btn" style="top: 380px;">
         <i class="fa-solid fa-arrow-down mr-2"></i> Done with Desired Fields
     </button>
 
