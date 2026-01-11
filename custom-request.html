@@ -39,56 +39,46 @@
             transition: transform 0.2s;
         }
         
-        /* Floating button styles */
-        .floating-nav-btn {
+        /* SIMPLE FLOATING BUTTON - Fixed position, simple show/hide */
+        #floatingNavBtn {
             position: fixed;
             right: 20px;
-            top: 300px;  /* Fixed position for testing */
+            top: 50%;
+            transform: translateY(-50%);
             background: #16a34a;
             color: white;
-            padding: 14px 24px;
-            border-radius: 8px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            padding: 18px 26px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
             font-weight: 700;
-            font-size: 15px;
+            font-size: 16px;
             cursor: pointer;
             z-index: 9999;
-            display: block !important;  /* ALWAYS VISIBLE FOR TESTING */
-            transition: all 0.3s ease;
-            border: 2px solid white;
-            max-width: 220px;
+            border: 3px solid white;
+            max-width: 260px;
             text-align: center;
-            line-height: 1.3;
+            line-height: 1.5;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
         
-        .floating-nav-btn:hover {
+        #floatingNavBtn.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #floatingNavBtn:hover {
             background: #15803d;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-        }
-        
-        .floating-nav-btn.show {
-            display: block;
-            animation: slideIn 0.3s ease;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
         
         @media (max-width: 768px) {
-            .floating-nav-btn {
+            #floatingNavBtn {
                 right: 10px;
-                padding: 10px 16px;
-                font-size: 13px;
-                max-width: 160px;
+                padding: 14px 18px;
+                font-size: 14px;
+                max-width: 200px;
             }
         }
     </style>
@@ -179,17 +169,17 @@
         </div>
     </section>
 
+    <!-- Floating Navigation Button - SINGLE BUTTON THAT CHANGES -->
+    <div id="floatingNavBtn">
+        <i class="fa-solid fa-arrow-down mr-2"></i>
+        <span id="buttonText">Done with Mandatory → Go to Desired</span>
+    </div>
+
     <!-- Request Form -->
     <section class="py-8 bg-gray-50">
         <div class="container mx-auto px-6">
             <div class="max-w-3xl mx-auto alpha-box p-8">
                 <h2 class="text-2xl font-bold mb-6 text-center">Fill Out Custom Database Request Form</h2>
-                
-                <!-- DEBUG PANEL - REMOVE AFTER TESTING -->
-                <div id="debugPanel" style="background: yellow; border: 3px solid red; padding: 20px; margin-bottom: 20px; font-family: monospace;">
-                    <h3 style="color: red; font-weight: bold; font-size: 18px;">DEBUG INFO:</h3>
-                    <div id="debugInfo" style="color: black; font-size: 14px;">Loading...</div>
-                </div>
                 
                 <form id="customRequestForm" action="https://formspree.io/f/mwpgylwv" method="POST" class="space-y-8">
                     
@@ -256,21 +246,21 @@
                         </div>
                         
                         <div class="space-y-3">
-                            <input type="text" name="mandatory_1" placeholder="Mandatory Field 1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_2" placeholder="Mandatory Field 2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_3" placeholder="Mandatory Field 3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_4" placeholder="Mandatory Field 4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_5" placeholder="Mandatory Field 5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_6" placeholder="Mandatory Field 6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_7" placeholder="Mandatory Field 7" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_8" placeholder="Mandatory Field 8" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_9" placeholder="Mandatory Field 9" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_10" placeholder="Mandatory Field 10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_11" placeholder="Mandatory Field 11" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_12" placeholder="Mandatory Field 12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_13" placeholder="Mandatory Field 13" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_14" placeholder="Mandatory Field 14" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
-                            <input type="text" name="mandatory_15" placeholder="Mandatory Field 15" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition mandatory-field">
+                            <input type="text" name="mandatory_1" placeholder="Mandatory Field 1" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_2" placeholder="Mandatory Field 2" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_3" placeholder="Mandatory Field 3" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_4" placeholder="Mandatory Field 4" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_5" placeholder="Mandatory Field 5" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_6" placeholder="Mandatory Field 6" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_7" placeholder="Mandatory Field 7" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_8" placeholder="Mandatory Field 8" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_9" placeholder="Mandatory Field 9" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_10" placeholder="Mandatory Field 10" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_11" placeholder="Mandatory Field 11" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_12" placeholder="Mandatory Field 12" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_13" placeholder="Mandatory Field 13" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_14" placeholder="Mandatory Field 14" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="mandatory_15" placeholder="Mandatory Field 15" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
                         </div>
                     </div>
 
@@ -289,26 +279,26 @@
                         </div>
                         
                         <div class="space-y-3">
-                            <input type="text" name="desired_1" placeholder="Desired Field 1" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_2" placeholder="Desired Field 2" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_3" placeholder="Desired Field 3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_4" placeholder="Desired Field 4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_5" placeholder="Desired Field 5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_6" placeholder="Desired Field 6" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_7" placeholder="Desired Field 7" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_8" placeholder="Desired Field 8" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_9" placeholder="Desired Field 9" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_10" placeholder="Desired Field 10" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_11" placeholder="Desired Field 11" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_12" placeholder="Desired Field 12" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_13" placeholder="Desired Field 13" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_14" placeholder="Desired Field 14" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_15" placeholder="Desired Field 15" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_16" placeholder="Desired Field 16" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_17" placeholder="Desired Field 17" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_18" placeholder="Desired Field 18" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_19" placeholder="Desired Field 19" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
-                            <input type="text" name="desired_20" placeholder="Desired Field 20" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition desired-field">
+                            <input type="text" name="desired_1" placeholder="Desired Field 1" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_2" placeholder="Desired Field 2" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_3" placeholder="Desired Field 3" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_4" placeholder="Desired Field 4" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_5" placeholder="Desired Field 5" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_6" placeholder="Desired Field 6" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_7" placeholder="Desired Field 7" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_8" placeholder="Desired Field 8" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_9" placeholder="Desired Field 9" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_10" placeholder="Desired Field 10" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_11" placeholder="Desired Field 11" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_12" placeholder="Desired Field 12" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_13" placeholder="Desired Field 13" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_14" placeholder="Desired Field 14" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_15" placeholder="Desired Field 15" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_16" placeholder="Desired Field 16" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_17" placeholder="Desired Field 17" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_18" placeholder="Desired Field 18" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_19" placeholder="Desired Field 19" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
+                            <input type="text" name="desired_20" placeholder="Desired Field 20" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
                         </div>
                     </div>
 
@@ -376,39 +366,6 @@
         </div>
     </section>
 
-    <!-- Floating Navigation Buttons - TEST VERSION -->
-    <button id="mandatoryDoneBtn" class="floating-nav-btn" 
-            style="display: block !important; 
-                   position: fixed !important; 
-                   top: 200px !important; 
-                   right: 20px !important; 
-                   background: red !important; 
-                   color: white !important; 
-                   padding: 30px !important; 
-                   font-size: 24px !important; 
-                   font-weight: bold !important;
-                   z-index: 99999 !important;
-                   border: 5px solid yellow !important;
-                   width: 300px !important;">
-        TEST BUTTON 1 - MANDATORY
-    </button>
-    
-    <button id="desiredDoneBtn" class="floating-nav-btn" 
-            style="display: block !important; 
-                   position: fixed !important; 
-                   top: 350px !important; 
-                   right: 20px !important; 
-                   background: blue !important; 
-                   color: white !important; 
-                   padding: 30px !important; 
-                   font-size: 24px !important; 
-                   font-weight: bold !important;
-                   z-index: 99999 !important;
-                   border: 5px solid yellow !important;
-                   width: 300px !important;">
-        TEST BUTTON 2 - DESIRED
-    </button>
-
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="container mx-auto px-6">
@@ -449,21 +406,29 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Form Processing -->
+    <!-- CLEAN, SIMPLE JAVASCRIPT -->
     <script>
-        // Mobile menu toggle
+        // Mobile menu
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
-        // Prevent Enter key from submitting form - move to next field instead
+        // Get elements
+        const floatingBtn = document.getElementById('floatingNavBtn');
+        const buttonText = document.getElementById('buttonText');
+        const mandatoryFields = document.querySelectorAll('.mandatory-field');
+        const desiredFields = document.querySelectorAll('.desired-field');
+        const desiredSection = document.getElementById('desired-section');
+        const submitSection = document.getElementById('submit-section');
+        
+        let currentMode = null; // 'mandatory' or 'desired'
+
+        // Prevent Enter from submitting - move to next field
         const allInputs = document.querySelectorAll('input[type="text"], textarea');
         allInputs.forEach(function(input, index) {
             input.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') {
-                    e.preventDefault(); // Prevent form submission
-                    
-                    // Move to next input field
+                    e.preventDefault();
                     if (index < allInputs.length - 1) {
                         allInputs[index + 1].focus();
                     }
@@ -471,188 +436,83 @@
             });
         });
 
-        // Floating button elements
-        const mandatoryBtn = document.getElementById('mandatoryDoneBtn');
-        const desiredBtn = document.getElementById('desiredDoneBtn');
-        
-        // Get all field inputs
-        const mandatoryFields = document.querySelectorAll('.mandatory-field');
-        const desiredFields = document.querySelectorAll('.desired-field');
-        
-        // Track current section
-        let currentSection = null;
-        let activeInput = null;
-        
-        // Position floating button next to active input
-        function positionButton(button, input) {
-            const rect = input.getBoundingClientRect();
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            
-            // Position button to the right of the input, accounting for scroll
-            button.style.top = (rect.top + scrollTop + (rect.height / 2) - 20) + 'px';
-        }
-        
-        // Handle focus on mandatory fields
-        mandatoryFields.forEach(function(input, index) {
-            input.addEventListener('focus', function() {
-                console.log('Mandatory field focused:', index);
-                currentSection = 'mandatory';
-                activeInput = this;
-                desiredBtn.classList.remove('show');
-                mandatoryBtn.classList.add('show');
-                positionButton(mandatoryBtn, this);
-            });
-            
-            // Also trigger on input (when typing)
-            input.addEventListener('input', function() {
-                if (currentSection === 'mandatory' && this === activeInput) {
-                    mandatoryBtn.classList.add('show');
-                    positionButton(mandatoryBtn, this);
-                }
-            });
-        });
-        
-        // Handle focus on desired fields
-        desiredFields.forEach(function(input, index) {
-            input.addEventListener('focus', function() {
-                console.log('Desired field focused:', index);
-                currentSection = 'desired';
-                activeInput = this;
-                mandatoryBtn.classList.remove('show');
-                desiredBtn.classList.add('show');
-                positionButton(desiredBtn, this);
-            });
-            
-            // Also trigger on input (when typing)
-            input.addEventListener('input', function() {
-                if (currentSection === 'desired' && this === activeInput) {
-                    desiredBtn.classList.add('show');
-                    positionButton(desiredBtn, this);
-                }
-            });
-        });
-        
-        // Update button position on scroll
-        window.addEventListener('scroll', function() {
-            if (activeInput && currentSection === 'mandatory' && mandatoryBtn.classList.contains('show')) {
-                positionButton(mandatoryBtn, activeInput);
-            }
-            if (activeInput && currentSection === 'desired' && desiredBtn.classList.contains('show')) {
-                positionButton(desiredBtn, activeInput);
-            }
-        });
-        
-        // Update button position on window resize
-        window.addEventListener('resize', function() {
-            if (activeInput && currentSection === 'mandatory' && mandatoryBtn.classList.contains('show')) {
-                positionButton(mandatoryBtn, activeInput);
-            }
-            if (activeInput && currentSection === 'desired' && desiredBtn.classList.contains('show')) {
-                positionButton(desiredBtn, activeInput);
-            }
-        });
-        
-        // Mandatory Done Button - scroll to Desired section
-        mandatoryBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Mandatory done button clicked');
-            const desiredSection = document.getElementById('desired-section');
-            desiredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            mandatoryBtn.classList.remove('show');
-            
-            // Focus first desired field after scroll
-            setTimeout(function() {
-                document.querySelector('.desired-field').focus();
-            }, 600);
-        });
-        
-        // Desired Done Button - scroll to Submit button
-        desiredBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Desired done button clicked');
-            const submitSection = document.getElementById('submit-section');
-            submitSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            desiredBtn.classList.remove('show');
+        // Show button when mandatory field clicked/typed
+        mandatoryFields.forEach(function(field) {
+            field.addEventListener('focus', showMandatoryButton);
+            field.addEventListener('input', showMandatoryButton);
         });
 
-        // Form submission handler
+        // Show button when desired field clicked/typed
+        desiredFields.forEach(function(field) {
+            field.addEventListener('focus', showDesiredButton);
+            field.addEventListener('input', showDesiredButton);
+        });
+
+        function showMandatoryButton() {
+            currentMode = 'mandatory';
+            buttonText.textContent = 'Done with Mandatory → Go to Desired';
+            floatingBtn.classList.add('visible');
+        }
+
+        function showDesiredButton() {
+            currentMode = 'desired';
+            buttonText.textContent = 'Done with Desired → Submit Request';
+            floatingBtn.classList.add('visible');
+        }
+
+        // Button click handler
+        floatingBtn.addEventListener('click', function() {
+            if (currentMode === 'mandatory') {
+                // Scroll to desired section
+                desiredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Auto-focus first desired field
+                setTimeout(function() {
+                    document.querySelector('.desired-field').focus();
+                }, 600);
+            } else if (currentMode === 'desired') {
+                // Scroll to submit button
+                submitSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Hide button
+                floatingBtn.classList.remove('visible');
+            }
+        });
+
+        // Form submission
         document.getElementById('customRequestForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            console.log('Form submitting...');
             
-            // Hide floating buttons
-            mandatoryBtn.classList.remove('show');
-            desiredBtn.classList.remove('show');
+            // Hide button
+            floatingBtn.classList.remove('visible');
             
-            // Collect mandatory fields
-            let mandatoryFieldsList = [];
-            document.querySelectorAll('.mandatory-field').forEach(function(input) {
-                if (input.value.trim() !== '') {
-                    mandatoryFieldsList.push(input.value.trim());
+            // Collect fields
+            let mandatoryList = [];
+            mandatoryFields.forEach(function(field) {
+                if (field.value.trim() !== '') {
+                    mandatoryList.push(field.value.trim());
                 }
             });
             
-            // Collect desired fields
-            let desiredFieldsList = [];
-            document.querySelectorAll('.desired-field').forEach(function(input) {
-                if (input.value.trim() !== '') {
-                    desiredFieldsList.push(input.value.trim());
+            let desiredList = [];
+            desiredFields.forEach(function(field) {
+                if (field.value.trim() !== '') {
+                    desiredList.push(field.value.trim());
                 }
             });
             
-            // Format output
+            // Format
             let formatted = '';
-            if (mandatoryFieldsList.length > 0) {
-                formatted += 'MANDATORY FIELDS:\n';
-                formatted += mandatoryFieldsList.join('\n');
-                formatted += '\n\n';
+            if (mandatoryList.length > 0) {
+                formatted += 'MANDATORY FIELDS:\n' + mandatoryList.join('\n') + '\n\n';
             }
-            if (desiredFieldsList.length > 0) {
-                formatted += 'DESIRED FIELDS:\n';
-                formatted += desiredFieldsList.join('\n');
+            if (desiredList.length > 0) {
+                formatted += 'DESIRED FIELDS:\n' + desiredList.join('\n');
             }
             
-            // Set hidden field value
             document.getElementById('formatted_fields').value = formatted;
             
-            console.log('Formatted fields:', formatted);
-            
-            // Submit form
+            // Submit
             this.submit();
         });
-        
-        // Debug: Check if buttons exist on page load
-        console.log('Mandatory button exists:', mandatoryBtn !== null);
-        console.log('Desired button exists:', desiredBtn !== null);
-        console.log('Mandatory fields count:', mandatoryFields.length);
-        console.log('Desired fields count:', desiredFields.length);
-        
-        // POPULATE DEBUG PANEL ON PAGE
-        setTimeout(function() {
-            const debugInfo = document.getElementById('debugInfo');
-            if (debugInfo) {
-                let html = '';
-                html += 'Mandatory button exists: ' + (mandatoryBtn !== null) + '<br>';
-                html += 'Desired button exists: ' + (desiredBtn !== null) + '<br>';
-                
-                if (mandatoryBtn) {
-                    const style = window.getComputedStyle(mandatoryBtn);
-                    html += '<br><strong>MANDATORY BUTTON STYLES:</strong><br>';
-                    html += 'display: ' + style.display + '<br>';
-                    html += 'position: ' + style.position + '<br>';
-                    html += 'top: ' + style.top + '<br>';
-                    html += 'right: ' + style.right + '<br>';
-                    html += 'z-index: ' + style.zIndex + '<br>';
-                    html += 'background: ' + style.backgroundColor + '<br>';
-                    html += 'width: ' + style.width + '<br>';
-                    html += 'height: ' + style.height + '<br>';
-                    html += 'visibility: ' + style.visibility + '<br>';
-                    html += 'opacity: ' + style.opacity + '<br>';
-                }
-                
-                debugInfo.innerHTML = html;
-            }
-        }, 1000);
     </script>
 
 </body>
