@@ -38,6 +38,35 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s;
         }
+        
+        /* Floating button styles */
+        .floating-nav-btn {
+            position: fixed;
+            right: 20px;
+            background: #2563eb;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1000;
+            display: none;
+            transition: all 0.3s ease;
+            border: none;
+            max-width: 200px;
+        }
+        
+        .floating-nav-btn:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+        }
+        
+        .floating-nav-btn.show {
+            display: block;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-700 font-sans">
@@ -183,7 +212,7 @@
                     </div>
 
                     <!-- Question 3 - Mandatory Fields -->
-                    <div class="bg-red-50 border-2 border-red-200 rounded-lg p-6">
+                    <div id="mandatory-section" class="bg-red-50 border-2 border-red-200 rounded-lg p-6">
                         <div class="mb-4">
                             <label class="block text-sm font-bold text-gray-700 mb-2">
                                 Question 3: List Your MANDATORY Fields
@@ -216,7 +245,7 @@
                     </div>
 
                     <!-- Question 4 - Desired Fields -->
-                    <div class="bg-green-50 border-2 border-green-200 rounded-lg p-6">
+                    <div id="desired-section" class="bg-green-50 border-2 border-green-200 rounded-lg p-6">
                         <div class="mb-4">
                             <label class="block text-sm font-bold text-gray-700 mb-2">
                                 Question 4: List Your DESIRED Fields
@@ -257,7 +286,7 @@
                     <input type="hidden" id="formatted_fields" name="formatted_fields">
 
                     <!-- Submit Button -->
-                    <div class="bg-brand-50 border-2 border-brand-200 rounded-lg p-6">
+                    <div id="submit-section" class="bg-brand-50 border-2 border-brand-200 rounded-lg p-6">
                         <div class="flex items-center justify-between mb-4">
                             <div>
                                 <p class="font-bold text-lg">Total Cost: $79</p>
@@ -317,6 +346,15 @@
         </div>
     </section>
 
+    <!-- Floating Navigation Buttons -->
+    <button id="mandatoryDoneBtn" class="floating-nav-btn">
+        <i class="fa-solid fa-arrow-down mr-2"></i> Done with Mandatory Fields
+    </button>
+    
+    <button id="desiredDoneBtn" class="floating-nav-btn">
+        <i class="fa-solid fa-arrow-down mr-2"></i> Done with Desired Fields
+    </button>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-400 py-12">
         <div class="container mx-auto px-6">
@@ -364,36 +402,112 @@
             document.getElementById('mobile-menu').classList.toggle('hidden');
         });
 
+        // Floating button elements
+        const mandatoryBtn = document.getElementById('mandatoryDoneBtn');
+        const desiredBtn = document.getElementById('desiredDoneBtn');
+        
+        // Get all field inputs
+        const mandatoryFields = document.querySelectorAll('.mandatory-field');
+        const desiredFields = document.querySelectorAll('.desired-field');
+        
+        // Track current section
+        let currentSection = null;
+        let activeInput = null;
+        
+        // Position floating button next to active input
+        function positionButton(button, input) {
+            const rect = input.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Position button to the right of the input, accounting for scroll
+            button.style.top = (rect.top + scrollTop + (rect.height / 2) - 20) + 'px';
+        }
+        
+        // Handle focus on mandatory fields
+        mandatoryFields.forEach(function(input) {
+            input.addEventListener('focus', function() {
+                currentSection = 'mandatory';
+                activeInput = this;
+                desiredBtn.classList.remove('show');
+                mandatoryBtn.classList.add('show');
+                positionButton(mandatoryBtn, this);
+            });
+        });
+        
+        // Handle focus on desired fields
+        desiredFields.forEach(function(input) {
+            input.addEventListener('focus', function() {
+                currentSection = 'desired';
+                activeInput = this;
+                mandatoryBtn.classList.remove('show');
+                desiredBtn.classList.add('show');
+                positionButton(desiredBtn, this);
+            });
+        });
+        
+        // Update button position on scroll
+        window.addEventListener('scroll', function() {
+            if (activeInput && currentSection === 'mandatory' && mandatoryBtn.classList.contains('show')) {
+                positionButton(mandatoryBtn, activeInput);
+            }
+            if (activeInput && currentSection === 'desired' && desiredBtn.classList.contains('show')) {
+                positionButton(desiredBtn, activeInput);
+            }
+        });
+        
+        // Mandatory Done Button - scroll to Desired section
+        mandatoryBtn.addEventListener('click', function() {
+            const desiredSection = document.getElementById('desired-section');
+            desiredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            mandatoryBtn.classList.remove('show');
+            
+            // Focus first desired field after scroll
+            setTimeout(function() {
+                document.querySelector('.desired-field').focus();
+            }, 500);
+        });
+        
+        // Desired Done Button - scroll to Submit button
+        desiredBtn.addEventListener('click', function() {
+            const submitSection = document.getElementById('submit-section');
+            submitSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            desiredBtn.classList.remove('show');
+        });
+
         // Form submission handler
         document.getElementById('customRequestForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Hide floating buttons
+            mandatoryBtn.classList.remove('show');
+            desiredBtn.classList.remove('show');
+            
             // Collect mandatory fields
-            let mandatoryFields = [];
+            let mandatoryFieldsList = [];
             document.querySelectorAll('.mandatory-field').forEach(function(input) {
                 if (input.value.trim() !== '') {
-                    mandatoryFields.push(input.value.trim());
+                    mandatoryFieldsList.push(input.value.trim());
                 }
             });
             
             // Collect desired fields
-            let desiredFields = [];
+            let desiredFieldsList = [];
             document.querySelectorAll('.desired-field').forEach(function(input) {
                 if (input.value.trim() !== '') {
-                    desiredFields.push(input.value.trim());
+                    desiredFieldsList.push(input.value.trim());
                 }
             });
             
             // Format output
             let formatted = '';
-            if (mandatoryFields.length > 0) {
+            if (mandatoryFieldsList.length > 0) {
                 formatted += 'MANDATORY FIELDS:\n';
-                formatted += mandatoryFields.join('\n');
+                formatted += mandatoryFieldsList.join('\n');
                 formatted += '\n\n';
             }
-            if (desiredFields.length > 0) {
+            if (desiredFieldsList.length > 0) {
                 formatted += 'DESIRED FIELDS:\n';
-                formatted += desiredFields.join('\n');
+                formatted += desiredFieldsList.join('\n');
             }
             
             // Set hidden field value
