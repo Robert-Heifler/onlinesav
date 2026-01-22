@@ -1,0 +1,491 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Lead Capture & Follow-up - Microsoft Access Database</title>
+  <link rel="icon" type="image/png" href="At_1_.PNG" />
+  <script src="https://www.paypal.com/sdk/js?client-id=AVYa3GWnBAS5q0NctwEFE4B6BGc7lYxxPiYCzKR2GY3yGye2NQ7z3yWqj_t4mJVaTsvNr78yZ8PFQeeR&components=buttons,marks,funding-eligibility&enable-funding=venmo,card,paylater&currency=USD"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-65J9NF6Q3F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-65J9NF6Q3F');
+  </script>
+
+  <style>
+    :root{
+      --bg:#f5f6f8;
+      --card:#ffffff;
+      --ink:#0f172a;
+      --muted:#475569;
+      --brand:#1e3a8a;
+      --brand2:#3b82f6;
+      --accent:#059669;
+      --border:#e5e7eb;
+      --shadow:0 10px 22px rgba(2,6,23,.08);
+      --radius:14px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+      line-height:1.55;
+      color:var(--ink);
+      background:var(--bg);
+    }
+    a{color:inherit}
+    .link{color:var(--brand2);text-decoration:underline;font-weight:900}
+
+    .header{
+      position:sticky;top:0;z-index:60;
+      background:linear-gradient(135deg,var(--brand) 0%, #243b9a 40%, #2743b2 100%);
+      color:#fff;
+      padding:14px 18px;
+      display:flex;align-items:center;gap:14px;
+      box-shadow:0 10px 22px rgba(2,6,23,.16);
+    }
+    .header img{height:46px;width:auto}
+    .header h1{font-size:1.6rem;letter-spacing:.2px}
+
+    .container{max-width:1100px;margin:0 auto;padding:16px}
+
+    .sticky-cta{
+      position:fixed;
+      top:84px;
+      right:16px;
+      z-index:80;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      padding:6px 8px;
+      border-radius:8px;
+      font-weight:900;
+      box-shadow:0 12px 24px rgba(5,150,105,.20);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:2px;
+      width:100px;
+      text-align:center;
+      line-height:1.05;
+      transition:transform .15s ease, background .15s ease;
+    }
+    .sticky-cta:hover{background:#047857;transform:translateY(-1px)}
+    .sticky-cta .ctaTop{font-size:13px;letter-spacing:.2px}
+    .sticky-cta .ctaMid,.sticky-cta .ctaBot{font-size:9px;opacity:.92;font-weight:800}
+
+    .section{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:18px;
+      margin:12px 0;
+    }
+    h2{
+      color:var(--brand);
+      font-size:1.42rem;
+      margin-bottom:10px;
+    }
+    .lead{
+      color:var(--muted);
+      margin-top:-2px;
+      margin-bottom:10px;
+      font-size:1.01rem;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      align-items:stretch;
+    }
+    .split > *{height:100%}
+
+    .cardBox{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:14px;
+      background:#fff;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      min-height:0;
+    }
+    .cardBox.soft{
+      background:linear-gradient(135deg, rgba(30,58,138,.10), rgba(59,130,246,.08));
+    }
+
+    .heroTitle{
+      font-size:2.0rem;
+      line-height:1.12;
+      font-weight:900;
+      color:var(--brand);
+    }
+    .heroSub{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:1.05rem;
+    }
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:12px;
+    }
+    .chip{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:7px 10px;
+      font-weight:900;
+      font-size:.92rem;
+      white-space:nowrap;
+    }
+
+    ul{list-style:none}
+    .list{
+      display:grid;
+      gap:10px;
+      margin-top:10px;
+    }
+    .li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      background:#f8fafc;
+      border:1px solid #eef2f7;
+      border-radius:14px;
+      padding:12px;
+    }
+    .check{
+      width:28px;height:28px;
+      border-radius:999px;
+      background:rgba(5,150,105,.10);
+      border:1px solid rgba(5,150,105,.25);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--accent);
+      font-weight:900;
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+
+    .results{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:12px;
+    }
+    .result{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px;
+      background:#f8fafc;
+      text-align:center;
+      font-size:.92rem;
+      line-height:1.4;
+    }
+    .result b{
+      display:block;
+      color:var(--accent);
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+      margin-bottom:4px;
+    }
+
+    .howList{display:grid;gap:10px;margin-top:12px}
+    .howItem{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px;
+      background:#f8fafc;
+      line-height:1.45;
+      font-size:.94rem;
+    }
+    .howItem b{color:var(--brand)}
+
+    .benefitList{display:grid;gap:8px;margin-top:10px}
+    .benefitItem{
+      display:flex;
+      gap:8px;
+      align-items:flex-start;
+      background:#f8fafc;
+      border:1px solid #eef2f7;
+      border-radius:10px;
+      padding:10px;
+      line-height:1.4;
+      font-size:.88rem;
+    }
+
+    .actionList{display:grid;gap:8px;margin-top:10px}
+    .actionItem{
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:10px;
+      background:#f8fafc;
+      line-height:1.4;
+      font-size:.88rem;
+    }
+    .actionItem b{color:var(--brand)}
+
+    .qaList{display:grid;gap:8px;margin-top:10px}
+    .qa{
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:10px;
+      background:#f8fafc;
+      line-height:1.4;
+      font-size:.85rem;
+      word-wrap:break-word;
+      overflow-wrap:break-word;
+    }
+    .qa b{color:var(--brand)}
+
+    .getList{display:grid;gap:10px}
+    .getLine{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      background:#f8fafc;
+      border:1px solid #eef2f7;
+      border-radius:14px;
+      padding:12px;
+    }
+
+    .steps{display:grid;gap:8px;margin-top:10px}
+    .step{
+      background:#f8fafc;
+      border:1px solid #eef2f7;
+      border-radius:10px;
+      padding:10px;
+      font-size:.92rem;
+      font-weight:800;
+    }
+
+    .payCompact{
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px;
+      background:linear-gradient(135deg,rgba(30,58,138,.08),rgba(59,130,246,.06));
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .payTitle{font-size:1.1rem;font-weight:900;color:var(--brand)}
+    .priceBig{font-size:1.6rem;font-weight:900;color:var(--accent)}
+    .powered{color:var(--muted);font-size:.82rem;font-weight:800}
+    .notePill{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:999px;
+      padding:5px 9px;
+      font-size:.80rem;
+      font-weight:800;
+    }
+
+    .youtubeBox{
+      width:100%;
+      aspect-ratio:16/9;
+      border:1px solid var(--border);
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#f8fafc;
+      color:var(--muted);
+      font-weight:800;
+      font-size:.85rem;
+    }
+
+    .footer{
+      background:var(--brand);
+      color:#fff;
+      text-align:center;
+      padding:20px;
+      margin-top:20px;
+      font-size:.92rem;
+    }
+
+    @media(max-width:768px){
+      .split{grid-template-columns:1fr}
+      .sticky-cta{
+        top:auto;
+        bottom:16px;
+        right:50%;
+        transform:translateX(50%);
+        flex-direction:row;
+        width:auto;
+        padding:12px 20px;
+      }
+      .ctaTop{font-size:16px !important}
+      .ctaMid,.ctaBot{display:none}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <img src="At_1_.PNG" alt="Access Wizard Databases">
+    <h1>Marketing Lead Capture & Follow-up</h1>
+  </div>
+
+  <a href="#buy-section" class="sticky-cta">
+    <span class="ctaTop">Buy now</span>
+    <span class="ctaMid">Secure PayPal</span>
+    <span class="ctaBot">Instant Download</span>
+  </a>
+
+  <div class="container">
+
+    <section class="section">
+      <div class="split">
+        <div class="cardBox soft">
+          <div class="heroTitle">Stop wasting ad budget on channels that don’t convert</div>
+          <div class="heroSub">See exactly where your marketing money is going, which campaigns generate qualified leads, and what your team must follow up on today—without spreadsheet chaos. This ready-to-use Access database turns campaigns and leads into clear, filterable reports so you can scale what works and cut what doesn’t.</div>
+          <div class="chips">
+            <div class="chip">&#9989; Instant download</div>
+            <div class="chip">&#9989; Lifetime access</div>
+          </div>
+        </div>
+        <div class="cardBox">
+          <div class="list">
+            <div class="li"><span class="check">&#10004;</span><div><b>Budget bleeding</b><br/>No channel performance visibility</div></div>
+            <div class="li"><span class="check">&#10004;</span><div><b>Leads going cold</b><br/>Follow-ups buried in scattered notes</div></div>
+            <div class="li"><span class="check">&#10004;</span><div><b>Pipeline chaos</b><br/>Statuses and priorities not summarized</div></div>
+          </div>
+          <div class="results">
+            <div class="result"><b>Result</b>Shift budget to channels that actually deliver</div>
+            <div class="result"><b>Result</b>Rescue high-score leads before competitors call</div>
+            <div class="result"><b>Result</b>Run weekly reporting in minutes, not hours</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="cardBox">
+          <h2>How It Solves These Problems</h2>
+          <div class="howList">
+            <div class="howItem"><b>Channel spend clarity</b><br/>See budget and goals by channel so you stop funding underperforming campaigns.</div>
+            <div class="howItem"><b>Campaign winners fast</b><br/>Rank campaigns by leads and qualified rate to scale what is working now.</div>
+            <div class="howItem"><b>Daily follow-up list</b><br/>Filter leads by status, priority, and score so hot prospects never go cold.</div>
+          </div>
+        </div>
+        <div class="cardBox">
+          <h2>Benefits</h2>
+          <div class="benefitList">
+            <div class="benefitItem"><span class="check">&#10004;</span><div>Compare channels by budget, goals, and campaign volume</div></div>
+            <div class="benefitItem"><span class="check">&#10004;</span><div>Rank campaigns by lead count and qualified leads</div></div>
+            <div class="benefitItem"><span class="check">&#10004;</span><div>Filter lead lists by status, priority, and date range</div></div>
+            <div class="benefitItem"><span class="check">&#10004;</span><div>Spot high-value prospects using lead scores and adjustments</div></div>
+            <div class="benefitItem"><span class="check">&#10004;</span><div>Track UTM source/medium/campaign and landing pages per campaign</div></div>
+            <div class="benefitItem"><span class="check">&#10004;</span><div>Keep reporting clean by including or hiding inactive campaigns</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="cardBox">
+          <h2>Action Reports</h2>
+          <div class="actionList">
+            <div class="actionItem"><b>LeadsByCamp totals leads and qualified leads per campaign and channel, so you can spot the winners quickly.</b></div>
+            <div class="actionItem"><b>The built-in prompts let you filter by channel/owner and start/end dates across the campaign and lead reports.</b></div>
+            <div class="actionItem"><b>LeadMaster lists each lead with campaign name and channel, plus status, priority, and next action fields.</b></div>
+            <div class="actionItem"><b>Campaigns store UTM source/medium/campaign and landing URL so you can tie leads back to messaging and traffic.</b></div>
+          </div>
+        </div>
+        <div class="cardBox">
+          <h2>Common Questions</h2>
+          <div class="qaList">
+            <div class="qa"><b>Q: Do I need Microsoft Access to use this database?</b><br/>A: You can use Microsoft Access on Windows, or the free Microsoft Access Runtime.</div>
+            <div class="qa"><b>Q: Is this a subscription?</b><br/>A: No. One-time purchase with lifetime access.</div>
+            <div class="qa"><b>Q: When do I get the download?</b><br/>A: Immediately after PayPal completes your payment.</div>
+            <div class="qa"><b>Q: Does it work on Windows 10 and 11?</b><br/>A: Yes—compatible with Windows 10 and 11.</div>
+            <div class="qa"><b>Q: How fast can I start using it?</b><br/>A: Most people can be up and running the same day—download, open it, and start entering data.</div>
+            <div class="qa"><b>Q: What if I'm not very technical?</b><br/>A: It's designed for simple, day-to-day use with pre-built screens for easy data entry.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="split">
+        <div class="cardBox">
+          <h2>What You Get</h2>
+          <div class="getList">
+            <div class="getLine"><span class="check">&#10004;</span><div>Complete Microsoft Access database ready to use</div></div>
+            <div class="getLine"><span class="check">&#10004;</span><div>Four inter-linked Pre-built forms for easy data entry</div></div>
+            <div class="getLine"><span class="check">&#10004;</span><div>6 Professional reports for better insights</div></div>
+            <div class="getLine"><span class="check">&#10004;</span><div>Instant download, lifetime access, no subscriptions</div></div>
+          </div>
+        </div>
+        <div class="cardBox">
+          <h2>Fast Start</h2>
+          <div class="steps">
+            <div class="step">1) Download after PayPal payment</div>
+            <div class="step">2) Open in Access or Access Runtime</div>
+            <div class="step">3) Start using it the same day</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="buy-section">
+      <div class="split">
+        <div class="payCompact">
+          <div class="payTitle">Marketing Lead Capture & Follow-up</div>
+          <div class="priceBig">Only $12.00</div>
+          <div class="powered">Powered by PayPal</div>
+          <div class="notePill">&#9989; Secure PayPal checkout</div>
+          <div class="notePill">&#9989; Instant download right after payment</div>
+          <div class="notePill">&#9989; Lifetime access (no subscriptions)</div>
+          <div id="paypal-button-container" style="margin-top:10px"></div>
+        </div>
+        <div class="cardBox">
+          <h2 style="font-size:1.1rem;margin-bottom:8px">Fast Start</h2>
+          <p style="font-size:.85rem;line-height:1.45;margin-bottom:12px">After payment, you'll be redirected to your download page.</p>
+          <p style="font-size:.85rem;line-height:1.45;margin-bottom:12px">If you don't have Microsoft Access installed, use the free <a class="link" href="https://support.microsoft.com/en-us/office/download-and-install-microsoft-365-access-runtime-185c5a32-8ba9-491e-ac76-91cbe3ea09c9" target="_blank" rel="noopener">Microsoft Access Runtime</a> (see System Requirements). Save the downloaded file on your Windows PC and use it, no installation needed.</p>
+          <h2 style="font-size:1.1rem;margin-bottom:8px;margin-top:12px">System Requirements</h2>
+          <p style="font-size:.85rem;line-height:1.45;margin-bottom:12px">Requires Microsoft Access (Windows) or the free <a class="link" href="https://support.microsoft.com/en-us/office/download-and-install-microsoft-365-access-runtime-185c5a32-8ba9-491e-ac76-91cbe3ea09c9" target="_blank" rel="noopener">Microsoft Access Runtime</a> which has NO monthly fees or subscriptions. Compatible with Windows 10 and 11.</p>
+          <h2 style="font-size:1.1rem;margin-bottom:8px;margin-top:12px">YouTube Video Demo</h2>
+          <iframe style="width:100%;aspect-ratio:16/9;border:0;border-radius:10px"
+                  src="https://www.youtube.com/embed/FsLUXo4_sfE" title="YouTube video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      <p>&copy; 2025 Access Wizard Databases - OnLineSav.com - All rights reserved.</p>
+    </div>
+
+  </div>
+
+  <script>
+    const PRICE = "12.00";
+    paypal.Buttons({
+      createOrder: function (data, actions) {
+        return actions.order.create({
+          purchase_units: [{ amount: { value: PRICE } }]
+        });
+      },
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function () {
+          window.location.href = "ThankYou.html?db=Marketing_Lead_Capture_&_Follow-up";
+        });
+      }
+    }).render("#paypal-button-container");
+  </script>
+</body>
+</html>
