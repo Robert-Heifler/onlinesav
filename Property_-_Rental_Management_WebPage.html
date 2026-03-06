@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -170,9 +170,12 @@
     <section class="section">
       <div class="split">
         <div class="cardBox">
-          <h2>Action Reports</h2>
-          <div class="actionList">
-            <div class="actionItem"><b>DueUnpaid totals amounts due by tenant/property/unit, shows first and last due dates, and can filter to unpaid only.</b></div>
+          <h2 style="font-size:1em;">Action Reports</h2>
+          <p style="font-size:0.8em;margin:4px 0 8px 0;">Contained within the 15 reports you will get, these Action Reports are the real solution solvers.</p>
+          <div class="actionItem" style="font-size:0.8em;"><b>DueUnpaid:</b> DueUnpaid joins Leases→RentalUnits and Leases→Payments, filters a due‑date range, and totals PayAmt plus PotentialLate; it shows first/last due dates so you can prioritize follow‑ups.</div>
+          <div class="actionItem" style="font-size:0.8em;"><b>VacantLoss:</b> VacantLoss groups RentalUnits by property/city/state and uses IIf(Vacant=True, BaseRent, 0) to sum VacantRentLoss; you instantly see where empty units are costing you most.</div>
+          <div class="actionItem" style="font-size:0.8em;"><b>ExpireMonth:</b> ExpireMonth filters LeaseEnd by date range and LeaseStatus, then groups by Year/Month to count expirations and sum rent and deposits—so renewals and move‑outs never surprise you.</div>
+        </div>
             <div class="actionItem"><b>VacantLoss calculates vacant-unit counts and sums rent loss using each unit’s BaseRent, grouped by property and location.</b></div>
             <div class="actionItem"><b>ExpireMonth groups upcoming LeaseEnd dates by month and totals related rent and deposits so you can plan renewals and turnovers.</b></div>
             <div class="actionItem"><b>PayDetail lists paid/due/post dates, amounts, adjustments, and payment type details, and Unposted isolates items not yet posted.</b></div>
