@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struggling to organize your data? Database made exactly for you</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #0a5c7a 0%, #005566 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.2em; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.3em; opacity: 0.95; margin-bottom: 5px; }
+        .header .payline { font-size: 1.6em; font-weight: 700; }
+        .content {
+            padding: 40px 30px;
+        }
+        .intro {
+            text-align: center;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #444;
+            font-size: 1.05em;
+        }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+        input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+            outline: none;
+            border-color: #0a5c7a;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(10, 92, 122, 0.1);
+        }
+        textarea { min-height: 100px; resize: vertical; }
+        button {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #0a5c7a 0%, #005566 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        button:hover:not(:disabled) { transform: translateY(-2px); }
+        button:disabled { opacity: 0.7; cursor: not-allowed; }
+        .success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            margin: 20px 0;
+            display: none;
+            text-align: center;
+        }
+        .success h2 { font-size: 2em; margin-bottom: 20px; }
+        .success p { font-size: 1.2em; margin-bottom: 30px; opacity: 0.95; }
+        .success .email-note { 
+            font-size: 1.1em; 
+            background: rgba(255,255,255,0.1); 
+            padding: 15px; 
+            border-radius: 8px; 
+            margin-bottom: 20px; 
+        }
+        @media (max-width: 480px) {
+            .header h1 { font-size: 1.8em; }
+            .header .subtitle { font-size: 1.2em; }
+            .header .payline { font-size: 1.4em; }
+            .success h2 { font-size: 1.6em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Struggling to organize your data?</h1>
+            <p class="subtitle">Database made exactly for you.</p>
+            <p class="payline">Pay what you want.</p>
+        </div>
+        <div class="content">
+            <p class="intro">Quick 1‑minute form. Get your tailored database fast, try it out, then decide what to pay—no pressure.</p>
+
+            <form id="dbForm" method="POST" action="https://formspree.io/f/mwpgylwv">
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Your Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="business">Describe your Business or Activity.</label>
+                    <input type="text" id="business" name="business">
+                </div>
+
+                <div class="form-group">
+                    <label for="problem">What are your 3 biggest problems the database has to solve for you?</label>
+                    <textarea id="problem" name="problem"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="needs">What must be included in this database to make you extremely happy?</label>
+                    <textarea id="needs" name="needs"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="data">List the specific data it must track for you.</label>
+                    <input type="text" id="data" name="data">
+                </div>
+
+                <input type="hidden" name="_next" value="https://onlinesav.com/Pay_What_You_Want.html?thanks=1">
+                <input type="hidden" id="prompt" name="prompt">
+
+                <button type="submit" id="submitBtn">Build My Custom Database →</button>
+            </form>
+
+            <div id="success" class="success">
+                <h2>✅ Perfect!</h2>
+                <p>Your custom database is being built right now.</p>
+                <div class="email-note">
+                    📧 Check your email — it will arrive in the next few minutes!
+                </div>
+                <p>Try it out, then pay what you want. No pressure.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('dbForm');
+        const success = document.getElementById('success');
+        const submitBtn = document.getElementById('submitBtn');
+        const promptField = document.getElementById('prompt');
+
+        function generatePrompt() {
+            const business = document.getElementById('business').value.trim() || "their business";
+            const problem = document.getElementById('problem').value.trim() || "their problems";
+            const needs = document.getElementById('needs').value.trim() || "their needs";
+            const data = document.getElementById('data').value.trim() || "their data";
+
+            const prompt = `Build a Microsoft Access database for ${business}. The database has to solve the problem of ${problem}. The database needs ${needs}. The database data needs to track ${data}.`;
+
+            promptField.value = prompt;
+        }
+
+        // Show success if redirected back with thanks param
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('thanks') === '1') {
+            form.style.display = 'none';
+            success.style.display = 'block';
+        }
+
+        form.addEventListener('input', generatePrompt);
+
+        form.addEventListener('submit', function() {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            generatePrompt();
+        });
+
+        generatePrompt();
+    </script>
+</body>
+</html>
