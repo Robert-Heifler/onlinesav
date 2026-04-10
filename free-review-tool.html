@@ -431,6 +431,13 @@ footer {
 footer a { color: var(--navy); text-decoration: none; }
 
 /* ============================================================
+   HIDE SMS BUTTON ON DESKTOP (mouse/trackpad devices)
+   ============================================================ */
+@media (pointer: fine) {
+  #smsBtn { display: none !important; }
+}
+
+/* ============================================================
    PRINT STYLES
    ============================================================ */
 @media print {
@@ -675,7 +682,7 @@ footer a { color: var(--navy); text-decoration: none; }
    CONFIG
    ---------------------------------------------------------- */
 var CFG = {
-  GOOGLE_API_KEY: 'AIzaSyCqM5F4NTyNkLRzDfGc5eys4Zy2bHdVMFQ',
+  GOOGLE_API_KEY: 'AIzaSyB_IetKVELuDRWCP72Wc-bLS5bKYwMaLTk',
   SENDER_API_KEY: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTUxZmIyNDdlMjMzYjhlYjNmNTFjMDQyYmVjMDdiOWQ2OGViYjZlNmM3YWRlZmUyNDJlZWMzMDYzNDAzYmViOGU2YmZmMmEwNDM3Y2NmMzIiLCJpYXQiOjE3NzU3NzczMjAuMjU0OTA3LCJuYmYiOjE3NzU3NzczMjAuMjU0OTEsImV4cCI6NDkyOTM4MDkyMC4yNTIzMzMsInN1YiI6IjEwNjU3NTQiLCJzY29wZXMiOltdfQ.NnBFVA5RAI-XXgGSeaLyGyiEnS-uCJjVbwWH6xdUHFwER3evcr4l8LC6YEYq_LFbQHaeYX3NUUQIIEvRC9vEQLDaKeN0vrDKn3IwLQ6KmxenT6OjFaRUeKHWBWiCWJNEvAQznY3N_PcO3ocvkZskX6YPRaM4RkNDbSkL81WnBbopWZCENTCJeB0y5QedMTDKq5uDW5yEpC0u9ePQsGI2BTlEKoR5sWxJlQATHw3N1-NTN11SzV3w0k8nANRX60ZESJdfKqsxxGWuTuU9avYDBMrPI0FJ8jrxwoXtfkp6sUZnl3Y2a13Gb6VI63TTqwWuqN0EfcIMbOTGaK3k8IIPcOMRHohN57EUAt0R-6IjOIpimr-IryxJ0--q8GRYCLD5QePdJw2eFONl_zYN3urQg91V6kKH2PdfBy38OrvUA7gA6Wj_Qn17QbHP-XGaeZAfVlDRaAdoU8d6yRi8btK2v0H4GKYd4Ga6KnzqIDUfw2wmPVYy_sCe_XsSmhkhq5WW8Ngyfdh73q6OzREaaxoULYdTIAyQiCgrzons-0g6KpA6nOhkh2ChVKefee6pTFpXvOugOKqiyc0Ir4wqmdxTNsH7lq_Qu94G8s1aKGLzXDFlUJsy-plkLsx8z1ER3OVxk-dbZ1YW6mCFJwql8qjb1cXotYcqZfod4apXqFfP2BM',
   SENDER_LIST:    'enlrKl',
   PLACES_URL:     'https://places.googleapis.com/v1/places:searchText',
