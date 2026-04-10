@@ -1,519 +1,965 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Database Request - Access Wizard Databases</title>
-    <meta name="description" content="Request a custom Access database built for your business in 24 hours. $79 flat fee. List your specific fields.">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="At_1_.PNG">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Custom Database Request | OnLineSav.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:      #1a2744;
+  --navy-dark: #111c33;
+  --gold:      #f5a623;
+  --gold-dark: #d48f10;
+  --white:     #ffffff;
+  --light-bg:  #f0f4fb;
+  --border:    #dde3f0;
+  --text:      #2c3a5a;
+  --muted:     #6b7a99;
+  --success:   #166534;
+  --success-bg:#f0fdf4;
+  --success-bd:#bbf7d0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--light-bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.5;
+}
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-65J9NF6Q3F"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-65J9NF6Q3F');
-    </script>
+/* ── HEADER ── */
+.site-header {
+  background: var(--navy);
+  padding: 18px 20px 14px;
+  border-bottom: 4px solid var(--gold);
+}
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.logo-img { height: 44px; width: auto; display: block; }
+nav { display: flex; gap: 6px; flex-wrap: wrap; }
+nav a {
+  color: rgba(255,255,255,0.82);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+nav a:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+nav a.active { color: var(--gold); }
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: { brand: { 500: '#2563eb', 600: '#1d4ed8', 900: '#1e3a8a' } }
-                }
-            }
-        }
-    </script>
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  padding: 36px 20px 32px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.hero h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.hero p {
+  color: rgba(255,255,255,0.78);
+  font-size: 0.97rem;
+}
+.hero .price-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 6px 20px;
+  border-radius: 30px;
+  margin-top: 14px;
+}
 
-    <style>
-        .alpha-box {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-        }
-        
-        /* SIMPLE FLOATING BUTTON - Fixed position, simple show/hide */
-        #floatingNavBtn {
-            position: fixed;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #16a34a;
-            color: white;
-            padding: 18px 26px;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-            font-weight: 700;
-            font-size: 16px;
-            cursor: pointer;
-            z-index: 9999;
-            border: 3px solid white;
-            max-width: 260px;
-            text-align: center;
-            line-height: 1.5;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-        
-        #floatingNavBtn.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        #floatingNavBtn:hover {
-            background: #15803d;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        @media (max-width: 768px) {
-            #floatingNavBtn {
-                right: 10px;
-                padding: 14px 18px;
-                font-size: 14px;
-                max-width: 200px;
-            }
-        }
-    </style>
+/* ── LAYOUT ── */
+.container {
+  max-width: 680px;
+  margin: 30px auto 0;
+  padding: 0 14px 60px;
+}
+
+/* ── STEPS ── */
+.steps {
+  display: flex;
+  gap: 0;
+  background: var(--white);
+  border-radius: 14px;
+  box-shadow: 0 2px 18px rgba(26,39,68,0.07);
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+.step {
+  flex: 1;
+  padding: 18px 14px 16px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+.step:last-child { border-right: none; }
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px; height: 28px;
+  background: var(--navy);
+  color: var(--gold);
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+.step h3 { font-size: 0.82rem; font-weight: 600; color: var(--navy); margin-bottom: 3px; }
+.step p  { font-size: 0.74rem; color: var(--muted); line-height: 1.4; }
+
+/* ── PANEL ── */
+.panel {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 28px 26px;
+  box-shadow: 0 2px 18px rgba(26,39,68,0.07);
+  margin-bottom: 20px;
+}
+
+/* ── SECTION TITLE ── */
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.1rem;
+  color: var(--navy);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--border);
+}
+.section-subtitle {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 20px;
+  margin-top: -10px;
+}
+
+/* ── FORM ELEMENTS ── */
+.form-group { margin-bottom: 20px; }
+.field-label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.field-hint {
+  font-size: 0.76rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: block;
+}
+input[type=text],
+input[type=email],
+textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.93rem;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.18s;
+  -webkit-appearance: none;
+}
+input[type=text]:focus,
+input[type=email]:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26,39,68,0.07);
+}
+textarea { resize: vertical; min-height: 72px; }
+
+/* ── RADIO / CHECKBOX GROUPS ── */
+.choice-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.choice-group.inline {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.choice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 10px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+  background: var(--white);
+}
+.choice-item:hover { border-color: var(--navy); background: #f6f9ff; }
+.choice-item input[type=radio],
+.choice-item input[type=checkbox] {
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--navy);
+  width: 15px; height: 15px;
+}
+.choice-item label {
+  font-size: 0.86rem;
+  color: var(--text);
+  cursor: pointer;
+  line-height: 1.4;
+}
+.choice-item label span {
+  display: block;
+  font-size: 0.74rem;
+  color: var(--muted);
+  margin-top: 1px;
+}
+.choice-item.selected {
+  border-color: var(--navy);
+  background: #eef2ff;
+}
+.inline .choice-item { flex: 0 1 auto; }
+
+/* ── TYPE SELECTOR ── */
+.type-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 0;
+}
+.type-card {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 16px;
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: center;
+  background: var(--white);
+  position: relative;
+}
+.type-card:hover { border-color: var(--navy); }
+.type-card input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  width: 0; height: 0;
+}
+.type-card.selected {
+  border-color: var(--navy);
+  background: #eef2ff;
+}
+.type-card .type-icon { font-size: 1.8rem; margin-bottom: 8px; }
+.type-card .type-label {
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 4px;
+}
+.type-card .type-desc {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  border: none;
+  border-top: 2px dashed var(--border);
+  margin: 24px 0;
+}
+
+/* ── HIDDEN SECTION ── */
+.form-section { display: none; }
+.form-section.visible { display: block; }
+
+/* ── SUBMIT ── */
+.submit-area { margin-top: 26px; }
+.btn-submit {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.18s, transform 0.1s;
+  -webkit-appearance: none;
+}
+.btn-submit:hover { background: var(--gold-dark); }
+.btn-submit:active { transform: scale(0.985); }
+.btn-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+.submit-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-align: center;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+.total-line {
+  background: var(--light-bg);
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  padding: 13px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+.total-line .label { font-size: 0.88rem; color: var(--muted); }
+.total-line .amount { font-size: 1.1rem; font-weight: 700; color: var(--navy); }
+.total-line .sub { font-size: 0.74rem; color: var(--muted); text-align: right; }
+
+/* ── INLINE ERROR ── */
+.inline-err {
+  color: #991b1b;
+  font-size: 0.78rem;
+  margin-top: 5px;
+  display: none;
+}
+
+/* ── FAQ ── */
+.faq-item { margin-bottom: 16px; }
+.faq-item h3 { font-size: 0.9rem; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+.faq-item p  { font-size: 0.84rem; color: var(--muted); line-height: 1.5; }
+
+/* ── FOOTER ── */
+footer {
+  text-align: center;
+  padding: 20px 14px 48px;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+footer a { color: var(--navy); text-decoration: none; }
+
+/* ── SUCCESS ── */
+.success-box {
+  display: none;
+  background: var(--success-bg);
+  border: 1.5px solid var(--success-bd);
+  border-radius: 12px;
+  padding: 24px 22px;
+  text-align: center;
+  margin-top: 18px;
+}
+.success-box h3 { color: var(--success); font-size: 1.1rem; margin-bottom: 6px; }
+.success-box p  { font-size: 0.86rem; color: var(--muted); }
+</style>
 </head>
-<body class="bg-gray-50 text-gray-700 font-sans">
+<body>
 
-    <!-- Header -->
-    <header class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center">
-                <a href="index.html">
-                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10">
-                </a>
-            </div>
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="https://onlinesav.com/index.html">
+      <img src="https://onlinesav.com/At_1_.PNG" alt="Access Wizard Databases" class="logo-img">
+    </a>
+    <nav>
+      <a href="https://onlinesav.com/index.html">Home</a>
+      <a href="https://onlinesav.com/catalog.html">Catalog</a>
+      <a href="https://onlinesav.com/custom-request.html" class="active">Custom Request</a>
+      <a href="https://onlinesav.com/demo.html">Demo</a>
+      <a href="https://onlinesav.com/support.html">Support</a>
+      <a href="https://onlinesav.com/faq.html">FAQ</a>
+    </nav>
+  </div>
+</header>
 
-            <nav class="hidden md:flex space-x-6">
-                <a href="index.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Home</a>
-                <a href="catalog.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Catalog</a>
-                <a href="custom-request.html" class="text-brand-600 font-semibold">Custom Request</a>
-                <a href="demo.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Demo</a>
-                <a href="support.html" class="text-gray-600 hover:text-brand-600 font-medium transition">Support</a>
-                <a href="faq.html" class="text-gray-600 hover:text-brand-600 font-medium transition">FAQ</a>
-            </nav>
+<!-- HERO -->
+<div class="hero">
+  <h1>Get a Custom Database Built for You</h1>
+  <p>Answer a few questions. We build it in 24 hours.</p>
+  <span class="price-badge">$79 flat fee &nbsp;•&nbsp; any complexity</span>
+</div>
 
-            <button id="mobile-menu-btn" class="md:hidden text-gray-600">
-                <i class="fa-solid fa-bars text-2xl"></i>
-            </button>
-        </div>
+<div class="container">
 
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
-            <nav class="flex flex-col px-6 py-4 space-y-2">
-                <a href="index.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Home</a>
-                <a href="catalog.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Catalog</a>
-                <a href="custom-request.html" class="text-brand-600 px-3 py-2 rounded font-semibold">Custom Request</a>
-                <a href="demo.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Demo</a>
-                <a href="support.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">Support</a>
-                <a href="faq.html" class="text-gray-600 hover:bg-gray-50 px-3 py-2 rounded">FAQ</a>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="pt-32 pb-12 bg-gradient-to-br from-brand-900 to-brand-600 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6">Get a Custom Database Built for You</h1>
-            <p class="text-xl text-blue-100 max-w-3xl mx-auto mb-6">
-                Answer 2 questions and list your specific data fields. We build it in 24 hours.
-            </p>
-            <div class="inline-block bg-white/20 backdrop-blur-sm px-6 py-3 rounded-lg">
-                <span class="text-3xl font-bold">$79</span>
-                <span class="text-lg"> flat fee • any complexity</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works -->
-    <section class="py-12 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
-                
-                <div class="grid md:grid-cols-3 gap-8 mb-8">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                            1
-                        </div>
-                        <h3 class="font-bold mb-2">Fill Out the Form</h3>
-                        <p class="text-gray-600 text-sm">Answer 2 questions and list your data fields</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                            2
-                        </div>
-                        <h3 class="font-bold mb-2">We Build It</h3>
-                        <p class="text-gray-600 text-sm">Your database is built within 24 hours</p>
-                    </div>
-                    
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-brand-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
-                            3
-                        </div>
-                        <h3 class="font-bold mb-2">Download & Use</h3>
-                        <p class="text-gray-600 text-sm">Get download link via email, start using immediately</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Floating Navigation Button - SINGLE BUTTON THAT CHANGES -->
-    <div id="floatingNavBtn">
-        <i class="fa-solid fa-arrow-down mr-2"></i>
-        <span id="buttonText">Done with Mandatory → Go to Desired</span>
+  <!-- HOW IT WORKS -->
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Fill Out the Form</h3>
+      <p>Tell us what you need. Takes about 3 minutes.</p>
     </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>We Build It</h3>
+      <p>Your database is ready within 24 hours.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>Download &amp; Use</h3>
+      <p>Get your download link by email. Start immediately.</p>
+    </div>
+  </div>
 
-    <!-- Request Form -->
-    <section class="py-8 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="max-w-3xl mx-auto alpha-box p-8">
-                <h2 class="text-2xl font-bold mb-6 text-center">Fill Out Custom Database Request Form</h2>
-                
-                <form id="customRequestForm" action="https://formspree.io/f/mwpgylwv" method="POST" class="space-y-8">
-                    
-                    <!-- Name -->
-                    <div>
-                        <label for="name" class="block text-sm font-bold text-gray-700 mb-2">Your Name *</label>
-                        <input type="text" id="name" name="name" required
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                    </div>
+  <!-- FORM PANEL -->
+  <div class="panel">
+    <form id="requestForm" action="https://formspree.io/f/mwpgylwv" method="POST">
 
-                    <!-- Email -->
-                    <div>
-                        <label for="email" class="block text-sm font-bold text-gray-700 mb-2">Your Email *</label>
-                        <input type="email" id="email" name="email" required
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                        <p class="text-sm text-gray-500 mt-1">We'll send your database download link to this email</p>
-                    </div>
+      <!-- FormSubmit hidden config -->
+      <input type="hidden" name="_subject" id="emailSubject" value="Custom Database Request">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <textarea name="AI_Prompt_Block" id="aiBlock" style="display:none;"></textarea>
 
-                    <!-- Question 1 -->
-                    <div>
-                        <label for="business" class="block text-sm font-bold text-gray-700 mb-2">
-                            Question 1: What's your business or activity? *
-                        </label>
-                        <input type="text" id="business" name="business" required
-                               placeholder="Example: Retail nursery selling plants and supplies"
-                               class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                        <p class="text-sm text-gray-500 mt-1">One sentence is fine</p>
-                    </div>
+      <!-- ── SECTION 1: ABOUT YOU ── -->
+      <p class="section-title">About You</p>
 
-                    <!-- Question 2 -->
-                    <div>
-                        <label for="problems" class="block text-sm font-bold text-gray-700 mb-2">
-                            Question 2: What are your top 3 problems this database MUST solve? *
-                        </label>
-                        <textarea id="problems" name="problems" rows="5" required
-                                  placeholder="Example:
-1. Lost sales because backorders aren't tracked
-2. Cash flow issues from unclear payment status
-3. Delivery mistakes from missing or wrong addresses"
-                                  class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition"></textarea>
-                        <p class="text-sm text-gray-500 mt-1">List the most painful problems first</p>
-                    </div>
+      <div class="form-group">
+        <label class="field-label" for="clientName">Your Name *</label>
+        <input type="text" id="clientName" name="Name" required placeholder="First and last name" autocomplete="name">
+      </div>
 
-                    <!-- Info Box -->
-                    <div class="bg-blue-50 border-2 border-blue-200 rounded-lg p-4">
-                        <p class="text-sm text-gray-700">
-                            <strong>Note:</strong> We'll automatically add standard fields (like ID numbers, creation dates, etc.). 
-                            Only list what's unique to your business. Leave rows blank if you don't need them.
-                        </p>
-                    </div>
+      <div class="form-group">
+        <label class="field-label" for="clientEmail">Your Email *</label>
+        <input type="email" id="clientEmail" name="Email" required placeholder="you@example.com" autocomplete="email">
+        <span class="field-hint">We'll send your database download link to this address.</span>
+      </div>
 
-                    <!-- Question 3 - Mandatory Fields -->
-                    <div id="mandatory-section" class="bg-red-50 border-2 border-red-200 rounded-lg p-6">
-                        <div class="mb-4">
-                            <label class="block text-sm font-bold text-gray-700 mb-2">
-                                Question 3: List Your MANDATORY Fields
-                            </label>
-                            <p class="text-sm text-gray-600 mb-1">
-                                <strong>Maximum 15 fields • None are required</strong>
-                            </p>
-                            <p class="text-xs text-gray-500">
-                                These are critical fields your database absolutely needs
-                            </p>
-                        </div>
-                        
-                        <div class="space-y-3">
-                            <input type="text" name="mandatory_1" placeholder="Mandatory Field 1" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_2" placeholder="Mandatory Field 2" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_3" placeholder="Mandatory Field 3" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_4" placeholder="Mandatory Field 4" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_5" placeholder="Mandatory Field 5" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_6" placeholder="Mandatory Field 6" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_7" placeholder="Mandatory Field 7" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_8" placeholder="Mandatory Field 8" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_9" placeholder="Mandatory Field 9" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_10" placeholder="Mandatory Field 10" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_11" placeholder="Mandatory Field 11" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_12" placeholder="Mandatory Field 12" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_13" placeholder="Mandatory Field 13" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_14" placeholder="Mandatory Field 14" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="mandatory_15" placeholder="Mandatory Field 15" class="mandatory-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                        </div>
-                    </div>
+      <div class="form-group">
+        <label class="field-label" for="clientBiz">What's your business or activity? *</label>
+        <input type="text" id="clientBiz" name="Business" required placeholder="e.g. Solo HVAC technician in Phoenix, AZ">
+      </div>
 
-                    <!-- Question 4 - Desired Fields -->
-                    <div id="desired-section" class="bg-green-50 border-2 border-green-200 rounded-lg p-6">
-                        <div class="mb-4">
-                            <label class="block text-sm font-bold text-gray-700 mb-2">
-                                Question 4: List Your DESIRED Fields
-                            </label>
-                            <p class="text-sm text-gray-600 mb-1">
-                                <strong>Maximum 20 fields • None are required</strong>
-                            </p>
-                            <p class="text-xs text-gray-500">
-                                These are nice-to-have fields that would improve the database
-                            </p>
-                        </div>
-                        
-                        <div class="space-y-3">
-                            <input type="text" name="desired_1" placeholder="Desired Field 1" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_2" placeholder="Desired Field 2" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_3" placeholder="Desired Field 3" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_4" placeholder="Desired Field 4" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_5" placeholder="Desired Field 5" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_6" placeholder="Desired Field 6" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_7" placeholder="Desired Field 7" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_8" placeholder="Desired Field 8" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_9" placeholder="Desired Field 9" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_10" placeholder="Desired Field 10" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_11" placeholder="Desired Field 11" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_12" placeholder="Desired Field 12" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_13" placeholder="Desired Field 13" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_14" placeholder="Desired Field 14" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_15" placeholder="Desired Field 15" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_16" placeholder="Desired Field 16" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_17" placeholder="Desired Field 17" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_18" placeholder="Desired Field 18" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_19" placeholder="Desired Field 19" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                            <input type="text" name="desired_20" placeholder="Desired Field 20" class="desired-field w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-brand-500 transition">
-                        </div>
-                    </div>
+      <div class="form-group">
+        <label class="field-label">What are your top 3 problems this database must solve? *</label>
+        <span class="field-hint">List the most painful problems first.</span>
+        <input type="text" name="Problem_1" id="p1" required placeholder="Problem 1 (most important)" style="margin-bottom:8px;">
+        <input type="text" name="Problem_2" id="p2" required placeholder="Problem 2" style="margin-bottom:8px;">
+        <input type="text" name="Problem_3" id="p3" placeholder="Problem 3">
+      </div>
 
-                    <!-- Hidden field for formatted output -->
-                    <input type="hidden" id="formatted_fields" name="formatted_fields">
+      <hr class="divider">
 
-                    <!-- Submit Button -->
-                    <div id="submit-section" class="bg-brand-50 border-2 border-brand-200 rounded-lg p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div>
-                                <p class="font-bold text-lg">Total Cost: $79</p>
-                                <p class="text-sm text-gray-600">One-time payment • 24-hour delivery</p>
-                            </div>
-                            <i class="fa-solid fa-shield-check text-brand-600 text-3xl"></i>
-                        </div>
-                        
-                        <button type="submit" 
-                                class="w-full bg-green-600 hover:bg-green-700 text-white px-6 py-4 rounded-lg font-bold text-lg transition shadow-md">
-                            <i class="fa-solid fa-paper-plane mr-2"></i> Submit Request
-                        </button>
-                        
-                        <p class="text-sm text-gray-600 text-center mt-4">
-                            We'll review your request and send payment instructions within 2 hours
-                        </p>
-                    </div>
+      <!-- ── SECTION 2: DATABASE TYPE ── -->
+      <p class="section-title">What type of database do you need?</p>
 
-                </form>
-            </div>
+      <div class="form-group">
+        <div class="type-selector" id="typeSelector">
+          <label class="type-card" id="cardJC" onclick="selectType('jc')">
+            <input type="radio" name="DB_Type" value="Job Costing / Invoicing" id="typeJC">
+            <div class="type-icon">🔧</div>
+            <span class="type-label">Job Costing &amp; Invoicing</span>
+            <span class="type-desc">Track jobs, costs, proposals, invoices, and profit per job</span>
+          </label>
+          <label class="type-card" id="cardOther" onclick="selectType('other')">
+            <input type="radio" name="DB_Type" value="Other / General" id="typeOther">
+            <div class="type-icon">📋</div>
+            <span class="type-label">Something Else</span>
+            <span class="type-desc">CRM, inventory, scheduling, membership, or any other database</span>
+          </label>
         </div>
-    </section>
+        <div class="inline-err" id="typeErr">Please select a database type.</div>
+      </div>
 
-    <!-- FAQ Section -->
-    <section class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-3xl font-bold text-center mb-12">Common Questions</h2>
-                
-                <div class="space-y-6">
-                    
-                    <div class="alpha-box p-6">
-                        <h3 class="font-bold text-lg mb-2 text-brand-600">What if I need changes after it's built?</h3>
-                        <p class="text-gray-700">
-                            We'll make reasonable adjustments within 2 days of delivery at no charge if we missed something you specified and we agreed to when replying to your custom request.
-                        </p>
-                    </div>
+      <!-- ── JOB COSTING SECTION ── -->
+      <div class="form-section" id="jcSection">
+        <hr class="divider">
+        <p class="section-title">Job Costing Details</p>
+        <p class="section-subtitle">These answers let us build the exact right table structure and calculated fields for your trade.</p>
 
-                    <div class="alpha-box p-6">
-                        <h3 class="font-bold text-lg mb-2 text-brand-600">Can I see an example first?</h3>
-                        <p class="text-gray-700">
-                            Yes! <a href="demo.html" class="text-brand-600 hover:text-brand-700 font-semibold underline">Download our free demo</a> 
-                            to see the quality of our work. Custom databases look and work exactly the same way.
-                        </p>
-                    </div>
-
-                    <div class="alpha-box p-6">
-                        <h3 class="font-bold text-lg mb-2 text-brand-600">What are examples of mandatory vs desired fields?</h3>
-                        <p class="text-gray-700">
-                            <strong>Mandatory:</strong> Customer email, payment status, invoice number<br/>
-                            <strong>Desired:</strong> Customer notes, product category, delivery date
-                        </p>
-                    </div>
-
-                </div>
-            </div>
+        <!-- Q1: Trade & pricing -->
+        <div class="form-group">
+          <label class="field-label">How do you typically price jobs? (check all that apply)</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="checkbox" name="Pricing[]" value="Hourly rate">
+              <label>Hourly rate<span>You charge by the hour for labor</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Pricing[]" value="Flat rate per job">
+              <label>Flat rate per job<span>Fixed price regardless of hours</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Pricing[]" value="Per unit or item">
+              <label>Per unit or item<span>e.g. per fixture, per linear foot, per ton</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Pricing[]" value="Mixed — varies by job">
+              <label>Mixed — varies by job</label>
+            </label>
+          </div>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8 mb-8">
-                <div>
-                    <img src="At_1_.PNG" alt="Access Wizard Databases" class="h-10 mb-4 brightness-0 invert opacity-80">
-                    <p class="text-sm">Professional database solutions for small businesses.</p>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="index.html" class="hover:text-white transition">Home</a></li>
-                        <li><a href="catalog.html" class="hover:text-white transition">Catalog</a></li>
-                        <li><a href="custom-request.html" class="hover:text-white transition">Custom Request</a></li>
-                        <li><a href="demo.html" class="hover:text-white transition">Demo</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Support</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="support.html" class="hover:text-white transition">Contact Us</a></li>
-                        <li><a href="faq.html" class="hover:text-white transition">FAQ</a></li>
-                        <li><a href="supportdirectory.html" class="hover:text-white transition">Find an Expert</a></li>
-                        <li><a href="contact.html" class="hover:text-white transition">General Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-white font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-sm">
-                        <li><a href="privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
-                        <li><a href="terms-of-use.html" class="hover:text-white transition">Terms of Use</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-gray-800 pt-8 text-sm text-center">
-                <p>&copy; 2025 Access Wizard Databases - OnLineSav.com - All rights reserved.</p>
-            </div>
+        <!-- Q2: Workforce -->
+        <div class="form-group">
+          <label class="field-label">Who does the work?</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="radio" name="Workforce" value="Just me — solo operator">
+              <label>Just me — solo operator</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Workforce" value="Me plus employees">
+              <label>Me plus employees</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Workforce" value="I use subcontractors">
+              <label>I use subcontractors</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Workforce" value="Mix of employees and subcontractors">
+              <label>Mix of employees and subcontractors</label>
+            </label>
+          </div>
         </div>
-    </footer>
 
-    <!-- CLEAN, SIMPLE JAVASCRIPT -->
-    <script>
-        // Mobile menu
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
+        <!-- Q3: Costs tracked -->
+        <div class="form-group">
+          <label class="field-label">What costs do you track per job? (check all that apply)</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="checkbox" name="Costs[]" value="Materials and parts">
+              <label>Materials and parts</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Costs[]" value="Labor hours">
+              <label>Labor hours</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Costs[]" value="Drive time">
+              <label>Drive time</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Costs[]" value="Subcontractor costs">
+              <label>Subcontractor costs</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Costs[]" value="Equipment use">
+              <label>Equipment use</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Costs[]" value="Permits and fees">
+              <label>Permits and fees</label>
+            </label>
+          </div>
+        </div>
 
-        // Get elements
-        const floatingBtn = document.getElementById('floatingNavBtn');
-        const buttonText = document.getElementById('buttonText');
-        const mandatoryFields = document.querySelectorAll('.mandatory-field');
-        const desiredFields = document.querySelectorAll('.desired-field');
-        const desiredSection = document.getElementById('desired-section');
-        const submitSection = document.getElementById('submit-section');
-        
-        let currentMode = null; // 'mandatory' or 'desired'
+        <!-- Q4: Materials source -->
+        <div class="form-group">
+          <label class="field-label">How do you get materials for a job?</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="radio" name="Materials_Source" value="Buy per job — no inventory">
+              <label>Buy per job — no inventory<span>You purchase what you need for each job</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Materials_Source" value="Pull from my own inventory">
+              <label>Pull from my own inventory<span>You stock parts and draw from them</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Materials_Source" value="Both — depends on the job">
+              <label>Both — depends on the job</label>
+            </label>
+          </div>
+        </div>
 
-        // Prevent Enter from submitting - move to next field
-        const allInputs = document.querySelectorAll('input[type="text"], textarea');
-        allInputs.forEach(function(input, index) {
-            input.addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    if (index < allInputs.length - 1) {
-                        allInputs[index + 1].focus();
-                    }
-                }
-            });
-        });
+        <!-- Q5: Tax -->
+        <div class="form-group">
+          <label class="field-label">Do you charge sales tax?</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="radio" name="Tax" value="On parts and materials only">
+              <label>On parts and materials only</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Tax" value="On labor only">
+              <label>On labor only</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Tax" value="On both parts and labor">
+              <label>On both parts and labor</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Tax" value="No — I do not charge tax">
+              <label>No — I do not charge tax</label>
+            </label>
+          </div>
+        </div>
 
-        // Show button when mandatory field clicked/typed
-        mandatoryFields.forEach(function(field) {
-            field.addEventListener('focus', showMandatoryButton);
-            field.addEventListener('input', showMandatoryButton);
-        });
+        <!-- Q6: Calculations -->
+        <div class="form-group">
+          <label class="field-label">What calculations do you need the database to handle? (check all that apply)</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="checkbox" name="Calculations[]" value="Profit per job (revenue minus all costs)">
+              <label>Profit per job<span>Revenue minus all costs, shown automatically</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Calculations[]" value="Actual vs estimated cost comparison">
+              <label>Actual vs estimated cost comparison</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Calculations[]" value="Invoice total with tax">
+              <label>Invoice total with tax</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Calculations[]" value="Markup on materials (cost to customer vs what I paid)">
+              <label>Markup on materials<span>What I charge vs what I paid</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Calculations[]" value="Balance due after partial payments">
+              <label>Balance due after partial payments</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Calculations[]" value="Job cost breakdown by category (labor vs materials vs other)">
+              <label>Job cost breakdown by category<span>Labor vs materials vs other</span></label>
+            </label>
+          </div>
+        </div>
 
-        // Show button when desired field clicked/typed
-        desiredFields.forEach(function(field) {
-            field.addEventListener('focus', showDesiredButton);
-            field.addEventListener('input', showDesiredButton);
-        });
+        <!-- Q7: Billing workflow -->
+        <div class="form-group">
+          <label class="field-label">How do you bill customers?</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="radio" name="Billing_Workflow" value="Invoice directly after the job — no proposal first">
+              <label>Invoice directly after the job — no proposal first</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Billing_Workflow" value="Proposal or estimate first, then invoice after approval">
+              <label>Proposal or estimate first, then invoice after approval</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Billing_Workflow" value="Both — depends on the job">
+              <label>Both — depends on the job</label>
+            </label>
+          </div>
+        </div>
 
-        function showMandatoryButton() {
-            currentMode = 'mandatory';
-            buttonText.textContent = 'Done with Mandatory → Go to Desired';
-            floatingBtn.classList.add('visible');
-        }
+        <!-- Q8: Invoice format -->
+        <div class="form-group">
+          <label class="field-label">What does the customer see on their invoice?</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="radio" name="Invoice_Format" value="Individual line items (each cost listed separately)">
+              <label>Individual line items<span>Each cost listed separately on the invoice</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Invoice_Format" value="Total only — no line item detail shown to customer">
+              <label>Total only — no line item detail shown</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Invoice_Format" value="Both — depends on the customer">
+              <label>Both — depends on the customer</label>
+            </label>
+          </div>
+        </div>
 
-        function showDesiredButton() {
-            currentMode = 'desired';
-            buttonText.textContent = 'Done with Desired → Submit Request';
-            floatingBtn.classList.add('visible');
-        }
+        <!-- Q9: Customer type -->
+        <div class="form-group">
+          <label class="field-label">Do your customers come back for multiple jobs over time?</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="radio" name="Customer_Type" value="Mostly repeat customers — same people return">
+              <label>Mostly repeat customers — same people return<span>Needs a full Customers table with job history</span></label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Customer_Type" value="Mostly one-time jobs — new customer each time">
+              <label>Mostly one-time jobs — new customer each time</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Customer_Type" value="Mixed — both repeat and one-time">
+              <label>Mixed — both repeat and one-time</label>
+            </label>
+          </div>
+        </div>
 
-        // Button click handler
-        floatingBtn.addEventListener('click', function() {
-            if (currentMode === 'mandatory') {
-                // Scroll to desired section
-                desiredSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                // Auto-focus first desired field
-                setTimeout(function() {
-                    document.querySelector('.desired-field').focus();
-                }, 600);
-            } else if (currentMode === 'desired') {
-                // Scroll to submit button
-                submitSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Hide button
-                floatingBtn.classList.remove('visible');
-            }
-        });
+        <!-- Q10: Partial payments -->
+        <div class="form-group">
+          <label class="field-label">Do customers ever pay in installments or deposits?</label>
+          <div class="choice-group">
+            <label class="choice-item">
+              <input type="radio" name="Partial_Payments" value="Yes — I need to track partial payments and show balance due">
+              <label>Yes — track partial payments and show balance due automatically</label>
+            </label>
+            <label class="choice-item">
+              <input type="radio" name="Partial_Payments" value="No — jobs are always paid in full at once">
+              <label>No — jobs are always paid in full at once</label>
+            </label>
+          </div>
+        </div>
 
-        // Form submission
-        document.getElementById('customRequestForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Hide button
-            floatingBtn.classList.remove('visible');
-            
-            // Collect fields
-            let mandatoryList = [];
-            mandatoryFields.forEach(function(field) {
-                if (field.value.trim() !== '') {
-                    mandatoryList.push(field.value.trim());
-                }
-            });
-            
-            let desiredList = [];
-            desiredFields.forEach(function(field) {
-                if (field.value.trim() !== '') {
-                    desiredList.push(field.value.trim());
-                }
-            });
-            
-            // Format
-            let formatted = '';
-            if (mandatoryList.length > 0) {
-                formatted += 'MANDATORY FIELDS:\n' + mandatoryList.join('\n') + '\n\n';
-            }
-            if (desiredList.length > 0) {
-                formatted += 'DESIRED FIELDS:\n' + desiredList.join('\n');
-            }
-            
-            document.getElementById('formatted_fields').value = formatted;
-            
-            // Submit
-            this.submit();
-        });
-    </script>
+        <!-- Q11: Job status -->
+        <div class="form-group">
+          <label class="field-label">Which job status stages do you need to track? (check all that apply)</label>
+          <div class="choice-group inline">
+            <label class="choice-item">
+              <input type="checkbox" name="Status[]" value="Scheduled">
+              <label>Scheduled</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Status[]" value="In Progress">
+              <label>In Progress</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Status[]" value="Completed">
+              <label>Completed</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Status[]" value="Invoiced">
+              <label>Invoiced</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Status[]" value="Paid">
+              <label>Paid</label>
+            </label>
+            <label class="choice-item">
+              <input type="checkbox" name="Status[]" value="Cancelled">
+              <label>Cancelled</label>
+            </label>
+          </div>
+        </div>
 
+      </div><!-- /jcSection -->
+
+      <!-- ── OTHER SECTION ── -->
+      <div class="form-section" id="otherSection">
+        <hr class="divider">
+        <div style="background:#f6f9ff;border-radius:9px;padding:15px 16px;border-left:3px solid var(--gold);font-size:0.86rem;color:var(--muted);line-height:1.55;">
+          Your three problems above give us everything we need to build the right structure for a general database. Submit when ready and we'll follow up within 2 hours with any clarifying questions before we build.
+        </div>
+      </div>
+
+      <!-- ── SUBMIT ── -->
+      <div class="form-section submit-area" id="submitSection">
+        <hr class="divider">
+        <div class="total-line">
+          <span class="label">Total Cost</span>
+          <div>
+            <div class="amount">$79</div>
+            <div class="sub">One-time payment &nbsp;•&nbsp; 24-hour delivery</div>
+          </div>
+        </div>
+        <button type="submit" class="btn-submit" id="submitBtn">Submit Request →</button>
+        <p class="submit-note">We'll review your request and send payment instructions within 2 hours.</p>
+      </div>
+
+    </form>
+  </div><!-- /panel -->
+
+  <!-- FAQ -->
+  <div class="panel">
+    <p class="section-title">Common Questions</p>
+    <div class="faq-item">
+      <h3>What if I need changes after it's built?</h3>
+      <p>We'll make reasonable adjustments within 2 days of delivery at no charge if we missed something you specified in this form.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Can I see an example first?</h3>
+      <p><a href="https://onlinesav.com/demo.html" style="color:var(--navy);font-weight:500;">Download our free demo</a> to see the quality of work. Custom databases look and function exactly the same way.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Do I need to own Microsoft Access?</h3>
+      <p>No. The free Microsoft Access Runtime handles everything. We include the download link with your database.</p>
+    </div>
+    <div class="faq-item">
+      <h3>How do I pay?</h3>
+      <p>We'll email you a PayPal payment link within 2 hours of receiving your request. Your database is built and delivered within 24 hours of payment.</p>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<footer>
+  © 2025 Access Wizard Databases - OnLineSav.com - All rights reserved
+  &nbsp;|&nbsp; <a href="https://onlinesav.com/catalog.html">Browse All Databases</a>
+</footer>
+
+<script>
+'use strict';
+
+var currentType = '';
+
+function selectType(type) {
+  currentType = type;
+  document.getElementById('cardJC').classList.toggle('selected', type === 'jc');
+  document.getElementById('cardOther').classList.toggle('selected', type === 'other');
+  document.getElementById('typeJC').checked = (type === 'jc');
+  document.getElementById('typeOther').checked = (type === 'other');
+  document.getElementById('jcSection').classList.toggle('visible', type === 'jc');
+  document.getElementById('otherSection').classList.toggle('visible', type === 'other');
+  document.getElementById('submitSection').classList.add('visible');
+  document.getElementById('typeErr').style.display = 'none';
+  document.getElementById('emailSubject').value =
+    type === 'jc'
+      ? 'Custom DB Request — Job Costing / Invoicing'
+      : 'Custom DB Request — General / Other';
+}
+
+function getChecked(name) {
+  var boxes = document.querySelectorAll('input[name="' + name + '"]:checked');
+  var vals = [];
+  boxes.forEach(function(b){ vals.push(b.value); });
+  return vals.length ? vals.join(', ') : 'None selected';
+}
+
+function getRadio(name) {
+  var r = document.querySelector('input[name="' + name + '"]:checked');
+  return r ? r.value : 'Not answered';
+}
+
+function buildAIBlock() {
+  var name   = document.getElementById('clientName').value.trim();
+  var email  = document.getElementById('clientEmail').value.trim();
+  var biz    = document.getElementById('clientBiz').value.trim();
+  var p1     = document.getElementById('p1').value.trim();
+  var p2     = document.getElementById('p2').value.trim();
+  var p3     = document.getElementById('p3').value.trim();
+  var dbType = currentType === 'jc' ? 'Job Costing / Invoicing' : 'General / Other';
+
+  var lines = [];
+  lines.push('=== CUSTOM DATABASE REQUEST ===');
+  lines.push('Type: ' + dbType);
+  lines.push('Client: ' + name + ' (' + email + ')');
+  lines.push('Business: ' + biz);
+  lines.push('');
+  lines.push('PROBLEMS TO SOLVE:');
+  lines.push('1. ' + p1);
+  if (p2) lines.push('2. ' + p2);
+  if (p3) lines.push('3. ' + p3);
+  lines.push('');
+
+  if (currentType === 'jc') {
+    var pricing    = getChecked('Pricing[]');
+    var workforce  = getRadio('Workforce');
+    var costs      = getChecked('Costs[]');
+    var matSrc     = getRadio('Materials_Source');
+    var tax        = getRadio('Tax');
+    var calcs      = getChecked('Calculations[]');
+    var billing    = getRadio('Billing_Workflow');
+    var invFmt     = getRadio('Invoice_Format');
+    var custType   = getRadio('Customer_Type');
+    var partial    = getRadio('Partial_Payments');
+    var status     = getChecked('Status[]');
+
+    var needsCustomers = custType.indexOf('repeat') !== -1 || custType.indexOf('Mixed') !== -1;
+    var needsPayments  = partial.indexOf('Yes') !== -1 || calcs.indexOf('Balance') !== -1;
+    var needsInventory = matSrc.indexOf('inventory') !== -1 || matSrc.indexOf('Both') !== -1;
+
+    lines.push('SPECIFICATIONS:');
+    lines.push('Pricing Method: ' + pricing);
+    lines.push('Workforce: ' + workforce);
+    lines.push('Costs Tracked: ' + costs);
+    lines.push('Materials Sourcing: ' + matSrc);
+    lines.push('Tax: ' + tax);
+    lines.push('Calculations Needed: ' + calcs);
+    lines.push('Billing Workflow: ' + billing);
+    lines.push('Invoice Format: ' + invFmt);
+    lines.push('Customer Type: ' + custType);
+    lines.push('Partial Payment Tracking: ' + partial);
+    lines.push('Job Status Stages: ' + status);
+    lines.push('');
+    lines.push('=== AI BUILD INSTRUCTIONS ===');
+    lines.push('Build a Microsoft Access database for a job costing and invoicing system.');
+    lines.push('Maximum 4 tables. Client: ' + biz);
+    lines.push('');
+    lines.push('REQUIRED TABLES:');
+    lines.push('1. tblJobs — Main job record. Fields: JobID, CustomerName, CustomerPhone, CustomerEmail, JobAddress (if different from billing), JobDescription, JobDate, EstimatedCost, ActualCost, InvoiceTotal, TaxAmount, Status (' + status + '), DateCreated. Status field uses dropdown list.');
+    lines.push('2. tblLineItems — Child table linked to tblJobs (one-to-many). Fields: LineItemID, JobID (FK), Category (' + costs + '), Description, Quantity, UnitCost, LineTotal (calculated). This is the subform on the main job form.');
+    if (needsCustomers) {
+      lines.push('3. tblCustomers — Separate customer table with full history. Fields: CustomerID, FirstName, LastName, Phone, Email, Address, ReferralSource, DateAdded, Notes. JobID in tblJobs links to CustomerID here.');
+    }
+    if (needsPayments) {
+      lines.push((needsCustomers ? '4' : '3') + '. tblPayments — Payment records per job. Fields: PaymentID, JobID (FK), PaymentDate, Amount, PaymentMethod, Notes. BalanceDue calculated as InvoiceTotal minus sum of payments.');
+    }
+    if (needsInventory && !needsPayments && !needsCustomers) {
+      lines.push('3. tblInventory — Parts inventory. Fields: ItemID, PartName, PartNumber, QuantityOnHand, UnitCost, ReorderPoint. LineItems in tblLineItems can reference ItemID to deduct from inventory.');
+    }
+    lines.push('');
+    lines.push('KEY CALCULATED FIELDS:');
+    if (calcs.indexOf('Profit') !== -1) lines.push('- Profit: InvoiceTotal - ActualCost (sum of all LineItems for the job)');
+    if (calcs.indexOf('Invoice total') !== -1) lines.push('- InvoiceTotal: Sum of LineItem LineTotals plus TaxAmount');
+    if (calcs.indexOf('Markup') !== -1) lines.push('- Markup per line item: (UnitCost_charged - UnitCost_paid) / UnitCost_paid * 100');
+    if (calcs.indexOf('Actual vs estimated') !== -1) lines.push('- CostVariance: ActualCost - EstimatedCost (shows over/under budget)');
+    if (calcs.indexOf('Balance') !== -1) lines.push('- BalanceDue: InvoiceTotal - Sum of payments from tblPayments');
+    if (calcs.indexOf('breakdown') !== -1) lines.push('- Category totals: Sum of LineTotals grouped by Category for cost breakdown report');
+    if (tax !== 'No — I do not charge tax') lines.push('- TaxAmount: Taxable subtotal * TaxRate (taxable items: ' + tax + ')');
+    lines.push('');
+    lines.push('WORKFLOW: ' + billing);
+    lines.push('INVOICE FORMAT: ' + invFmt);
+    lines.push('PRICING METHOD: ' + pricing);
+    lines.push('');
+    lines.push('MAIN FORM LAYOUT:');
+    lines.push('- Header: Customer info, job date, job address, status dropdown, job description');
+    lines.push('- Subform: tblLineItems — enter each cost line by category, description, qty, unit cost; LineTotal calculated automatically');
+    if (needsPayments) lines.push('- Payment subform: tblPayments — log each payment; BalanceDue updates automatically');
+    lines.push('- Footer totals: Estimated cost, actual cost (sum of line items), tax, invoice total' + (calcs.indexOf('Profit') !== -1 ? ', profit' : '') + (needsPayments ? ', balance due' : ''));
+    lines.push('');
+    lines.push('PROBLEMS THIS DATABASE MUST SOLVE:');
+    lines.push('1. ' + p1);
+    if (p2) lines.push('2. ' + p2);
+    if (p3) lines.push('3. ' + p3);
+
+  } else {
+    lines.push('=== AI BUILD INSTRUCTIONS ===');
+    lines.push('Build a Microsoft Access database for: ' + biz);
+    lines.push('Maximum 4 tables. Use relational design with proper referential integrity.');
+    lines.push('');
+    lines.push('PROBLEMS THIS DATABASE MUST SOLVE:');
+    lines.push('1. ' + p1);
+    if (p2) lines.push('2. ' + p2);
+    if (p3) lines.push('3. ' + p3);
+    lines.push('');
+    lines.push('Standard requirements: user-friendly forms, professional reports, standard fields (ID, created date, last modified). Build the simplest structure that fully solves the 3 problems above.');
+  }
+
+  return lines.join('\n');
+}
+
+document.getElementById('requestForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  if (!currentType) {
+    document.getElementById('typeErr').style.display = 'block';
+    document.getElementById('typeSelector').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+
+  var name  = document.getElementById('clientName').value.trim();
+  var email = document.getElementById('clientEmail').value.trim();
+  var biz   = document.getElementById('clientBiz').value.trim();
+  var p1    = document.getElementById('p1').value.trim();
+
+  if (!name || !email || !biz || !p1) {
+    alert('Please fill in all required fields (marked with *).');
+    return;
+  }
+
+  document.getElementById('aiBlock').value = buildAIBlock();
+
+  var btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Submitting…';
+
+  e.target.submit();
+});
+</script>
 </body>
 </html>
