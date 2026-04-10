@@ -470,10 +470,10 @@ footer a { color: var(--navy); text-decoration: none; }
   .print-grid {
     display: grid !important;
     grid-template-columns: 3.5in 3.5in;
-    grid-template-rows: repeat(4, 2in);
+    grid-template-rows: repeat(3, 3.35in);
     gap: 0;
     width: 7in;
-    max-height: 10.5in;
+    max-height: 10.05in;
     margin: 0 auto;
     page-break-inside: avoid;
     page-break-after: avoid;
@@ -493,9 +493,9 @@ footer a { color: var(--navy); text-decoration: none; }
 /* Print cards */
 .rcard {
   width: 3.5in;
-  height: 2in;
+  height: 3.35in;
   border: 1px dashed #aaa;
-  padding: 12pt 10pt 10pt;
+  padding: 18pt 14pt 14pt;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -506,21 +506,21 @@ footer a { color: var(--navy); text-decoration: none; }
 }
 .rcard-biz {
   font-family: 'DM Serif Display', serif;
-  font-size: 11.5pt;
+  font-size: 15pt;
   color: #1a2744;
   line-height: 1.2;
 }
 .rcard-tagline {
   font-family: 'DM Sans', sans-serif;
-  font-size: 7pt;
+  font-size: 9.5pt;
   color: #444;
-  line-height: 1.4;
-  padding: 0 4pt;
+  line-height: 1.45;
+  padding: 0 6pt;
 }
-.rcard-qr { width: 0.88in; height: 0.88in; }
+.rcard-qr { width: 1.35in; height: 1.35in; }
 .rcard-qr canvas, .rcard-qr img { width: 100% !important; height: 100% !important; }
-.rcard-cta    { font-family: 'DM Sans', sans-serif; font-size: 6.5pt; color: #555; }
-.rcard-footer { font-family: 'DM Sans', sans-serif; font-size: 6pt;   color: #888; }
+.rcard-cta    { font-family: 'DM Sans', sans-serif; font-size: 8.5pt; color: #555; }
+.rcard-footer { font-family: 'DM Sans', sans-serif; font-size: 7.5pt;   color: #888; }
 
 </style>
 </head>
@@ -633,7 +633,7 @@ footer a { color: var(--navy); text-decoration: none; }
     </div>
 
     <div class="panel" style="margin-bottom:14px;">
-      <p class="preview-label">Preview — 8 cards will print per sheet</p>
+      <p class="preview-label">Preview — 6 cards will print per sheet</p>
       <div class="preview-grid" id="screenPreview"></div>
     </div>
 
@@ -656,7 +656,7 @@ footer a { color: var(--navy); text-decoration: none; }
      PRINT-ONLY SECTION  (hidden on screen, shown on print)
      ============================================================ -->
 <div class="print-section" id="printSection">
-  <div class="print-note">Print → Fold in half twice → Tear along dashed lines &nbsp;|&nbsp; 8 cards per page</div>
+  <div class="print-note">Print → Fold in half twice → Tear along dashed lines &nbsp;|&nbsp; 6 cards per page</div>
   <div class="print-grid" id="printGrid"></div>
 </div>
 
@@ -1191,7 +1191,7 @@ function buildPrintCards(biz, tagline, url) {
     var grid = document.getElementById('printGrid');
     grid.innerHTML = '';
 
-    for (var i = 0; i < 8; i++) {
+    for (var i = 0; i < 6; i++) {
       var card = document.createElement('div');
       card.className = 'rcard';
 
@@ -1222,7 +1222,7 @@ function buildPrintCards(biz, tagline, url) {
       card.appendChild(footEl);
       grid.appendChild(card);
 
-      makeQR('printQr' + i, url, 84, i * 100);
+      makeQR('printQr' + i, url, 130, i * 100);
     }
   } catch (e) {
     logErr('buildPrintCards error', e);
