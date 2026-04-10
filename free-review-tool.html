@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Google Review Cards | OnLineSav.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" crossorigin="anonymous"></script>
+<style>
+/* ============================================================
+   CSS VARIABLES & RESET
+   ============================================================ */
+:root {
+  --navy:       #1a2744;
+  --navy-dark:  #111c33;
+  --gold:       #f5a623;
+  --gold-dark:  #d48f10;
+  --white:      #ffffff;
+  --light-bg:   #f0f4fb;
+  --border:     #dde3f0;
+  --text:       #2c3a5a;
+  --muted:      #6b7a99;
+  --success:    #166534;
+  --success-bg: #f0fdf4;
+  --success-bd: #bbf7d0;
+  --error:      #991b1b;
+  --error-bg:   #fef2f2;
+  --error-bd:   #fecaca;
+  --warn-bg:    #fffbeb;
+  --warn-bd:    #fde68a;
+  --warn-text:  #92400e;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--light-bg);
+  color: var(--text);
+  min-height: 100vh;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  background: var(--navy);
+  padding: 28px 20px 22px;
+  text-align: center;
+  border-bottom: 4px solid var(--gold);
+}
+.site-header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.9rem;
+  color: var(--gold);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.site-header p {
+  color: rgba(255,255,255,0.82);
+  font-size: 0.95rem;
+}
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: 620px;
+  margin: 28px auto 0;
+  padding: 0 14px 60px;
+}
+
+/* ============================================================
+   CARD (white panel)
+   ============================================================ */
+.panel {
+  background: var(--white);
+  border-radius: 14px;
+  padding: 26px 24px;
+  box-shadow: 0 2px 18px rgba(26,39,68,0.07);
+  margin-bottom: 18px;
+}
+
+/* ============================================================
+   STATUS BARS
+   ============================================================ */
+.sbar {
+  border-radius: 9px;
+  padding: 13px 16px;
+  font-size: 0.88rem;
+  margin-bottom: 16px;
+  display: none;
+  align-items: center;
+  gap: 10px;
+}
+.sbar-loading { background: #eef2ff; color: #3730a3; border: 1px solid #c7d2fe; display: flex; }
+.sbar-found   { background: var(--success-bg); color: var(--success); border: 1px solid var(--success-bd); display: flex; }
+.sbar-warn    { background: var(--warn-bg); color: var(--warn-text); border: 1px solid var(--warn-bd); }
+.sbar-error   { background: var(--error-bg); color: var(--error); border: 1px solid var(--error-bd); }
+
+.spinner {
+  width: 17px; height: 17px;
+  border: 2px solid #c7d2fe;
+  border-top-color: #3730a3;
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============================================================
+   FORM ELEMENTS
+   ============================================================ */
+.form-group { margin-bottom: 18px; }
+label.field-label {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 5px;
+}
+.opt-tag {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+input[type=text],
+input[type=email] {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color 0.18s;
+  -webkit-appearance: none;
+}
+input[type=text]:focus,
+input[type=email]:focus {
+  outline: none;
+  border-color: var(--navy);
+  box-shadow: 0 0 0 3px rgba(26,39,68,0.07);
+}
+
+.email-benefit {
+  font-size: 0.79rem;
+  color: var(--muted);
+  margin-top: 7px;
+  padding: 9px 12px;
+  background: #f6f9ff;
+  border-radius: 7px;
+  border-left: 3px solid var(--gold);
+  line-height: 1.4;
+}
+
+/* ============================================================
+   CHECKBOX
+   ============================================================ */
+.check-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.check-row input[type=checkbox] {
+  margin-top: 3px;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  accent-color: var(--navy);
+  cursor: pointer;
+}
+.check-row label {
+  font-size: 0.83rem;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1.45;
+}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 9px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: background 0.18s, transform 0.1s, opacity 0.18s;
+  text-decoration: none;
+  -webkit-appearance: none;
+}
+.btn:active { transform: scale(0.985); }
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.btn-navy  { background: var(--navy); color: var(--white); }
+.btn-navy:hover:not(:disabled) { background: var(--navy-dark); }
+
+.btn-gold  { background: var(--gold); color: var(--navy); }
+.btn-gold:hover:not(:disabled) { background: var(--gold-dark); }
+
+.btn-outline {
+  background: var(--white);
+  color: var(--navy);
+  border: 2px solid var(--navy);
+}
+.btn-outline:hover:not(:disabled) { background: #f0f4fb; }
+
+.btn-sm {
+  display: inline-block;
+  width: auto;
+  padding: 9px 18px;
+  font-size: 0.86rem;
+}
+
+/* ============================================================
+   DIVIDER
+   ============================================================ */
+.divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 20px 0;
+}
+
+/* ============================================================
+   NOT YOU / FOUND BLOCK
+   ============================================================ */
+.found-block { display: none; }
+.not-you-line {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.not-you-line a {
+  color: var(--navy);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* ============================================================
+   MANUAL SEARCH
+   ============================================================ */
+.manual-wrap { display: none; margin-top: 14px; }
+.manual-wrap.open { display: block; }
+
+.manual-row {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0;
+}
+.manual-row input { flex: 1; }
+
+.result-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 10px 14px;
+  margin-bottom: 7px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  background: var(--white);
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text);
+  transition: border-color 0.15s, background 0.15s;
+}
+.result-item:hover { border-color: var(--navy); background: #f6f9ff; }
+.result-item strong { display: block; color: var(--navy); margin-bottom: 2px; }
+.result-item span   { font-size: 0.77rem; color: var(--muted); }
+
+/* ============================================================
+   NO LISTING BOX
+   ============================================================ */
+.no-listing-box {
+  display: none;
+  background: var(--warn-bg);
+  border: 1.5px solid var(--gold);
+  border-radius: 12px;
+  padding: 22px 20px;
+  text-align: center;
+}
+.no-listing-box.open { display: block; }
+.no-listing-box h3 { color: var(--navy); font-family: 'DM Serif Display', serif; font-size: 1.15rem; margin-bottom: 8px; }
+.no-listing-box p  { font-size: 0.86rem; color: var(--muted); margin-bottom: 14px; line-height: 1.5; }
+
+/* ============================================================
+   CUT SHEET WRAPPER (screen)
+   ============================================================ */
+.cutsheet-wrap { display: none; }
+.cutsheet-wrap.open { display: block; }
+
+.cutsheet-banner {
+  background: var(--navy);
+  color: var(--white);
+  border-radius: 11px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+.cutsheet-banner strong { color: var(--gold); display: block; font-size: 1rem; margin-bottom: 4px; }
+
+.action-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+.action-row .btn { flex: 1; min-width: 130px; }
+
+.preview-label {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Screen preview grid: 2 cards */
+.preview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* A single preview card on screen */
+.pcard {
+  border: 1px dashed #bbb;
+  border-radius: 6px;
+  padding: 14px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-align: center;
+  background: var(--white);
+  aspect-ratio: 3.5 / 2;
+}
+.pcard-biz {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.78rem;
+  color: var(--navy);
+  line-height: 1.2;
+}
+.pcard-tagline {
+  font-size: 0.58rem;
+  color: #555;
+  line-height: 1.35;
+  padding: 0 3px;
+  flex: 1;
+}
+.pcard-qr { width: 52px; height: 52px; }
+.pcard-qr canvas, .pcard-qr img { width: 100% !important; height: 100% !important; }
+.pcard-cta { font-size: 0.54rem; color: #888; }
+
+/* ============================================================
+   BOOKMARK BOX
+   ============================================================ */
+.bookmark-box {
+  background: #f6f9ff;
+  border: 1.5px solid var(--border);
+  border-radius: 9px;
+  padding: 14px 16px;
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--text);
+}
+.bookmark-box strong { display: block; color: var(--navy); margin-bottom: 5px; font-size: 0.85rem; }
+.bookmark-url {
+  word-break: break-all;
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 6px 8px;
+  margin: 6px 0 8px;
+  display: block;
+}
+.copy-btn {
+  padding: 6px 14px;
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.copy-btn:hover { background: var(--navy-dark); }
+
+/* ============================================================
+   CATALOG UPSELL LINK
+   ============================================================ */
+.catalog-link {
+  text-align: center;
+  padding: 10px 0 4px;
+  font-size: 0.85rem;
+}
+.catalog-link a { color: var(--navy); font-weight: 500; }
+
+/* ============================================================
+   ERROR MESSAGE INLINE
+   ============================================================ */
+.inline-err {
+  color: var(--error);
+  font-size: 0.8rem;
+  margin-top: 7px;
+  display: none;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  text-align: center;
+  padding: 20px 14px 48px;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+footer a { color: var(--navy); text-decoration: none; }
+
+/* ============================================================
+   PRINT STYLES
+   ============================================================ */
+@media print {
+  @page { margin: 0.35in; size: letter portrait; }
+
+  * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+
+  body, html { background: white !important; }
+
+  /* Hide everything on screen */
+  .site-header,
+  .container > .panel,
+  .container > .cutsheet-wrap,
+  footer { display: none !important; }
+
+  /* Show only print area */
+  .print-section { display: block !important; }
+
+  .print-note {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9pt;
+    text-align: center;
+    color: #555;
+    margin-bottom: 10pt;
+    display: block !important;
+  }
+
+  .print-grid {
+    display: grid !important;
+    grid-template-columns: 3.5in 3.5in;
+    grid-template-rows: repeat(4, 2in);
+    gap: 0;
+    width: 7in;
+    margin: 0 auto;
+  }
+}
+
+/* Print section — hidden on screen */
+.print-section { display: none; }
+.print-note    { display: none; }
+.print-grid    { display: none; }
+
+/* Print cards */
+.rcard {
+  width: 3.5in;
+  height: 2in;
+  border: 1px dashed #aaa;
+  padding: 12pt 10pt 10pt;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  background: white;
+  page-break-inside: avoid;
+}
+.rcard-biz {
+  font-family: 'DM Serif Display', serif;
+  font-size: 11.5pt;
+  color: #1a2744;
+  line-height: 1.2;
+}
+.rcard-tagline {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7pt;
+  color: #444;
+  line-height: 1.4;
+  padding: 0 4pt;
+}
+.rcard-qr { width: 0.88in; height: 0.88in; }
+.rcard-qr canvas, .rcard-qr img { width: 100% !important; height: 100% !important; }
+.rcard-cta    { font-family: 'DM Sans', sans-serif; font-size: 6.5pt; color: #555; }
+.rcard-footer { font-family: 'DM Sans', sans-serif; font-size: 6pt;   color: #888; }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header">
+  <h1>Free Google Review Cards</h1>
+  <p>Print cards your customers scan to leave you a 5-star review&nbsp;— no app needed</p>
+</header>
+
+<!-- ============================================================
+     MAIN
+     ============================================================ -->
+<div class="container" id="mainContainer">
+
+  <!-- ── STEP 1: Business lookup + form ─────────────────────── -->
+  <div class="panel" id="lookupPanel">
+
+    <!-- Loading bar -->
+    <div class="sbar sbar-loading" id="sbarLoading">
+      <div class="spinner"></div>
+      <span id="sbarLoadingText">Looking up your business on Google…</span>
+    </div>
+
+    <!-- Found confirmation -->
+    <div class="found-block" id="foundBlock">
+      <div class="sbar sbar-found" style="display:flex;">
+        <span style="font-size:1.1rem;">✅</span>
+        <div>
+          <strong id="foundName"></strong><br>
+          <span id="foundAddr" style="font-size:0.8rem; opacity:0.85;"></span>
+        </div>
+      </div>
+      <div class="not-you-line">Not your business?&nbsp;<a onclick="openManualSearch()">Search manually</a></div>
+    </div>
+
+    <!-- Error bar -->
+    <div class="sbar sbar-error" id="sbarError" style="display:block;"></div>
+
+    <!-- Manual search -->
+    <div class="manual-wrap" id="manualWrap">
+      <label class="field-label">Search for your business on Google</label>
+      <div class="manual-row">
+        <input type="text" id="manualBiz"  placeholder="Business name"  autocomplete="organization">
+        <input type="text" id="manualCity" placeholder="City, State"    autocomplete="address-level2">
+      </div>
+      <button class="btn btn-outline btn-sm" style="margin-top:4px;" onclick="runManualSearch()">Search</button>
+      <div id="manualResults" style="margin-top:12px;"></div>
+    </div>
+
+    <!-- No Google listing -->
+    <div class="no-listing-box" id="noListingBox">
+      <h3>We couldn't find your business on Google</h3>
+      <p>Google Review Cards require a free Google Business Profile.<br>Setting one up takes about 5 minutes.</p>
+      <a href="https://business.google.com/create" target="_blank" rel="noopener"
+         class="btn btn-gold" style="display:inline-block; width:auto; padding:12px 24px; border-radius:9px; text-decoration:none; font-size:0.92rem;">
+        Create Your Free Google Business Profile →
+      </a>
+    </div>
+
+    <hr class="divider" id="formDivider">
+
+    <!-- ── FORM ────────────────────────────────────────────── -->
+    <div id="formSection">
+      <div class="form-group">
+        <label class="field-label" for="firstName">Your First Name</label>
+        <input type="text" id="firstName" placeholder="e.g. Mike" autocomplete="given-name" maxlength="60">
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="emailField">
+          Email Address <span class="opt-tag">(optional)</span>
+        </label>
+        <input type="email" id="emailField" placeholder="you@example.com" autocomplete="email" maxlength="120">
+        <div class="email-benefit">
+          📩 Add your email to receive your cut sheet as a PDF link + our free tool catalog for tradespeople.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="check-row">
+          <input type="checkbox" id="consentBox">
+          <label for="consentBox">I agree to receive occasional helpful emails from OnLineSav.com. I can unsubscribe anytime.</label>
+        </div>
+      </div>
+
+      <button class="btn btn-gold" id="submitBtn" onclick="handleSubmit()">
+        Generate My Review Cards →
+      </button>
+      <div class="inline-err" id="submitErr"></div>
+    </div>
+
+  </div><!-- /lookupPanel -->
+
+  <!-- ── STEP 2: Cut sheet (screen) ─────────────────────────── -->
+  <div class="cutsheet-wrap" id="cutsheetWrap">
+
+    <div class="cutsheet-banner">
+      <strong>🎉 Your review cards are ready!</strong>
+      Print → Fold in half twice → Tear along the dashed lines. <strong style="color:var(--gold);">No scissors needed.</strong><br>
+      Hand one to every customer after the job is done.
+    </div>
+
+    <div class="action-row">
+      <button class="btn btn-gold" onclick="window.print()">🖨️ Save as PDF / Print</button>
+      <button class="btn btn-outline" id="smsBtn" onclick="textACustomer()">📱 Text a Customer</button>
+    </div>
+
+    <div class="panel" style="margin-bottom:14px;">
+      <p class="preview-label">Preview — 8 cards will print per sheet</p>
+      <div class="preview-grid" id="screenPreview"></div>
+    </div>
+
+    <div class="bookmark-box">
+      <strong>🔖 Bookmark this link to print more cards anytime</strong>
+      Come back here and your cards generate instantly — no re-entering anything.
+      <span class="bookmark-url" id="bookmarkUrlText"></span>
+      <button class="copy-btn" onclick="copyBookmark()">Copy Link</button>
+    </div>
+
+    <div class="catalog-link">
+      <a href="catalog.html">Want a full job tracker for your trade? Browse our free tools →</a>
+    </div>
+
+  </div><!-- /cutsheetWrap -->
+
+</div><!-- /container -->
+
+<!-- ============================================================
+     PRINT-ONLY SECTION  (hidden on screen, shown on print)
+     ============================================================ -->
+<div class="print-section" id="printSection">
+  <div class="print-note">Print → Fold in half twice → Tear along dashed lines &nbsp;|&nbsp; 8 cards per page</div>
+  <div class="print-grid" id="printGrid"></div>
+</div>
+
+<footer>
+  © 2025 Access Wizard Databases - OnLineSav.com - All rights reserved
+  &nbsp;|&nbsp; <a href="catalog.html">Free Tools for Tradespeople</a>
+</footer>
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+'use strict';
+
+/* ----------------------------------------------------------
+   CONFIG
+   ---------------------------------------------------------- */
+var CFG = {
+  GOOGLE_API_KEY: 'AIzaSyCqM5F4NTyNkLRzDfGc5eys4Zy2bHdVMFQ',
+  SENDER_API_KEY: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTUxZmIyNDdlMjMzYjhlYjNmNTFjMDQyYmVjMDdiOWQ2OGViYjZlNmM3YWRlZmUyNDJlZWMzMDYzNDAzYmViOGU2YmZmMmEwNDM3Y2NmMzIiLCJpYXQiOjE3NzU3NzczMjAuMjU0OTA3LCJuYmYiOjE3NzU3NzczMjAuMjU0OTEsImV4cCI6NDkyOTM4MDkyMC4yNTIzMzMsInN1YiI6IjEwNjU3NTQiLCJzY29wZXMiOltdfQ.NnBFVA5RAI-XXgGSeaLyGyiEnS-uCJjVbwWH6xdUHFwER3evcr4l8LC6YEYq_LFbQHaeYX3NUUQIIEvRC9vEQLDaKeN0vrDKn3IwLQ6KmxenT6OjFaRUeKHWBWiCWJNEvAQznY3N_PcO3ocvkZskX6YPRaM4RkNDbSkL81WnBbopWZCENTCJeB0y5QedMTDKq5uDW5yEpC0u9ePQsGI2BTlEKoR5sWxJlQATHw3N1-NTN11SzV3w0k8nANRX60ZESJdfKqsxxGWuTuU9avYDBMrPI0FJ8jrxwoXtfkp6sUZnl3Y2a13Gb6VI63TTqwWuqN0EfcIMbOTGaK3k8IIPcOMRHohN57EUAt0R-6IjOIpimr-IryxJ0--q8GRYCLD5QePdJw2eFONl_zYN3urQg91V6kKH2PdfBy38OrvUA7gA6Wj_Qn17QbHP-XGaeZAfVlDRaAdoU8d6yRi8btK2v0H4GKYd4Ga6KnzqIDUfw2wmPVYy_sCe_XsSmhkhq5WW8Ngyfdh73q6OzREaaxoULYdTIAyQiCgrzons-0g6KpA6nOhkh2ChVKefee6pTFpXvOugOKqiyc0Ir4wqmdxTNsH7lq_Qu94G8s1aKGLzXDFlUJsy-plkLsx8z1ER3OVxk-dbZ1YW6mCFJwql8qjb1cXotYcqZfod4apXqFfP2BM',
+  SENDER_LIST:    'enlrKl',
+  PLACES_URL:     'https://places.googleapis.com/v1/places:searchText',
+  SENDER_URL:     'https://api.sender.net/v2/subscribers'
+};
+
+/* ----------------------------------------------------------
+   STATE
+   ---------------------------------------------------------- */
+var S = {
+  placeId:    null,
+  reviewUrl:  null,
+  bizName:    null,
+  trade:      null,
+  phone:      null,
+  city:       null,
+  src:        null,
+  bookmark:   null
+};
+
+/* ----------------------------------------------------------
+   TRADE TAGLINES
+   ---------------------------------------------------------- */
+var TAGLINES = {
+  plumber:        'No more leaks \u2014 and no more headaches? Tell Google about it!',
+  plumbing:       'No more leaks \u2014 and no more headaches? Tell Google about it!',
+  hvac:           'Staying cool (or warm)? 60 seconds on Google means the world to us.',
+  heating:        'Staying cool (or warm)? 60 seconds on Google means the world to us.',
+  cooling:        'Staying cool (or warm)? 60 seconds on Google means the world to us.',
+  'air conditioning': 'Staying cool (or warm)? 60 seconds on Google means the world to us.',
+  electrician:    'We kept the lights on. Mind leaving us a Google review?',
+  electrical:     'We kept the lights on. Mind leaving us a Google review?',
+  landscaper:     'Love how your yard looks? Let your neighbors find us on Google.',
+  landscaping:    'Love how your yard looks? Let your neighbors find us on Google.',
+  lawn:           'Love how your yard looks? Let your neighbors find us on Google.',
+  roofer:         'Dry house, happy family. Share your experience on Google!',
+  roofing:        'Dry house, happy family. Share your experience on Google!',
+  painter:        'Fresh look? Leave us a fresh review \u2014 takes 60 seconds.',
+  painting:       'Fresh look? Leave us a fresh review \u2014 takes 60 seconds.',
+  pest:           'Bug-free and loving it? Tell Google!',
+  exterminator:   'Bug-free and loving it? Tell Google!',
+  pool:           'Clean pool, happy summer. Leave us a Google review!',
+  contractor:     'Job done right? 60 seconds on Google helps us help more families.',
+  handyman:       'Fixed and looking great? Let others know we\u2019re the ones to call!'
+};
+
+function getTagline(trade) {
+  if (!trade) return 'Happy with our work? Leave us a quick Google review!';
+  var t = trade.toLowerCase();
+  for (var key in TAGLINES) {
+    if (TAGLINES.hasOwnProperty(key) && t.indexOf(key) !== -1) {
+      return TAGLINES[key];
+    }
+  }
+  return 'Happy with our work? Leave us a quick Google review!';
+}
+
+/* ----------------------------------------------------------
+   URL PARAM HELPER
+   ---------------------------------------------------------- */
+function param(name) {
+  try {
+    return (new URLSearchParams(window.location.search)).get(name) || '';
+  } catch (e) {
+    log('param() error', e);
+    return '';
+  }
+}
+
+/* ----------------------------------------------------------
+   LOGGING
+   ---------------------------------------------------------- */
+function log(msg, data) {
+  try {
+    if (data !== undefined) {
+      console.log('[ReviewTool] ' + msg, data);
+    } else {
+      console.log('[ReviewTool] ' + msg);
+    }
+  } catch (e) { /* silent */ }
+}
+function logErr(msg, e) {
+  try { console.error('[ReviewTool] ' + msg, e || ''); } catch (ex) { /* silent */ }
+}
+
+/* ----------------------------------------------------------
+   INIT
+   ---------------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', function () {
+  try {
+    var biz    = param('biz');
+    var trade  = param('trade');
+    var phone  = param('phone');
+    var city   = param('city');
+    var src    = param('src');
+    var preUrl = param('url');  // bookmark return — review URL already known
+
+    S.trade = trade || null;
+    S.phone = phone || null;
+    S.city  = city  || null;
+    S.src   = src   || null;
+    S.bizName = biz || null;
+
+    log('Init params', { biz: biz, trade: trade, phone: phone, city: city, src: src, preUrl: !!preUrl });
+
+    // Bookmark return path — skip all lookup
+    if (preUrl) {
+      log('Bookmark return — using pre-baked review URL');
+      S.reviewUrl = preUrl;
+      try {
+        var m = preUrl.match(/placeid=([^&]+)/);
+        if (m) S.placeId = decodeURIComponent(m[1]);
+      } catch (e) { logErr('Could not extract placeId from preUrl', e); }
+      hideLoadingBar();
+      showFoundBlock(biz || 'Your Business', '');
+      buildBookmark();
+      return;
+    }
+
+    // Normal path — lookup
+    if (phone) {
+      lookupByPhone(phone, biz);
+    } else if (biz) {
+      lookupByName(biz, city);
+    } else {
+      hideLoadingBar();
+      openManualSearch();
+    }
+
+  } catch (e) {
+    logErr('Init error', e);
+    hideLoadingBar();
+    openManualSearch();
+  }
+});
+
+/* ----------------------------------------------------------
+   PLACES API — PHONE LOOKUP
+   ---------------------------------------------------------- */
+function lookupByPhone(phone, bizHint) {
+  var normalized = normalizePhone(phone);
+  log('Phone lookup', normalized);
+  setLoadingText('Looking up ' + (bizHint || 'your business') + ' on Google\u2026');
+
+  placesSearch(normalized, function (places) {
+    if (places && places.length > 0) {
+      handlePlaceResult(places[0]);
+    } else {
+      log('Phone lookup empty — falling back to name');
+      if (bizHint) {
+        lookupByName(bizHint, S.city);
+      } else {
+        hideLoadingBar();
+        openManualSearch();
+      }
+    }
+  }, function (err) {
+    logErr('Phone lookup failed', err);
+    if (bizHint) {
+      lookupByName(bizHint, S.city);
+    } else {
+      hideLoadingBar();
+      openManualSearch();
+      showError('Could not reach Google. Please search manually below.');
+    }
+  });
+}
+
+/* ----------------------------------------------------------
+   PLACES API — NAME LOOKUP
+   ---------------------------------------------------------- */
+function lookupByName(bizName, city) {
+  var q = bizName + (city ? ' ' + city : '');
+  log('Name lookup', q);
+  setLoadingText('Searching for ' + bizName + ' on Google\u2026');
+
+  placesSearch(q, function (places) {
+    if (!places || places.length === 0) {
+      log('Name lookup empty');
+      hideLoadingBar();
+      showNoListing();
+      return;
+    }
+    if (places.length === 1) {
+      handlePlaceResult(places[0]);
+    } else {
+      hideLoadingBar();
+      showMultiple(places);
+    }
+  }, function (err) {
+    logErr('Name lookup failed', err);
+    hideLoadingBar();
+    openManualSearch();
+    showError('Could not reach Google. Please search for your business manually.');
+  });
+}
+
+/* ----------------------------------------------------------
+   PLACES API — RAW FETCH
+   ---------------------------------------------------------- */
+function placesSearch(query, onOk, onErr) {
+  fetch(CFG.PLACES_URL, {
+    method: 'POST',
+    headers: {
+      'Content-Type':    'application/json',
+      'X-Goog-Api-Key':  CFG.GOOGLE_API_KEY,
+      'X-Goog-FieldMask': 'places.id,places.displayName,places.formattedAddress'
+    },
+    body: JSON.stringify({ textQuery: query, pageSize: 5 })
+  })
+  .then(function (res) {
+    if (!res.ok) {
+      throw new Error('HTTP ' + res.status);
+    }
+    return res.json();
+  })
+  .then(function (data) {
+    log('Places API response places count', (data.places || []).length);
+    onOk(data.places || []);
+  })
+  .catch(function (e) {
+    logErr('placesSearch fetch error', e);
+    onErr(e);
+  });
+}
+
+/* ----------------------------------------------------------
+   HANDLE SINGLE PLACE RESULT
+   ---------------------------------------------------------- */
+function handlePlaceResult(place) {
+  try {
+    S.placeId   = place.id || '';
+    S.bizName   = (place.displayName && place.displayName.text) ? place.displayName.text : (S.bizName || 'Your Business');
+    S.reviewUrl = 'https://search.google.com/local/writereview?placeid=' + S.placeId;
+    var addr    = place.formattedAddress || '';
+    log('Place confirmed', { id: S.placeId, name: S.bizName });
+    hideLoadingBar();
+    showFoundBlock(S.bizName, addr);
+    buildBookmark();
+  } catch (e) {
+    logErr('handlePlaceResult error', e);
+    hideLoadingBar();
+    openManualSearch();
+  }
+}
+
+/* ----------------------------------------------------------
+   SHOW MULTIPLE RESULTS FOR USER TO PICK
+   ---------------------------------------------------------- */
+function showMultiple(places) {
+  openManualSearch();
+  var div = document.getElementById('manualResults');
+  div.innerHTML = '<p style="font-size:0.81rem;color:var(--muted);margin-bottom:8px;">Multiple businesses found \u2014 which is yours?</p>';
+
+  var shown = places.slice(0, 5);
+  shown.forEach(function (place) {
+    var btn  = document.createElement('button');
+    btn.className = 'result-item';
+    var name = (place.displayName && place.displayName.text) ? place.displayName.text : 'Unknown';
+    var addr = place.formattedAddress || '';
+    btn.innerHTML = '<strong>' + esc(name) + '</strong><span>' + esc(addr) + '</span>';
+    btn.addEventListener('click', function () {
+      handlePlaceResult(place);
+      div.innerHTML = '';
+      document.getElementById('manualWrap').classList.remove('open');
+    });
+    div.appendChild(btn);
+  });
+
+  var noneBtn = document.createElement('button');
+  noneBtn.style.cssText = 'background:none;border:none;font-size:0.79rem;color:var(--muted);cursor:pointer;padding:5px 0;font-family:DM Sans,sans-serif;display:block;margin-top:4px;';
+  noneBtn.textContent = "None of these \u2014 my business isn't listed on Google yet";
+  noneBtn.addEventListener('click', function () {
+    div.innerHTML = '';
+    document.getElementById('manualWrap').classList.remove('open');
+    showNoListing();
+  });
+  div.appendChild(noneBtn);
+}
+
+/* ----------------------------------------------------------
+   MANUAL SEARCH
+   ---------------------------------------------------------- */
+function openManualSearch() {
+  document.getElementById('manualWrap').classList.add('open');
+  hideLoadingBar();
+}
+
+function runManualSearch() {
+  var biz  = trim(document.getElementById('manualBiz').value);
+  var city = trim(document.getElementById('manualCity').value);
+  if (!biz) { alert('Please enter your business name.'); return; }
+
+  S.bizName = biz;
+  S.city    = city;
+
+  var resultsDiv = document.getElementById('manualResults');
+  resultsDiv.innerHTML = '<p style="font-size:0.81rem;color:var(--muted);">Searching\u2026</p>';
+
+  placesSearch(biz + (city ? ' ' + city : ''), function (places) {
+    resultsDiv.innerHTML = '';
+    if (!places || places.length === 0) {
+      showNoListing();
+      document.getElementById('manualWrap').classList.remove('open');
+    } else if (places.length === 1) {
+      handlePlaceResult(places[0]);
+      document.getElementById('manualWrap').classList.remove('open');
+    } else {
+      showMultiple(places);
+    }
+  }, function (err) {
+    logErr('runManualSearch error', err);
+    resultsDiv.innerHTML = '<p style="color:var(--error);font-size:0.81rem;">Search failed. Check your connection and try again.</p>';
+  });
+}
+
+/* ----------------------------------------------------------
+   UI STATE HELPERS
+   ---------------------------------------------------------- */
+function setLoadingText(t) {
+  var el = document.getElementById('sbarLoadingText');
+  if (el) el.textContent = t;
+  document.getElementById('sbarLoading').style.display = 'flex';
+}
+function hideLoadingBar() {
+  document.getElementById('sbarLoading').style.display = 'none';
+}
+function showFoundBlock(name, addr) {
+  setText('foundName', name);
+  setText('foundAddr', addr);
+  document.getElementById('foundBlock').style.display = 'block';
+}
+function showError(msg) {
+  var el = document.getElementById('sbarError');
+  if (!el) return;
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+function showNoListing() {
+  document.getElementById('noListingBox').classList.add('open');
+  document.getElementById('formDivider').style.display  = 'none';
+  document.getElementById('formSection').style.display  = 'none';
+}
+
+/* ----------------------------------------------------------
+   FORM SUBMIT
+   ---------------------------------------------------------- */
+function handleSubmit() {
+  try {
+    var firstName = trim(document.getElementById('firstName').value);
+    var email     = trim(document.getElementById('emailField').value);
+    var consent   = document.getElementById('consentBox').checked;
+    var errEl     = document.getElementById('submitErr');
+
+    errEl.style.display = 'none';
+
+    if (!S.reviewUrl) {
+      showSubmitErr(errEl, 'Please find your business above before generating cards.');
+      return;
+    }
+    if (!firstName) {
+      showSubmitErr(errEl, 'Please enter your first name.');
+      return;
+    }
+    if (email && !isValidEmail(email)) {
+      showSubmitErr(errEl, 'Please enter a valid email address.');
+      return;
+    }
+    if (email && !consent) {
+      showSubmitErr(errEl, 'Please check the consent box to receive emails.');
+      return;
+    }
+
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Generating your cards\u2026';
+
+    if (email && consent) {
+      postToSender(firstName, email, function (ok) {
+        if (!ok) logErr('Sender POST failed \u2014 continuing to show cards');
+        showCutSheet();
+      });
+    } else {
+      showCutSheet();
+    }
+
+  } catch (e) {
+    logErr('handleSubmit error', e);
+    showCutSheet();
+  }
+}
+
+function showSubmitErr(el, msg) {
+  el.textContent = msg;
+  el.style.display = 'block';
+}
+
+/* ----------------------------------------------------------
+   SENDER API POST
+   ---------------------------------------------------------- */
+function postToSender(firstName, email, callback) {
+  log('Posting to Sender', email);
+
+  var payload = {
+    email:     email,
+    firstname: firstName,
+    groups:    [CFG.SENDER_LIST],
+    fields: {
+      business_name: S.bizName || '',
+      trade:         S.trade   || ''
+    }
+  };
+
+  fetch(CFG.SENDER_URL, {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer ' + CFG.SENDER_API_KEY,
+      'Content-Type':  'application/json',
+      'Accept':        'application/json'
+    },
+    body: JSON.stringify(payload)
+  })
+  .then(function (res) {
+    log('Sender response status', res.status);
+    // 200 = created, 422 = already subscribed (both acceptable)
+    callback(res.ok || res.status === 422);
+  })
+  .catch(function (e) {
+    logErr('Sender fetch error', e);
+    callback(false);
+  });
+}
+
+/* ----------------------------------------------------------
+   BUILD AND SHOW CUT SHEET
+   ---------------------------------------------------------- */
+function showCutSheet() {
+  try {
+    var biz      = S.bizName   || 'Your Business';
+    var tagline  = getTagline(S.trade);
+    var url      = S.reviewUrl;
+
+    log('Building cut sheet', { biz: biz, trade: S.trade });
+
+    // Hide lookup panel
+    document.getElementById('lookupPanel').style.display = 'none';
+
+    // Show cut sheet
+    document.getElementById('cutsheetWrap').classList.add('open');
+
+    // Bookmark text
+    document.getElementById('bookmarkUrlText').textContent = S.bookmark || window.location.href;
+
+    // Build screen preview (2 cards)
+    buildPreviewCards(biz, tagline, url);
+
+    // Build print grid (8 cards)
+    buildPrintCards(biz, tagline, url);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  } catch (e) {
+    logErr('showCutSheet error', e);
+  }
+}
+
+/* ----------------------------------------------------------
+   SCREEN PREVIEW (2 cards)
+   ---------------------------------------------------------- */
+function buildPreviewCards(biz, tagline, url) {
+  try {
+    var grid = document.getElementById('screenPreview');
+    grid.innerHTML = '';
+
+    for (var i = 0; i < 2; i++) {
+      var card = document.createElement('div');
+      card.className = 'pcard';
+
+      var bizEl     = document.createElement('div');
+      bizEl.className = 'pcard-biz';
+      bizEl.textContent = biz;
+
+      var tagEl     = document.createElement('div');
+      tagEl.className = 'pcard-tagline';
+      tagEl.textContent = tagline;
+
+      var qrEl      = document.createElement('div');
+      qrEl.className = 'pcard-qr';
+      qrEl.id = 'prevQr' + i;
+
+      var ctaEl     = document.createElement('div');
+      ctaEl.className = 'pcard-cta';
+      ctaEl.textContent = 'Scan to leave us a Google review';
+
+      card.appendChild(bizEl);
+      card.appendChild(tagEl);
+      card.appendChild(qrEl);
+      card.appendChild(ctaEl);
+      grid.appendChild(card);
+
+      makeQR('prevQr' + i, url, 52, i * 120);
+    }
+  } catch (e) {
+    logErr('buildPreviewCards error', e);
+  }
+}
+
+/* ----------------------------------------------------------
+   PRINT CARDS (8)
+   ---------------------------------------------------------- */
+function buildPrintCards(biz, tagline, url) {
+  try {
+    var grid = document.getElementById('printGrid');
+    grid.innerHTML = '';
+
+    for (var i = 0; i < 8; i++) {
+      var card = document.createElement('div');
+      card.className = 'rcard';
+
+      var bizEl     = document.createElement('div');
+      bizEl.className = 'rcard-biz';
+      bizEl.textContent = biz;
+
+      var tagEl     = document.createElement('div');
+      tagEl.className = 'rcard-tagline';
+      tagEl.textContent = tagline;
+
+      var qrEl      = document.createElement('div');
+      qrEl.className = 'rcard-qr';
+      qrEl.id = 'printQr' + i;
+
+      var ctaEl     = document.createElement('div');
+      ctaEl.className = 'rcard-cta';
+      ctaEl.textContent = 'Scan to leave us a Google review';
+
+      var footEl    = document.createElement('div');
+      footEl.className = 'rcard-footer';
+      footEl.textContent = 'Thank you! \u2014 ' + biz;
+
+      card.appendChild(bizEl);
+      card.appendChild(tagEl);
+      card.appendChild(qrEl);
+      card.appendChild(ctaEl);
+      card.appendChild(footEl);
+      grid.appendChild(card);
+
+      makeQR('printQr' + i, url, 84, i * 100);
+    }
+  } catch (e) {
+    logErr('buildPrintCards error', e);
+  }
+}
+
+/* ----------------------------------------------------------
+   QR CODE GENERATOR
+   ---------------------------------------------------------- */
+function makeQR(elId, text, size, delayMs) {
+  setTimeout(function () {
+    try {
+      var el = document.getElementById(elId);
+      if (!el) { logErr('makeQR: element not found', elId); return; }
+      if (typeof QRCode === 'undefined') { logErr('QRCode library not loaded'); return; }
+      new QRCode(el, {
+        text:         text,
+        width:        size,
+        height:       size,
+        colorDark:    '#1a2744',
+        colorLight:   '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+    } catch (e) {
+      logErr('makeQR error for ' + elId, e);
+    }
+  }, delayMs || 0);
+}
+
+/* ----------------------------------------------------------
+   BOOKMARK URL
+   ---------------------------------------------------------- */
+function buildBookmark() {
+  try {
+    var base   = window.location.origin + window.location.pathname;
+    var params = new URLSearchParams();
+    if (S.bizName)   params.set('biz',   S.bizName);
+    if (S.trade)     params.set('trade', S.trade);
+    if (S.phone)     params.set('phone', S.phone);
+    if (S.city)      params.set('city',  S.city);
+    if (S.src)       params.set('src',   S.src);
+    if (S.reviewUrl) params.set('url',   S.reviewUrl);
+    S.bookmark = base + '?' + params.toString();
+    log('Bookmark built', S.bookmark);
+  } catch (e) {
+    logErr('buildBookmark error', e);
+    S.bookmark = window.location.href;
+  }
+}
+
+/* ----------------------------------------------------------
+   COPY BOOKMARK
+   ---------------------------------------------------------- */
+function copyBookmark() {
+  var url = S.bookmark || document.getElementById('bookmarkUrlText').textContent;
+  try {
+    navigator.clipboard.writeText(url).then(function () {
+      flashCopy();
+    }).catch(function (e) {
+      logErr('clipboard.writeText failed, using fallback', e);
+      clipboardFallback(url);
+    });
+  } catch (e) {
+    logErr('copyBookmark error', e);
+    clipboardFallback(url);
+  }
+}
+function clipboardFallback(text) {
+  try {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    ta.style.position = 'fixed';
+    ta.style.left = '-9999px';
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    flashCopy();
+  } catch (e) {
+    logErr('clipboardFallback error', e);
+  }
+}
+function flashCopy() {
+  var btn = document.querySelector('.copy-btn');
+  if (!btn) return;
+  btn.textContent = 'Copied!';
+  setTimeout(function () { btn.textContent = 'Copy Link'; }, 2200);
+}
+
+/* ----------------------------------------------------------
+   TEXT A CUSTOMER
+   ---------------------------------------------------------- */
+function textACustomer() {
+  try {
+    var biz = S.bizName || 'us';
+    var msg = 'Enjoyed working with ' + biz + '? We\u2019d love a Google review \u2014 it only takes 60 seconds: ' + (S.reviewUrl || '');
+    window.open('sms:?body=' + encodeURIComponent(msg), '_self');
+  } catch (e) {
+    logErr('textACustomer error', e);
+  }
+}
+
+/* ----------------------------------------------------------
+   UTILITIES
+   ---------------------------------------------------------- */
+function normalizePhone(p) {
+  var digits = p.replace(/\D/g, '');
+  if (digits.length === 10) return '+1' + digits;
+  if (digits.length === 11 && digits.charAt(0) === '1') return '+' + digits;
+  return '+' + digits;
+}
+
+function isValidEmail(e) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e);
+}
+
+function trim(s) {
+  return (s || '').replace(/^\s+|\s+$/g, '');
+}
+
+function setText(id, val) {
+  var el = document.getElementById(id);
+  if (el) el.textContent = val || '';
+}
+
+function esc(s) {
+  return (s || '')
+    .replace(/&/g,  '&amp;')
+    .replace(/</g,  '&lt;')
+    .replace(/>/g,  '&gt;')
+    .replace(/"/g,  '&quot;')
+    .replace(/'/g,  '&#039;');
+}
+</script>
+</body>
+</html>
