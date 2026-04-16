@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CA Backflow Pro | Digital Clipboard</title>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVyVYHrGLhcHc4qeMlzMFlify_kxAzjHO3_uVxk3AoL30UeDYsO_J1TmQchSS6fknIbaJZ5HbAyZgNoG&components=buttons,marks,funding-eligibility&enable-funding=venmo,card,paylater"></script>
+    <style>
+        :root { --brand: #00ff7f; --bg: #000; --panel: #111; --text: #fff; }
+        body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+        
+        .container { max-width: 650px; margin: auto; padding: 20px; }
+        
+        /* High-Impact Hero */
+        .hero { text-align: center; padding: 50px 20px; border-bottom: 3px solid var(--brand); background: linear-gradient(180deg, #111 0%, #000 100%); }
+        h1 { font-size: 2.4rem; margin: 0; color: var(--brand); letter-spacing: -1px; }
+        .sub-hero { font-size: 1.2rem; color: #888; margin-top: 10px; font-weight: bold; }
+
+        /* Success Area (Hidden initially) */
+        #success-area { display: none; text-align: center; padding: 40px 20px; border: 2px solid var(--brand); border-radius: 20px; background: #0a1f14; margin-top: 20px; }
+        .download-btn { display: inline-block; background: var(--brand); color: #000; text-decoration: none; padding: 25px 50px; border-radius: 15px; font-size: 1.5rem; font-weight: 900; margin-top: 20px; border: none; cursor: pointer; text-transform: uppercase; }
+
+        /* The Visual "Hook" */
+        .visual-demo { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
+        .demo-box { background: #1a1a1a; border-radius: 12px; padding: 15px; border: 1px solid #333; text-align: center; }
+        .demo-box.pro { border-color: var(--brand); box-shadow: 0 0 20px rgba(0,255,127,0.1); }
+        .demo-tag { font-size: 0.7rem; font-weight: 900; text-transform: uppercase; margin-bottom: 10px; display: block; }
+
+        /* Selling Points */
+        .point { background: var(--panel); padding: 25px; border-radius: 15px; margin-bottom: 15px; border-left: 6px solid var(--brand); }
+        .point h3 { margin: 0 0 8px 0; font-size: 1.3rem; color: var(--brand); }
+        .point p { margin: 0; color: #ccc; font-size: 1.05rem; line-height: 1.4; }
+
+        /* Payment Logic Card */
+        .payment-card { background: #fff; color: #000; padding: 35px; border-radius: 24px; text-align: center; margin-top: 40px; box-shadow: 0 10px 40px rgba(0,255,127,0.2); }
+        .price { font-size: 3.5rem; font-weight: 900; color: #000; margin: 10px 0; display: block; }
+        .license { font-size: 0.9rem; font-weight: bold; color: #666; text-transform: uppercase; letter-spacing: 1px; }
+
+        .author-seal { margin-top: 50px; padding: 30px; text-align: center; border-top: 1px solid #222; }
+        .author-seal h4 { color: #555; margin: 0; font-size: 0.8rem; letter-spacing: 2px; }
+        .author-seal p { color: #444; font-size: 0.8rem; margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<div id="sales-content">
+    <div class="hero">
+        <h1>CA BACKFLOW PRO</h1>
+        <div class="sub-hero">THE DIGITAL CLIPBOARD</div>
+    </div>
+
+    <div class="container">
+        <div class="visual-demo">
+            <div class="demo-box">
+                <span class="demo-tag" style="color:#ff4757;">Old Paper Way</span>
+                <div style="height:80px; background:#222; border-radius:5px; padding-top:20px; color:#444;">✘ Rejections<br>✘ Math Errors</div>
+            </div>
+            <div class="demo-box pro">
+                <span class="demo-tag" style="color:var(--brand);">Pro Digital Way</span>
+                <div style="height:80px; background:#000; border:1px solid var(--brand); border-radius:5px; padding-top:20px; color:var(--brand);">✔ Auto-Logic<br>✔ Digital Sig</div>
+            </div>
+        </div>
+
+        <div class="point">
+            <h3>California Regulatory Compliance</h3>
+            <p>Built-in logic validates every PSID reading against CA standards. Stop re-testing because of clerical mistakes.</p>
+        </div>
+
+        <div class="point">
+            <h3>"Ghost Mode" Reliability</h3>
+            <p>Engineered for concrete vaults and hospital basements. Works 100% offline with zero lag. No cell signal required.</p>
+        </div>
+
+        <div class="point">
+            <h3>Own The Tool, Don't Rent It</h3>
+            <p>One-time investment. No monthly "Vampire" subscription fees eating your testing margins.</p>
+        </div>
+
+        <div class="payment-card">
+            <span class="license">Lifetime Field License</span>
+            <span class="price">$97.00</span>
+            <p style="margin-bottom:25px; font-weight:bold; color: #333;">Instant Access After Checkout</p>
+            
+            <div id="paypal-button-container"></div>
+        </div>
+
+        <div class="author-seal">
+            <h4>DESIGNED BY A DATABASE ARCHITECT</h4>
+            <p>Built by a developer with 45 years of professional workflow experience.<br>
+            Professional field instrument, not a toy.</p>
+        </div>
+    </div>
+</div>
+
+<div id="success-area" class="container">
+    <h1 style="color:var(--brand);">PAYMENT SUCCESSFUL</h1>
+    <p style="font-size: 1.2rem; color: #fff;">Thank you for your purchase. Your Lifetime License is now active.</p>
+    
+    <div class="point" style="background: #111; border: 2px solid var(--brand); margin-top: 30px;">
+        <h3>YOUR DOWNLOAD IS READY</h3>
+        <p>Click the button below to download the <b>CA Backflow Pro</b> tool to your device.</p>
+        <a href="ca_backflow_pro.html" download="ca_backflow_pro.html" class="download-btn">Download Tool Now</a>
+    </div>
+    
+    <div class="point" style="margin-top:20px; border-left: 6px solid #444;">
+        <h3>HOW TO SAVE:</h3>
+        <p>1. Open the downloaded file in your mobile browser.<br>
+        2. Tap your browser menu and select "Add to Home Screen" for instant access in the field.</p>
+    </div>
+</div>
+
+<script>
+    paypal.Buttons({
+        style: {
+            layout: 'vertical',
+            color:  'blue',
+            shape:  'rect',
+            label:  'buynow'
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: '97.00',
+                        currency_code: 'USD'
+                    },
+                    description: 'CA Backflow Pro - Field Instrument Lifetime License'
+                }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                // HIDE SALES - SHOW SUCCESS
+                document.getElementById('sales-content').style.display = 'none';
+                document.getElementById('success-area').style.display = 'block';
+                
+                // Trigger automatic download
+                const link = document.createElement('a');
+                link.href = 'ca_backflow_pro.html';
+                link.download = 'ca_backflow_pro.html';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                alert('Thank you, ' + details.payer.name.given_name + '! Your tool is ready.');
+            });
+        },
+        onError: function (err) {
+            console.error('PayPal Error:', err);
+            alert('Checkout currently unavailable. Please check your connection.');
+        }
+    }).render('#paypal-button-container');
+</script>
+
+</body>
+</html>

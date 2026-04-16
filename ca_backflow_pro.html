@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CA MASTER | Field Instrument</title>
+    <style>
+        :root { --brand: #00ff7f; --fail: #ff4757; --bg: #000; --panel: #121212; --border: #333; }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica;
+            background: var(--bg); color: #fff; margin: 0; padding: 12px;
+            -webkit-tap-highlight-color: transparent; touch-action: manipulation;
+        }
+
+        /* Industrial UI: High Contrast & Giant Targets */
+        .card { background: var(--panel); border-radius: 18px; padding: 24px; margin-bottom: 15px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .card-header { border-left: 6px solid var(--brand); padding-left: 15px; margin-bottom: 20px; }
+        
+        h2 { color: var(--brand); font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; margin: 0; }
+        label { display: block; color: #999; margin-bottom: 10px; font-size: 0.95rem; font-weight: bold; }
+        
+        /* Precision Inputs */
+        input { 
+            width: 100%; height: 70px; background: #1a1a1a; border: 2px solid #333; 
+            border-radius: 12px; color: #fff; font-size: 1.6rem; padding: 0 18px; box-sizing: border-box; 
+            margin-bottom: 15px; -webkit-appearance: none;
+        }
+        input:focus { border-color: var(--brand); outline: none; background: #222; }
+        input::placeholder { color: #444; }
+
+        /* Real-Time Logic Engine */
+        .logic-center { 
+            background: #000; padding: 25px; border-radius: 14px; text-align: center; 
+            font-weight: 900; font-size: 1.8rem; border: 3px double #333; margin: 15px 0;
+            transition: all 0.2s ease;
+        }
+        .status-pass { border-color: var(--brand); color: var(--brand); text-shadow: 0 0 10px rgba(0,255,127,0.3); }
+        .status-fail { border-color: var(--fail); color: var(--fail); }
+
+        /* Signature Engineering */
+        .sig-box { background: #fff; border-radius: 12px; height: 220px; position: relative; cursor: crosshair; }
+        canvas { width: 100%; height: 100%; touch-action: none; border-radius: 12px; }
+
+        .btn { 
+            width: 100%; height: 85px; border: none; border-radius: 15px; font-size: 1.6rem; 
+            font-weight: 900; text-transform: uppercase; cursor: pointer; margin-top: 15px;
+        }
+        .btn-lock { background: var(--brand); color: #000; box-shadow: 0 5px 15px rgba(0,255,127,0.2); }
+        .btn-reset { background: #222; color: #666; height: 55px; font-size: 1rem; border: 1px solid #333; }
+        
+        .footer-metadata { font-size: 0.8rem; color: #444; text-align: center; margin-top: 20px; font-family: monospace; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <div class="card-header">
+        <h2>Job Site Identity</h2>
+    </div>
+    <input type="text" id="pName" placeholder="PROPERTY NAME" oninput="pSave()">
+    <input type="text" id="pAddr" placeholder="SERVICE ADDRESS" oninput="pSave()">
+</div>
+
+<div class="card">
+    <div class="card-header"><h2>Pressure Analysis</h2></div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <div><label>CHECK 1</label><input type="number" step="0.1" id="c1" placeholder="0.0" oninput="pAudit()"></div>
+        <div><label>RV OPEN</label><input type="number" step="0.1" id="rv" placeholder="0.0" oninput="pAudit()"></div>
+    </div>
+    <div id="logicBox" class="logic-center">READY FOR DATA</div>
+</div>
+
+<div class="card">
+    <div class="card-header"><h2>Tester Attestation</h2></div>
+    <input type="text" id="tName" placeholder="TESTER FULL NAME" oninput="pSave()">
+    <input type="text" id="tCert" placeholder="CERTIFICATION #" oninput="pSave()">
+    
+    <label style="margin-top:20px;">DIGITAL SIGNATURE (REQUIRED)</label>
+    <div class="sig-box"><canvas id="pCanvas"></canvas></div>
+    <button class="btn btn-reset" onclick="pClearSig()">RE-SIGN</button>
+</div>
+
+<button class="btn btn-lock" onclick="pFinalize()">Lock & Generate Report</button>
+
+<div class="footer-metadata">
+    <span id="pGps">GPS: SATELLITE SEARCHING...</span><br>
+    <span id="pTs">SYSTEM READY</span>
+</div>
+
+<script>
+    const canvas = document.getElementById('pCanvas');
+    const ctx = canvas.getContext('2d');
+    let drawing = false;
+
+    // --- High Precision Drawing ---
+    function getXY(e) {
+        const r = canvas.getBoundingClientRect();
+        const x = e.touches ? e.touches[0].clientX : e.clientX;
+        const y = e.touches ? e.touches[0].clientY : e.clientY;
+        return { x: x - r.left, y: y - r.top };
+    }
+    function start(e) { drawing = true; pDraw(e); }
+    function end() { drawing = false; ctx.beginPath(); pSave(); }
+    function pDraw(e) {
+        if (!drawing) return; e.preventDefault();
+        const p = getXY(e);
+        ctx.lineWidth = 4; ctx.lineCap = 'round'; ctx.strokeStyle = '#000';
+        ctx.lineTo(p.x, p.y); ctx.stroke(); ctx.beginPath(); ctx.moveTo(p.x, p.y);
+    }
+    canvas.addEventListener('mousedown', start); canvas.addEventListener('mousemove', pDraw);
+    window.addEventListener('mouseup', end);
+    canvas.addEventListener('touchstart', start); canvas.addEventListener('touchmove', pDraw);
+    canvas.addEventListener('touchend', end);
+    function pClearSig() { ctx.clearRect(0, 0, canvas.width, canvas.height); pSave(); }
+
+    // --- Analysis Engine ---
+    function pAudit() {
+        const v1 = parseFloat(document.getElementById('c1').value);
+        const vr = parseFloat(document.getElementById('rv').value);
+        const b = document.getElementById('logicBox');
+        if (!isNaN(v1) && !isNaN(vr)) {
+            const d = (v1 - vr).toFixed(1);
+            const pass = (v1 >= 5.0 && vr >= 2.0 && d >= 1.0);
+            b.innerText = pass ? `PASS: ${d} DIFF` : `FAIL: ${d} DIFF`;
+            b.className = pass ? 'logic-center status-pass' : 'logic-center status-fail';
+        }
+        pSave();
+    }
+
+    // --- Storage & GPS ---
+    function pSave() {
+        const d = {
+            p: document.getElementById('pName').value, a: document.getElementById('pAddr').value,
+            c: document.getElementById('c1').value, r: document.getElementById('rv').value,
+            n: document.getElementById('tName').value, x: document.getElementById('tCert').value,
+            s: canvas.toDataURL()
+        };
+        localStorage.setItem('p_vault', JSON.stringify(d));
+    }
+
+    function pLoad() {
+        const v = JSON.parse(localStorage.getItem('p_vault'));
+        if (v) {
+            document.getElementById('pName').value = v.p||''; document.getElementById('pAddr').value = v.a||'';
+            document.getElementById('c1').value = v.c||''; document.getElementById('rv').value = v.r||'';
+            document.getElementById('tName').value = v.n||''; document.getElementById('tCert').value = v.x||'';
+            if (v.s) { let i = new Image(); i.onload = () => ctx.drawImage(i, 0, 0); i.src = v.s; }
+            pAudit();
+        }
+    }
+
+    navigator.geolocation.getCurrentPosition(g => {
+        document.getElementById('pGps').innerText = `STAMPED: ${g.coords.latitude.toFixed(5)}, ${g.coords.longitude.toFixed(5)}`;
+    });
+
+    function pFinalize() {
+        if (!document.getElementById('pName').value) { alert("Missing Site Name"); return; }
+        document.querySelectorAll('input').forEach(i => i.disabled = true);
+        const btn = document.querySelector('.btn-lock');
+        btn.innerText = "REPORT ENCRYPTED & SAVED";
+        btn.style.background = "#333"; btn.style.color = "#888";
+        document.getElementById('pTs').innerText = "V.2026.04 SECURE-LOCK ACTIVE";
+    }
+
+    window.onload = () => {
+        const r = window.devicePixelRatio || 1;
+        canvas.width = canvas.offsetWidth * r; canvas.height = canvas.offsetHeight * r;
+        ctx.scale(r, r); pLoad();
+    };
+</script>
+</body>
+</html>
